@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
-import map from "@/assets/Images/map.png";
 import style from "./homepage.module.scss";
 import { useEffect, useState } from "react";
+import img from "../../assets/Images/biendongvaygoichu.png";
 
 export default function HomePage() {
   const [abc, setAbc] = useState<number>(0);
@@ -20,10 +20,21 @@ export default function HomePage() {
 
   return (
     <>
-      <button onClick={() => setIsZoom(!isZoom)}>click me</button>
-      <div className={`${style.img_hover_zoom} ${isZoom ? style.zoom : ""}`}>
-        <img src={"./nhan_vat_chinh.png"} alt={""}></img>
+      <div className={`${style.background_Login}`}>
+        <div className={`${style.img_logo}`}>
+          <Image src={img} alt={""}></Image>
+        </div>
       </div>
+      {/* <div className={`${style.img_logo}`}>
+        <Image src={img} alt={""}></Image>
+        <img src={"./biendongvaygoichu.png"} alt={""}></img>
+      </div> */}
+      {/* <button
+          className={`${style.button_start}`}
+          onClick={() => setIsZoom(!isZoom)}
+        >
+          Bắt Đầu
+        </button> */}
     </>
   );
 }

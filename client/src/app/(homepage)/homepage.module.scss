@@ -1,18 +1,61 @@
-.img_hover_zoom {
-  height: 100vh; /* [1.1] Set it as per your need */
-  overflow: hidden;
-}
+
+
+// .img_hover_zoom {
+//   overflow: hidden;
+// }
+
+
 
 /* [2] Transition property for smooth transformation of images */
-.img_hover_zoom img {
-  width: 100vw;
-  height: 100vh;
-  object-fit: contain;
-  transform-origin: 53% 15%;
-  transition: transform 1s, filter 0.5s ease-out;
+// .img_hover_zoom img {
+//   width: 100vw;
+//   height: 100vh;
+//   object-fit: contain;
+//   transform-origin: 33% 90%;
+//   transition: transform 1s, filter 0.5s ease-out;
+// }
+
+// /* [3] Finally, transforming the image when container gets hovered */
+// .zoom img {
+//   transform: scale(4);
+// }
+.background_Login {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  &:before {
+    content: '';
+    background-image: url('../../assets/Images/map.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: absolute;
+    width: 90%;
+    min-height: 100vh;
+    height: 100%;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // filter: blur(1.5px);
+  }
 }
 
-/* [3] Finally, transforming the image when container gets hovered */
-.zoom img {
-  transform: scale(5);
+.img_logo{
+  position: absolute;
+  z-index: 1;
+  top: 30%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
+
+.img_logo img{
+  scale: 0.4;
+}
+
+.button_start{
+  position: absolute;
+  top: 0;
+  z-index: 2;
 }
