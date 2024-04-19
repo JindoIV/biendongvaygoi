@@ -6,13 +6,12 @@
   &:before {
     content: '';
     background-image: url('../../assets/Images/map.png');
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
     
     position: absolute;
-    width: 90%;
-    min-height: 100vh;
+    width: 100%;
     height: 100%;
     z-index: -1;
     top: 50%;
@@ -24,14 +23,14 @@
 }
 
 .background_Login.zoom:before {
-  transform: translate(-50%, -50%) scale(2);
+  transform: translate(-50%, -50%) scale(2.5);
 }
 
 .logo{
-  width: 35vw;
+  width: 30vw;
   position: absolute;
   top: 40%;
-  left: 70%;
+  left: 65%;
   transform: translate(-50%, -50%);
   transition: opacity 1.5s ease-in-out;
 }
@@ -95,4 +94,49 @@
   opacity: 0;
 }
 
+.boat_img{
+  position: absolute;
+  top: 50%;
+  left: 31%;
+  transform: translate(-50%, -50%);
+  width: 8%;
+  animation: pathFirst 5s forwards 3s, fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pathFirst {
+  100% {
+    top: 68%;
+    left: 34%;
+  transform: translate(-50%, -50%);
+  }
+}
+
+// @keyframes pathSecond {
+  
+//   50% {
+//     top: 50%;
+//     left: 70%;
+//     transform: translate(-50%, -50%);
+//   }
+//   100% {
+//     top: 0%;
+//     left: 70%;
+//     transform: translate(-50%, -50%);
+//   }
+// }
+
+
+.boat_img img{
+  width: 100%;
+  height: 100%;
+}
 
