@@ -1,24 +1,3 @@
-
-
-// .img_hover_zoom {
-//   overflow: hidden;
-// }
-
-
-
-/* [2] Transition property for smooth transformation of images */
-// .img_hover_zoom img {
-//   width: 100vw;
-//   height: 100vh;
-//   object-fit: contain;
-//   transform-origin: 33% 90%;
-//   transition: transform 1s, filter 0.5s ease-out;
-// }
-
-// /* [3] Finally, transforming the image when container gets hovered */
-// .zoom img {
-//   transform: scale(4);
-// }
 .background_Login {
   position: relative;
   min-height: 100vh;
@@ -30,6 +9,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    
     position: absolute;
     width: 90%;
     min-height: 100vh;
@@ -37,25 +17,82 @@
     z-index: -1;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    // filter: blur(1.5px);
+    transform: translate(-50%, -50%) scale(1);
+    transform-origin: 33% 100%;
+    transition: transform 1.5s ease-out 1.5s;
   }
 }
 
-.img_logo{
-  position: absolute;
-  z-index: 1;
-  top: 30%;
-  left: 70%;
-  transform: translate(-50%, -50%);
+.background_Login.zoom:before {
+  transform: translate(-50%, -50%) scale(2);
 }
 
-.img_logo img{
-  scale: 0.4;
+.logo{
+  width: 35vw;
+  position: absolute;
+  top: 40%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  transition: opacity 1.5s ease-in-out;
+}
+
+.logo_img{
+  animation: scaleImg 1.2s infinite alternate;
+}
+
+@keyframes scaleImg {
+  0% {
+    scale: 1.1;
+  }
+  100% {
+    scale: 1.2;
+  }
+}
+
+
+.logo_txt{
+  position: absolute;
+}
+
+.logo img{
+  width: 100%;
+  height: 100%;
 }
 
 .button_start{
   position: absolute;
-  top: 0;
-  z-index: 2;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  width: 100px;
+  height: 45px;
+  background-color: #00acd7;
+  border-bottom: 3px solid #05cdff;
+  border-right: 3px solid #05cdff;
+  border-radius: 8px;
+  box-shadow: 0px 3px 15px 5px rgba(255, 255, 255, 0.3);
+  animation: bounce 1.2s infinite alternate;
+  transition: all .3s ease-in;
 }
+
+@keyframes bounce {
+  0% {
+      transform: translate(-50%, -50%) translateY(0);
+  }
+  100% {
+      transform: translate(-50%, -50%) translateY(-15px);
+  }
+}
+
+.button_start:hover{
+  background-color: #fff;
+  color: #00acd7;
+}
+
+
+.display_none{
+  opacity: 0;
+}
+
+
