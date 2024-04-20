@@ -18,7 +18,7 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
     transform-origin: 33% 100%;
-    transition: transform 1.5s ease-out 1.5s;
+    transition: transform 1.5s ease-out 2.5s;
   }
 }
 
@@ -97,10 +97,10 @@
 .boat_img{
   position: absolute;
   top: 50%;
-  left: 31%;
+  left: 30%;
   transform: translate(-50%, -50%);
   width: 8%;
-  animation: pathFirst 5s forwards 3s, fadeIn 1.5s forwards;
+  animation: pathFirst 5s forwards 2s, fadeIn 1.2s forwards;
 }
 
 @keyframes fadeIn {
