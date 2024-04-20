@@ -15,7 +15,7 @@ export default function HomePage() {
     setIsZoom(true);
     setTimeout(() => {
       setShowBoat(true);
-    }, 3000); 
+    }, 4500); 
   };
 
   // useEffect(() => {
