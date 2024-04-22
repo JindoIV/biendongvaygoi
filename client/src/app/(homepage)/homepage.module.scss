@@ -1,9 +1,11 @@
 .background_Login {
+  overflow: hidden;
   position: relative;
   min-height: 100vh;
   width: 100%;
   height: 100%;
   &:before {
+  background-color: #664747;
     content: '';
     background-image: url('../../assets/Images/map.png');
     background-size: contain;
@@ -17,7 +19,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
-    transform-origin: 33% 100%;
+    transform-origin: 33% 92%;
     transition: transform 1.5s ease-out 2.5s;
   }
 }
@@ -96,7 +98,7 @@
 
 .boat_img{
   position: absolute;
-  top: 50%;
+  top: 57%;
   left: 30%;
   transform: translate(-50%, -50%);
   width: 8%;
@@ -114,8 +116,8 @@
 
 @keyframes pathFirst {
   100% {
-    top: 68%;
-    left: 34%;
+    top: 75%;
+    left: 35%;
   transform: translate(-50%, -50%);
   }
 }
