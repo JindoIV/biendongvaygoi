@@ -142,3 +142,19 @@
   height: 100%;
 }
 
+@media not all and (min-aspect-ratio: 1.8) {
+  
+.boat_img{
+  top: 57%;
+  left: 22%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes pathFirst {
+  100% {
+    top: 75%;
+    left: 28%;
+  transform: translate(-50%, -50%);
+  }
+}
+}
