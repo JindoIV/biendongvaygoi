@@ -5,17 +5,23 @@ import { useEffect, useState } from "react";
 import img_txt from "../../assets/Images/biendongvaygoichu.png";
 import img_bg from "../../assets/Images/biendongvaygoinen.png";
 import boat from "../../assets/Images/Con_thuyen.png";
+import ModalQuestion from "@/app/(homepage)/_components/ModalQuestion";
 
 export default function HomePage() {
   // const [abc, setAbc] = useState<number>(0);
   const [isZoom, setIsZoom] = useState<boolean>(false);
   const [showBoat, setShowBoat] = useState(false);
+  const [modalState, setModalState] = useState<boolean>(false);
 
   const handleButtonClick = () => {
     setIsZoom(true);
     setTimeout(() => {
       setShowBoat(true);
-    }, 4500); 
+    }, 4500);
+
+    setTimeout(() => {
+      setModalState(true);
+    }, 6000);
   };
 
   // useEffect(() => {
@@ -52,6 +58,7 @@ export default function HomePage() {
           </div>
         )}
       </div>
+      <ModalQuestion open={modalState} onClose={() => setModalState(false)} />
     </>
   );
 }

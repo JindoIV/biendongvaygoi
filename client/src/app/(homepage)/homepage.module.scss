@@ -5,13 +5,13 @@
   width: 100%;
   height: 100%;
   &:before {
-  background-color: #664747;
-    content: '';
-    background-image: url('../../assets/Images/map.png');
+    background-color: #664747;
+    content: "";
+    background-image: url("../../assets/Images/map.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    
+
     position: absolute;
     width: 100%;
     height: 100%;
@@ -28,7 +28,7 @@
   transform: translate(-50%, -50%) scale(2.5);
 }
 
-.logo{
+.logo {
   width: 30vw;
   position: absolute;
   top: 40%;
@@ -37,7 +37,7 @@
   transition: opacity 1.5s ease-in-out;
 }
 
-.logo_img{
+.logo_img {
   animation: scaleImg 1.2s infinite alternate;
 }
 
@@ -50,17 +50,16 @@
   }
 }
 
-
-.logo_txt{
+.logo_txt {
   position: absolute;
 }
 
-.logo img{
+.logo img {
   width: 100%;
   height: 100%;
 }
 
-.button_start{
+.button_start {
   position: absolute;
   top: 90%;
   left: 50%;
@@ -74,29 +73,28 @@
   border-radius: 8px;
   box-shadow: 0px 3px 15px 5px rgba(255, 255, 255, 0.3);
   animation: bounce 1.2s infinite alternate;
-  transition: all .3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 @keyframes bounce {
   0% {
-      transform: translate(-50%, -50%) translateY(0);
+    transform: translate(-50%, -50%) translateY(0);
   }
   100% {
-      transform: translate(-50%, -50%) translateY(-15px);
+    transform: translate(-50%, -50%) translateY(-15px);
   }
 }
 
-.button_start:hover{
+.button_start:hover {
   background-color: #fff;
   color: #00acd7;
 }
 
-
-.display_none{
+.display_none {
   opacity: 0;
 }
 
-.boat_img{
+.boat_img {
   position: absolute;
   top: 57%;
   left: 30%;
@@ -118,12 +116,12 @@
   100% {
     top: 75%;
     left: 35%;
-  transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
 }
 
 // @keyframes pathSecond {
-  
+
 //   50% {
 //     top: 50%;
 //     left: 70%;
@@ -136,25 +134,27 @@
 //   }
 // }
 
-
-.boat_img img{
+.boat_img img {
   width: 100%;
   height: 100%;
 }
 
-@media not all and (min-aspect-ratio: 1.8) {
-  
-.boat_img{
-  top: 57%;
-  left: 22%;
-  transform: translate(-50%, -50%);
+.backgroundModal {
+  background-image: url("../../assets/Images/nhan_vat_chinh.png");
 }
 
-@keyframes pathFirst {
-  100% {
-    top: 75%;
-    left: 28%;
-  transform: translate(-50%, -50%);
+@media not all and (min-aspect-ratio: 1.8) {
+  .boat_img {
+    top: 57%;
+    left: 22%;
+    transform: translate(-50%, -50%);
   }
-}
+
+  @keyframes pathFirst {
+    100% {
+      top: 75%;
+      left: 28%;
+      transform: translate(-50%, -50%);
+    }
+  }
 }
