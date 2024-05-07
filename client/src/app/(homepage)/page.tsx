@@ -21,7 +21,7 @@ export default function HomePage() {
 
     setTimeout(() => {
       setModalState(true);
-    }, 6000);
+    }, 12000);
   };
 
   // useEffect(() => {
