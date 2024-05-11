@@ -139,14 +139,35 @@
   height: 100%;
 }
 
-.backgroundModal {
-  background-image: url("../../assets/Images/nhan_vat_chinh.png");
+
+.tick_img {
+  position: absolute;
+  top: 73%;
+  left: 39%;
+  transform: translate(-50%, -50%);
+  width: 7%;
+  animation: fadeIn 1.2s forwards, bounce 1.2s infinite alternate;
 }
+
+.tick_img img {
+  width: 100%;
+  height: 100%;
+}
+
+// .backgroundModal {
+//   background-image: url("../../assets/Images/nhan_vat_chinh.png");
+// }
 
 @media not all and (min-aspect-ratio: 1.8) {
   .boat_img {
     top: 57%;
     left: 22%;
+    transform: translate(-50%, -50%);
+  }
+
+  .tick_img {
+    top: 73%;
+    left: 32%;
     transform: translate(-50%, -50%);
   }
 
