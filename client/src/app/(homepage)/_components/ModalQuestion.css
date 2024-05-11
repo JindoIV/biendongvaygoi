@@ -8,12 +8,16 @@
 
 .Modal {
   position: absolute;
-  top: 4%;
-  left: 15%;
-  right: 15%;
-  bottom: 4%;
+  top: 50%;
+  left: 50%;
+  right: -10%;
+  bottom: -50%;
+  /* top: 50%;
+  left: 50%;*/
+  transform: translate(-50%, -50%); 
   background-image: url('../../../assets/Images/nen_cau_hoi_TN.png');
-  background-size: cover;
+  background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
+  border: none;
 }
