@@ -14,15 +14,15 @@ import Question from "@/app/types/question";
 export default function HomePage() {
   // const [abc, setAbc] = useState<number>(0);
   const [isZoom, setIsZoom] = useState<boolean>(false);
-  const [showBoat, setShowBoat] = useState(false);
   const [showTick, setShowTick] = useState(false);
   const [modalState, setModalState] = useState<boolean>(false);
+  const [stage, setStage] = useState<number>(0);
   const [questions, setQuestions] = useState<Question[]>([]);
 
   const handleButtonClick = () => {
     setIsZoom(true);
     setTimeout(() => {
-      setShowBoat(true);
+      setStage(1);
     }, 4500);
 
     setTimeout(() => {
@@ -114,8 +114,8 @@ export default function HomePage() {
                 Start
               </button>
             </div>
-            {showBoat && (
-              <div className={`${style.boat_img}`}>
+            {stage == 1 && (
+              <div className={`${style.boat_img_st_1} ${style.boat_img}`}>
                 <Image src={boat} alt={""} />
               </div>
             )}
@@ -130,6 +130,13 @@ export default function HomePage() {
             onClose={() => setModalState(false)}
             question={questions}
           /> */}
+          {stage == 2 && (
+            <div>
+              <div className={`${style.boat_img_st_2} ${style.boat_img}`}>
+                <Image src={boat} alt={""} />
+              </div>
+            </div>
+          )}
         </>
       )}
     </>

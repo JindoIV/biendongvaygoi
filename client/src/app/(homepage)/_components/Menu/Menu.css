@@ -1,5 +1,6 @@
 .menu{
-    position: fixed;
+    position: absolute;
+    z-index: 2;
     top: 20px;
     right: 35px;
     width: 110px;
@@ -12,17 +13,17 @@
     background-position: center;
     background-repeat: no-repeat;
     border: none;
-    transition: transform 0.3s;
-}
-
-.tien_ich_btn{
-    background-image: url('../../../../assets/Images/nut_khac.png');
-    background-size: 225px;
+    transition: transform 0.3s ease-in-out;
 }
 
 .am_luong_btn{
     background-image: url('../../../../assets/Images/nut_am_luong.png');
     background-size: 235px;
+}
+
+.mute_am_luong_btn{
+    background-image: url('../../../../assets/Images/mute_am_luong.png');
+    background-size: 160px;
 }
 
 .map_btn{
@@ -32,5 +33,5 @@
 
 
 .menu > *:hover {
-    transform: scale(1.1); 
+    transform: scale(1.2); 
 }
