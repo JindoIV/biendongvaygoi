@@ -7,6 +7,7 @@ import img_bg from "../../assets/Images/biendongvaygoinen.png";
 import boat from "../../assets/Images/Con_thuyen.png";
 import tick from "../../assets/Images/nut_danh_dau.png";
 import ModalQuestion from "@/app/(homepage)/_components/ModalQuestion";
+import Menu from "@/app/(homepage)/_components/Menu/Menu";
 import Loading from "@/components/Loading/Loading";
 
 export default function HomePage() {
@@ -85,6 +86,7 @@ export default function HomePage() {
         <Loading />
       ) : (
         <>
+          <Menu />
           <div
             className={`${style.background_Login} ${isZoom ? style.zoom : ""}`}
           >
