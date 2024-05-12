@@ -1,13 +1,14 @@
 "use client";
 import Image from "next/image";
 import style from "./homepage.module.scss";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import img_txt from "../../assets/Images/biendongvaygoichu.png";
 import img_bg from "../../assets/Images/biendongvaygoinen.png";
 import boat from "../../assets/Images/Con_thuyen.png";
 import tick from "../../assets/Images/nut_danh_dau.png";
 import ModalQuestion from "@/app/(homepage)/_components/ModalQuestion";
 import Menu from "@/app/(homepage)/_components/Menu/Menu";
+import Loading from "@/components/Loading/Loading";
 
 export default function HomePage() {
   // const [abc, setAbc] = useState<number>(0);
@@ -31,6 +32,34 @@ export default function HomePage() {
     }, 12000);
   };
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API}/5494af1f14a8c19939968c3e9e2d4f79.json`
+        );
+        if (!response.ok) {
+          throw new Error("Lỗi khi tải dữ liệu.");
+        }
+        const data = await response.json();
+        console.log(data);
+        // setJsonData(data);
+      } catch (error) {
+        console.error("Lỗi khi đọc file JSON:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const [loadingState, setLoadingState] = useState<boolean>(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoadingState(false);
+    }, 3000);
+  }, []);
+
   // const handleButtonClick = () => {
   //   setIsZoom(true);
   //   setTimeout(() => {
@@ -53,37 +82,53 @@ export default function HomePage() {
 
   return (
     <>
-    <Menu/>
-      <div className={`${style.background_Login} ${isZoom ? style.zoom : ""}`}>
-        <div className={`${style.logo} ${isZoom ? style.display_none : ""}`}>
-          <div className={`${style.logo_img}`}>
-            <Image
-              className={`${style.logo_txt}`}
-              src={img_txt}
-              alt={""}
-            ></Image>
-            <Image className={`${style.logo_bg}`} src={img_bg} alt={""}></Image>
-          </div>
-          <button
-            className={`${style.button_start}`}
-            onClick={handleButtonClick}
+      {loadingState ? (
+        <Loading />
+      ) : (
+        <>
+          <Menu />
+          <div
+            className={`${style.background_Login} ${isZoom ? style.zoom : ""}`}
           >
-            Start
-          </button>
-        </div>
-        {showBoat && (
-          <div className={`${style.boat_img}`}>
-            <Image src={boat} alt={""} />
+            <div
+              className={`${style.logo} ${isZoom ? style.display_none : ""}`}
+            >
+              <div className={`${style.logo_img}`}>
+                <Image
+                  className={`${style.logo_txt}`}
+                  src={img_txt}
+                  alt={""}
+                ></Image>
+                <Image
+                  className={`${style.logo_bg}`}
+                  src={img_bg}
+                  alt={""}
+                ></Image>
+              </div>
+              <button
+                className={`${style.button_start}`}
+                onClick={handleButtonClick}
+              >
+                Start
+              </button>
+            </div>
+            {showBoat && (
+              <div className={`${style.boat_img}`}>
+                <Image src={boat} alt={""} />
+              </div>
+            )}
+            {showTick && (
+              <div className={`${style.tick_img}`}>
+                <Image src={tick} alt={""} />
+              </div>
+            )}
           </div>
-        )}
-        {showTick && (
-          <div className={`${style.tick_img}`}>
-            <Image src={tick} alt={""} />
-          </div>
-        )}
-        
-      </div>
-      <ModalQuestion open={modalState} onClose={() => setModalState(false)} />
+          <ModalQuestion
+            open={modalState}
+            onClose={() => setModalState(false)}
+          />
+        </>
+      )}
     </>
   );
 }
