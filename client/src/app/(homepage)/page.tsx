@@ -7,6 +7,7 @@ import img_bg from "../../assets/Images/biendongvaygoinen.png";
 import boat from "../../assets/Images/Con_thuyen.png";
 import tick from "../../assets/Images/nut_danh_dau.png";
 import ModalQuestion from "@/app/(homepage)/_components/ModalQuestion";
+import Menu from "@/app/(homepage)/_components/Menu/Menu";
 
 export default function HomePage() {
   // const [abc, setAbc] = useState<number>(0);
@@ -52,6 +53,7 @@ export default function HomePage() {
 
   return (
     <>
+    <Menu/>
       <div className={`${style.background_Login} ${isZoom ? style.zoom : ""}`}>
         <div className={`${style.logo} ${isZoom ? style.display_none : ""}`}>
           <div className={`${style.logo_img}`}>
