@@ -6,9 +6,10 @@ import img_txt from "../../assets/Images/biendongvaygoichu.png";
 import img_bg from "../../assets/Images/biendongvaygoinen.png";
 import boat from "../../assets/Images/Con_thuyen.png";
 import tick from "../../assets/Images/nut_danh_dau.png";
-import ModalQuestion from "@/app/(homepage)/_components/ModalQuestion";
 import Menu from "@/app/(homepage)/_components/Menu/Menu";
 import Loading from "@/components/Loading/Loading";
+import ModalQuestion from "@/app/(homepage)/_components/Modal/ModalQuestion";
+import Question from "@/app/types/question";
 
 export default function HomePage() {
   // const [abc, setAbc] = useState<number>(0);
@@ -16,6 +17,7 @@ export default function HomePage() {
   const [showBoat, setShowBoat] = useState(false);
   const [showTick, setShowTick] = useState(false);
   const [modalState, setModalState] = useState<boolean>(false);
+  const [questions, setQuestions] = useState<Question[]>([]);
 
   const handleButtonClick = () => {
     setIsZoom(true);
@@ -123,10 +125,11 @@ export default function HomePage() {
               </div>
             )}
           </div>
-          <ModalQuestion
+          {/* <ModalQuestion
             open={modalState}
             onClose={() => setModalState(false)}
-          />
+            question={questions}
+          /> */}
         </>
       )}
     </>
