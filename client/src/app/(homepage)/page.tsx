@@ -35,7 +35,7 @@ export default function HomePage() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3000/5494af1f14a8c19939968c3e9e2d4f79.json"
+          `${process.env.NEXT_PUBLIC_API}/5494af1f14a8c19939968c3e9e2d4f79.json`
         );
         if (!response.ok) {
           throw new Error("Lỗi khi tải dữ liệu.");
