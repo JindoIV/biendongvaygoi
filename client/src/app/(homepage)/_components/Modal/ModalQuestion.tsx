@@ -21,7 +21,12 @@ const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
         // style={customStyles}
         contentLabel="Example Modal"
         overlayClassName="Overlay"
-      ></Modal>
+      >
+        <div className="question">
+         <h2>{question.question}</h2>
+         
+        </div>
+      </Modal>
     </>
   );
 };
