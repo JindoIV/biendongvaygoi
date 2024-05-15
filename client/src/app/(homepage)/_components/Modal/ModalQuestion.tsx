@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import "./ModalQuestion.css";
 import Question from "@/app/types/question";
@@ -11,6 +11,10 @@ interface ModalAction {
 }
 
 const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
+  useEffect(() => {
+    console.log(question);
+  }, [question]);
+
   return (
     <>
       <Modal
