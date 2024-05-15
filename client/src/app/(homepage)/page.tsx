@@ -9,21 +9,19 @@ import tick from "../../assets/Images/nut_danh_dau.png";
 import Menu from "@/app/(homepage)/_components/Menu/Menu";
 import Loading from "@/components/Loading/Loading";
 import ModalQuestion from "@/app/(homepage)/_components/Modal/ModalQuestion";
-import Question from "@/app/types/question";
+import Question from "@/types/question";
 
 export default function HomePage() {
   // const [abc, setAbc] = useState<number>(0);
   const [isZoom, setIsZoom] = useState<boolean>(false);
-  const [showBoat, setShowBoat] = useState(false);
   const [showTick, setShowTick] = useState(false);
   const [modalState, setModalState] = useState<boolean>(false);
+  const [stage, setStage] = useState<number>(0);
   const [questions, setQuestions] = useState<Question[]>([]);
 
   const handleButtonClick = () => {
     setIsZoom(true);
-    setTimeout(() => {
-      setShowBoat(true);
-    }, 4500);
+    setStage(1);
 
     setTimeout(() => {
       setShowTick(true);
@@ -56,10 +54,16 @@ export default function HomePage() {
 
   const [loadingState, setLoadingState] = useState<boolean>(true);
 
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setLoadingState(false);
+  //   }, 3000);
+  // }, []);
+
   useEffect(() => {
     setTimeout(() => {
       setLoadingState(false);
-    }, 3000);
+    }, 0);
   }, []);
 
   // const handleButtonClick = () => {
@@ -82,6 +86,29 @@ export default function HomePage() {
   //   return 2;
   // };
 
+  const getZoomClass = () => {
+    switch (stage) {
+      case 1:
+        return style.zoom_st1;
+      case 2:
+        return style.zoom_st2;
+      case 3:
+        return style.zoom_st3;
+      case 4:
+        return style.zoom_st4;
+      case 5:
+        return style.zoom_st5;
+      default:
+        return "";
+    }
+  };
+
+  const st2 = () => {
+    let a = stage;
+    a++;
+    setStage(a);
+  };
+
   return (
     <>
       {loadingState ? (
@@ -90,8 +117,12 @@ export default function HomePage() {
         <>
           <Menu />
           <div
-            className={`${style.background_Login} ${isZoom ? style.zoom : ""}`}
+            className={`${getZoomClass()} ${style.background_Login} ${
+              isZoom ? style.zoom : ""
+            }`}
           >
+            <button onClick={st2}>aaa</button>
+
             <div
               className={`${style.logo} ${isZoom ? style.display_none : ""}`}
             >
@@ -111,25 +142,36 @@ export default function HomePage() {
                 className={`${style.button_start}`}
                 onClick={handleButtonClick}
               >
-                Start
+                Bắt Đầu
               </button>
             </div>
-            {showBoat && (
-              <div className={`${style.boat_img}`}>
-                <Image src={boat} alt={""} />
+            {stage == 1 && showTick && (
+              <div>
+                <div className={`${style.boat_img_st_1} ${style.boat_img}`}>
+                  <Image src={boat} alt={""} />
+                </div>
               </div>
             )}
-            {showTick && (
-              <div className={`${style.tick_img}`}>
-                <Image src={tick} alt={""} />
+            {stage == 2 && (
+              <div>
+                <div className={`${style.boat_img_st_2} ${style.boat_img}`}>
+                  <Image src={boat} alt={""} />
+                </div>
+              </div>
+            )}
+            {stage == 3 && (
+              <div>
+                <div className={`${style.boat_img_st_3} ${style.boat_img}`}>
+                  <Image src={boat} alt={""} />
+                </div>
               </div>
             )}
           </div>
           {/* <ModalQuestion
             open={modalState}
             onClose={() => setModalState(false)}
-            question={questions}
-          /> */}
+          question={questions}
+          />  */}
         </>
       )}
     </>

@@ -1,3 +1,4 @@
+
 .background_Login {
   overflow: hidden;
   position: relative;
@@ -19,9 +20,22 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.background_Login.zoom_st1:before {
     transform-origin: 33% 100%;
     transition: transform 1.5s ease-out 2.5s;
-  }
+}
+
+.background_Login.zoom_st2:before {
+    transform-origin: 32% 56%;
+    transition: 3s ease-out 3.7s;
+}
+
+.background_Login.zoom_st3:before {
+  transform-origin: 45% 97%;
+  transition: 4s ease-out 2.5s;
 }
 
 .background_Login.zoom:before {
@@ -62,6 +76,7 @@
 .button_start {
   color: #fff;
   position: absolute;
+  z-index: 3;
   top: 90%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -91,11 +106,13 @@
   color: #00acd7;
 }
 
+
+
 .display_none {
   opacity: 0;
 }
 
-.boat_img {
+.boat_img_st_1 {
   position: absolute;
   top: 59%;
   left: 23%;
@@ -121,19 +138,53 @@
   }
 }
 
-// @keyframes pathSecond {
+// stage 2
 
-//   50% {
-//     top: 50%;
-//     left: 70%;
-//     transform: translate(-50%, -50%);
-//   }
-//   100% {
-//     top: 0%;
-//     left: 70%;
-//     transform: translate(-50%, -50%);
-//   }
-// }
+.boat_img_st_2 {
+  position: absolute;
+  top: 79%;
+  left: 28%;
+  transform: translate(-50%, -50%);
+  width: 8%;
+  animation: pathSecond 4s forwards 1s;
+}
+
+@keyframes pathSecond {
+
+  0% {
+    top: 79%;
+    left: 28%;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.boat_img_st_3 {
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  width: 8%;
+  animation: pathThird 3s forwards 1s;
+}
+
+@keyframes pathThird {
+
+  0% {
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    top: 65%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+  }
+}
 
 .boat_img img {
   width: 100%;
@@ -160,7 +211,7 @@
 // }
 
 @media not all and (min-aspect-ratio: 1.8) {
-  .boat_img {
+  .boat_img_st_1 {
     top: 56.5%;
     left: 23%;
     transform: translate(-50%, -50%);

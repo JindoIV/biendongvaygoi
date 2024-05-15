@@ -1,3 +1,4 @@
+
 .Overlay {
   position: fixed;
   top: 0;
@@ -8,16 +9,106 @@
 
 .Modal {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  right: -10%;
-  bottom: -50%;
-  /* top: 50%;
-  left: 50%;*/
-  transform: translate(-50%, -50%); 
+  top: 5%;
+  bottom: 5%;
+  left: 15%;
+  right: 15%;
   background-image: url('../../../../assets/Images/Nen_CH.png');
-  background-size: contain;
+  background-size: 100% 100%;
   background-position: center center;
   background-repeat: no-repeat;
   border: none;
+}
+
+/* .question{
+  position: absolute;
+  top: 40%;
+  left: 26.5%;
+  width: 260px;
+  transform: translate(-50%, -50%); 
+  border: 2px solid #333;
+} */
+
+.modalContainer {
+    display: grid;
+    margin: 6% 5%;
+    grid-template-columns: 1.5fr 1fr;
+    grid-auto-flow: column;
+    min-height: 82%;
+    gap: 20px;
+}
+
+.questionBackground {
+  background-image: url('../../../../assets/Images/Khung_Cau_Hoi.png');
+  background-position: center center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.questionContainer {
+  padding: 6% 9%;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.questionText {
+  font-family: Inner;
+  text-align: justify;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.questionImage {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: auto auto auto;
+  gap: 8px;
+}
+
+.answerContainer {
+  padding: 6% 8%;
+  display: grid;
+  box-sizing: border-box;
+  place-items: center;
+  gap: 16px;
+}
+
+.answerBox {
+  min-width: 100%;
+  min-height: 100px;
+  padding: 5% 8% 8% 5%;
+  display: grid;
+  cursor: pointer;
+  place-items: center;
+  background-image: url('../../../../assets/Images/DN.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
+}
+
+.answerBox:hover {
+  background-image: url('../../../../assets/Images/DN_hover.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.answerBox_Correct {
+  background-image: url('../../../../assets/Images/DN_Dung.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.answerBox_Incorrect {
+  background-image: url('../../../../assets/Images/DN_Sai.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
 }

@@ -1,9 +1,10 @@
 "use client";
 
 import ModalQuestion from "@/app/(homepage)/_components/Modal/ModalQuestion";
-import Question from "@/app/types/question";
+import Question from "@/types/question";
 import Loading from "@/components/Loading/Loading";
 import { useEffect, useRef, useState } from "react";
+import { http } from "@/utils/config";
 
 export default function Test() {
   // const audioElement = useRef<HTMLAudioElement>(null);
@@ -21,26 +22,17 @@ export default function Test() {
 
   const [modalState, setModalState] = useState<boolean>(false);
 
-  const [questions, setQuestions] = useState<Question[]>([
-    {
-      question: "",
-      options: [""],
-      correctAnswer: 0,
-      explanation: "",
-    },
-  ]);
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [questionSelected, setQuestionSelected] = useState<Question>();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API}/5494af1f14a8c19939968c3e9e2d4f79.json`
+        const response = await http.get(
+          `5494af1f14a8c19939968c3e9e2d4f79.json`
         );
-        if (!response.ok) {
-          throw new Error("Lỗi khi tải dữ liệu.");
-        }
-        const data = await response.json();
-        setQuestions(data);
+        setQuestions(response.data.questions);
+        setQuestionSelected(response.data.questions[1]);
         // setJsonData(data);
       } catch (error) {
         console.error("Lỗi khi đọc file JSON:", error);
@@ -51,11 +43,15 @@ export default function Test() {
   }, []);
 
   useEffect(() => {
-    console.log(questions);
+    // console.log(questions);
   }, [questions]);
 
   const handleOpenModal = () => {
-    setModalState(true);
+    if (questionSelected) {
+      setModalState(true);
+    } else {
+      console.error("No question selected yet.");
+    }
   };
 
   return (
@@ -63,11 +59,11 @@ export default function Test() {
       {/* <audio ref={audioElement}>
         <source src="./Duong_mot_chieu_a.mp3" type="audio/mpeg"></source>
       </audio> */}
-      <button onClick={handleOpenModal}>Play Audio</button>
+      <button onClick={handleOpenModal}>Open modal</button>
       <ModalQuestion
         open={modalState}
         onClose={() => setModalState(false)}
-        question={questions[0]}
+        question={questionSelected}
       />
       {/* <Loading></Loading> */}
     </>
