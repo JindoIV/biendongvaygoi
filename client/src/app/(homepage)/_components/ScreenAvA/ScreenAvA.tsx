@@ -1,9 +1,7 @@
 "use client";
 export default function ScreenAvA() {
-  return 
+  return;
   <>
-  <div className="background">
-
-  </div>
+    <div className="background"></div>
   </>;
 }

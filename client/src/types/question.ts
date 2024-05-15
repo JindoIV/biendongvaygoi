@@ -2,6 +2,6 @@ export default interface Question {
   question: string;
   options: string[];
   correctAnswer: number;
-  image?: string;
+  images?: string[];
   explanation: string;
 }

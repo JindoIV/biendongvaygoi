@@ -9,7 +9,7 @@ import tick from "../../assets/Images/nut_danh_dau.png";
 import Menu from "@/app/(homepage)/_components/Menu/Menu";
 import Loading from "@/components/Loading/Loading";
 import ModalQuestion from "@/app/(homepage)/_components/Modal/ModalQuestion";
-import Question from "@/app/types/question";
+import Question from "@/types/question";
 
 export default function HomePage() {
   // const [abc, setAbc] = useState<number>(0);
@@ -107,7 +107,7 @@ export default function HomePage() {
     let a = stage;
     a++;
     setStage(a);
-  }
+  };
 
   return (
     <>
@@ -121,7 +121,7 @@ export default function HomePage() {
               isZoom ? style.zoom : ""
             }`}
           >
-                  <button onClick={st2}>aaa</button>
+            <button onClick={st2}>aaa</button>
 
             <div
               className={`${style.logo} ${isZoom ? style.display_none : ""}`}
@@ -153,26 +153,25 @@ export default function HomePage() {
               </div>
             )}
             {stage == 2 && (
-            <div>
-              <div className={`${style.boat_img_st_2} ${style.boat_img}`}>
-                <Image src={boat} alt={""} />
+              <div>
+                <div className={`${style.boat_img_st_2} ${style.boat_img}`}>
+                  <Image src={boat} alt={""} />
+                </div>
               </div>
-            </div>
-          )}
-          {stage == 3 && (
-            <div>
-              <div className={`${style.boat_img_st_3} ${style.boat_img}`}>
-                <Image src={boat} alt={""} />
+            )}
+            {stage == 3 && (
+              <div>
+                <div className={`${style.boat_img_st_3} ${style.boat_img}`}>
+                  <Image src={boat} alt={""} />
+                </div>
               </div>
-            </div>
-          )}
+            )}
           </div>
           {/* <ModalQuestion
             open={modalState}
             onClose={() => setModalState(false)}
           question={questions}
           />  */}
-          
         </>
       )}
     </>

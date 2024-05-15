@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@types/react-router": "^5.1.20",
+    "antd": "^5.17.2",
+    "axios": "^1.6.8",
     "next": "14.1.4",
     "react": "^18",
     "react-dom": "^18",
