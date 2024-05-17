@@ -9,6 +9,7 @@ import tick from "../../assets/Images/nut_danh_dau.png";
 import Loading from "@/components/Loading/Loading";
 import ModalQuestion from "@/components/ModalQuestion/ModalQuestion";
 import Question from "@/types/question";
+import VisualNovel from "@/components/VisualNovel/VisualNovel";
 
 export default function HomePage() {
   // const [abc, setAbc] = useState<number>(0);
@@ -62,7 +63,7 @@ export default function HomePage() {
   useEffect(() => {
     setTimeout(() => {
       setLoadingState(false);
-    }, 0);
+    }, 2000);
   }, []);
 
   // const handleButtonClick = () => {
@@ -114,6 +115,7 @@ export default function HomePage() {
         <Loading />
       ) : (
         <>
+          {/* <VisualNovel></VisualNovel> */}
           <div
             className={`${getZoomClass()} ${style.background_Login} ${
               isZoom ? style.zoom : ""
@@ -165,6 +167,10 @@ export default function HomePage() {
               </div>
             )}
           </div>
+          <VisualNovel
+            open={modalState}
+            onClose={() => setModalState(false)}
+          ></VisualNovel>
           {/* <ModalQuestion
             open={modalState}
             onClose={() => setModalState(false)}
