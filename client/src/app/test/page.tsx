@@ -1,6 +1,6 @@
 "use client";
 
-import ModalQuestion from "@/app/(homepage)/_components/Modal/ModalQuestion";
+import ModalQuestion from "@/components/ModalQuestion/ModalQuestion";
 import Question from "@/types/question";
 import Loading from "@/components/Loading/Loading";
 import { useEffect, useRef, useState } from "react";
@@ -28,11 +28,19 @@ export default function Test() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await http.get(
-          `5494af1f14a8c19939968c3e9e2d4f79.json`
+        const response = await http.get(`/api/get-questionLySon`);
+        // console.log(response.data.questions.rows);
+        console.log(response.data.questions.rows.correctanswer);
+        setQuestions({
+          ...response.data.questions.rows,
+          correctAnswer: response.data.questions.rows.correctanswer,
+        });
+        setQuestionSelected(
+          {
+            ...response.data.questions.rows,
+            correctAnswer: response.data.questions.rows.correctanswer,
+          }[1]
         );
-        setQuestions(response.data.questions);
-        setQuestionSelected(response.data.questions[1]);
         // setJsonData(data);
       } catch (error) {
         console.error("Lỗi khi đọc file JSON:", error);
@@ -41,10 +49,6 @@ export default function Test() {
 
     fetchData();
   }, []);
-
-  useEffect(() => {
-    // console.log(questions);
-  }, [questions]);
 
   const handleOpenModal = () => {
     if (questionSelected) {
