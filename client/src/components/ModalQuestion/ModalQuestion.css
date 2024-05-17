@@ -1,4 +1,3 @@
-
 .Overlay {
   position: fixed;
   top: 0;
@@ -13,7 +12,7 @@
   bottom: 5%;
   left: 15%;
   right: 15%;
-  background-image: url('../../../../assets/Images/Nen_CH.png');
+  background-image: url("../../assets/Images/Nen_CH.png");
   background-size: 100% 100%;
   background-position: center center;
   background-repeat: no-repeat;
@@ -30,16 +29,16 @@
 } */
 
 .modalContainer {
-    display: grid;
-    margin: 6% 5%;
-    grid-template-columns: 1.5fr 1fr;
-    grid-auto-flow: column;
-    min-height: 82%;
-    gap: 20px;
+  display: grid;
+  margin: 6% 5%;
+  grid-template-columns: 1.5fr 1fr;
+  grid-auto-flow: column;
+  min-height: 82%;
+  gap: 20px;
 }
 
 .questionBackground {
-  background-image: url('../../../../assets/Images/Khung_Cau_Hoi.png');
+  background-image: url("../../assets/Images/Khung_Cau_Hoi.png");
   background-position: center center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -85,7 +84,7 @@
   display: grid;
   cursor: pointer;
   place-items: center;
-  background-image: url('../../../../assets/Images/DN.png');
+  background-image: url("../../assets/Images/DN.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;
@@ -93,21 +92,21 @@
 }
 
 .answerBox:hover {
-  background-image: url('../../../../assets/Images/DN_hover.png');
+  background-image: url("../../assets/Images/DN_hover.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
 .answerBox_Correct {
-  background-image: url('../../../../assets/Images/DN_Dung.png');
+  background-image: url("../../assets/Images/DN_Dung.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
 .answerBox_Incorrect {
-  background-image: url('../../../../assets/Images/DN_Sai.png');
+  background-image: url("../../assets/Images/DN_Sai.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;

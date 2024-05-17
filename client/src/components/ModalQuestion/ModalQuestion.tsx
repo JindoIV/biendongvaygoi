@@ -30,8 +30,6 @@ const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
     }
   };
 
-  console.log(question?.images);
-
   const refAns = useRef<HTMLDivElement[]>([]);
 
   return (
@@ -53,38 +51,38 @@ const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
               </div>
               <div className="questionImage">
                 {question?.images &&
-                  question?.images.map((image: any, index: number) => {
-                    console.log(image);
-
-                    return (
-                      <>
-                        <div
-                          key={"CH" + index}
-                          // className="answerBox"
-                          // onClick={() => handleCheckDN(index)}
-                          // ref={(element) => {
-                          //   if (element) {
-                          //     refAns.current[index] = element;
-                          //   }
-                          // }}
-                        >
-                          <Image
-                            src={linkAssets + image}
-                            alt={"hinh anh"}
-                            width={100}
-                            height={100}
-                          />
-                        </div>
-                      </>
-                    );
-                  })}
+                  question?.images
+                    .split("|")
+                    .map((image: any, index: number) => {
+                      return (
+                        <>
+                          <div
+                            key={"CH" + index}
+                            // className="answerBox"
+                            // onClick={() => handleCheckDN(index)}
+                            // ref={(element) => {
+                            //   if (element) {
+                            //     refAns.current[index] = element;
+                            //   }
+                            // }}
+                          >
+                            <Image
+                              src={linkAssets + image.trim()}
+                              alt={"hinh anh"}
+                              width={100}
+                              height={100}
+                            />
+                          </div>
+                        </>
+                      );
+                    })}
               </div>
             </div>
           </div>
 
           <div className="answerContainer">
             {question?.options &&
-              question?.options.map((option: any, index: number) => {
+              question?.options.split("|").map((option: any, index: number) => {
                 return (
                   <>
                     <div

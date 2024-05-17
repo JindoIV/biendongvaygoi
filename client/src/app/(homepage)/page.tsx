@@ -6,9 +6,8 @@ import img_txt from "../../assets/Images/biendongvaygoichu.png";
 import img_bg from "../../assets/Images/biendongvaygoinen.png";
 import boat from "../../assets/Images/Con_thuyen.png";
 import tick from "../../assets/Images/nut_danh_dau.png";
-import Menu from "@/app/(homepage)/_components/Menu/Menu";
 import Loading from "@/components/Loading/Loading";
-import ModalQuestion from "@/app/(homepage)/_components/Modal/ModalQuestion";
+import ModalQuestion from "@/components/ModalQuestion/ModalQuestion";
 import Question from "@/types/question";
 
 export default function HomePage() {
@@ -115,7 +114,6 @@ export default function HomePage() {
         <Loading />
       ) : (
         <>
-          <Menu />
           <div
             className={`${getZoomClass()} ${style.background_Login} ${
               isZoom ? style.zoom : ""
