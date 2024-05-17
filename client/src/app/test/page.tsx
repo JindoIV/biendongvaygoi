@@ -5,6 +5,7 @@ import Question from "@/types/question";
 import Loading from "@/components/Loading/Loading";
 import { useEffect, useRef, useState } from "react";
 import { http } from "@/utils/config";
+import VisualNovel from "@/components/VisualNovel/VisualNovel";
 
 export default function Test() {
   // const audioElement = useRef<HTMLAudioElement>(null);
@@ -25,37 +26,39 @@ export default function Test() {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [questionSelected, setQuestionSelected] = useState<Question>();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await http.get(`/api/get-questionLySon`);
-        // console.log(response.data.questions.rows);
-        console.log(response.data.questions.rows.correctanswer);
-        setQuestions({
-          ...response.data.questions.rows,
-          correctAnswer: response.data.questions.rows.correctanswer,
-        });
-        setQuestionSelected(
-          {
-            ...response.data.questions.rows,
-            correctAnswer: response.data.questions.rows.correctanswer,
-          }[1]
-        );
-        // setJsonData(data);
-      } catch (error) {
-        console.error("Lỗi khi đọc file JSON:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await http.get(`/api/get-questionLySon`);
+  //       // console.log(response.data.questions.rows);
+  //       console.log(response.data.questions.rows.correctanswer);
+  //       setQuestions({
+  //         ...response.data.questions.rows,
+  //         correctAnswer: response.data.questions.rows.correctanswer,
+  //       });
+  //       setQuestionSelected(
+  //         {
+  //           ...response.data.questions.rows,
+  //           correctAnswer: response.data.questions.rows.correctanswer,
+  //         }[1]
+  //       );
+  //       // setJsonData(data);
+  //     } catch (error) {
+  //       console.error("Lỗi khi đọc file JSON:", error);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   const handleOpenModal = () => {
-    if (questionSelected) {
-      setModalState(true);
-    } else {
-      console.error("No question selected yet.");
-    }
+    setModalState(true);
+
+    // if (questionSelected) {
+    //   setModalState(true);
+    // } else {
+    //   console.error("No question selected yet.");
+    // }
   };
 
   return (
@@ -64,11 +67,15 @@ export default function Test() {
         <source src="./Duong_mot_chieu_a.mp3" type="audio/mpeg"></source>
       </audio> */}
       <button onClick={handleOpenModal}>Open modal</button>
-      <ModalQuestion
+      <VisualNovel
+        open={modalState}
+        onClose={() => setModalState(false)}
+      ></VisualNovel>
+      {/* <ModalQuestion
         open={modalState}
         onClose={() => setModalState(false)}
         question={questionSelected}
-      />
+      /> */}
       {/* <Loading></Loading> */}
     </>
   );

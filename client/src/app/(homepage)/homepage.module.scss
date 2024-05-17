@@ -1,4 +1,3 @@
-
 .background_Login {
   overflow: hidden;
   position: relative;
@@ -24,13 +23,13 @@
 }
 
 .background_Login.zoom_st1:before {
-    transform-origin: 33% 100%;
-    transition: transform 1.5s ease-out 2.5s;
+  transform-origin: 33% 100%;
+  transition: transform 1.5s ease-out 2.5s;
 }
 
 .background_Login.zoom_st2:before {
-    transform-origin: 32% 56%;
-    transition: 3s ease-out 3.7s;
+  transform-origin: 32% 56%;
+  transition: 3s ease-out 3.7s;
 }
 
 .background_Login.zoom_st3:before {
@@ -83,6 +82,7 @@
   font-size: 18px;
   width: 100px;
   height: 45px;
+  cursor: pointer;
   background-color: #00acd7;
   border-bottom: 3px solid #05cdff;
   border-right: 3px solid #05cdff;
@@ -105,8 +105,6 @@
   background-color: #fff;
   color: #00acd7;
 }
-
-
 
 .display_none {
   opacity: 0;
@@ -150,7 +148,6 @@
 }
 
 @keyframes pathSecond {
-
   0% {
     top: 79%;
     left: 28%;
@@ -173,7 +170,6 @@
 }
 
 @keyframes pathThird {
-
   0% {
     top: 50%;
     left: 55%;
@@ -190,7 +186,6 @@
   width: 100%;
   height: 100%;
 }
-
 
 .tick_img {
   position: absolute;
@@ -231,7 +226,7 @@
     }
   }
 
-.background_Login::before {
-  transform-origin: 33% 93%;
-}
+  .background_Login::before {
+    transform-origin: 33% 93%;
+  }
 }
