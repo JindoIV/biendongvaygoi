@@ -34,6 +34,11 @@
 
 .background_Login.zoom_st3:before {
   transform-origin: 45% 97%;
+  transition: 4s ease-out 1s;
+}
+
+.background_Login.zoom_st4:before {
+  transform-origin: 33% 100%;
   transition: 4s ease-out 2.5s;
 }
 
@@ -166,7 +171,7 @@
   left: 55%;
   transform: translate(-50%, -50%);
   width: 8%;
-  animation: pathThird 3s forwards 1s;
+  animation: pathThird 4s forwards 1s;
 }
 
 @keyframes pathThird {
@@ -178,6 +183,31 @@
   100% {
     top: 65%;
     left: 65%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.boat_img_st_4 {
+  position: absolute;
+  top: 55%;
+  left: 61%;
+  transform: translate(-50%, -50%);
+  width: 8%;
+  transform: rotateY(180deg);
+  animation: pathFour 4s forwards 1s;
+}
+
+@keyframes pathFour {
+  0% {
+    transform: rotateY(180deg);
+    top: 55%;
+    left: 61%;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+  transform: rotateY(180deg);
+    top: 79%;
+    left: 28%;
     transform: translate(-50%, -50%);
   }
 }

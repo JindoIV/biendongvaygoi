@@ -166,11 +166,19 @@ export default function HomePage() {
                 </div>
               </div>
             )}
+
+            {stage == 4 && (
+              <div>
+                <div className={`${style.boat_img_st_4} ${style.boat_img}`}>
+                  <Image src={boat} alt={""} />
+                </div>
+              </div>
+            )}
           </div>
-          <VisualNovel
+          {/* <VisualNovel
             open={modalState}
             onClose={() => setModalState(false)}
-          ></VisualNovel>
+          ></VisualNovel> */}
           {/* <ModalQuestion
             open={modalState}
             onClose={() => setModalState(false)}

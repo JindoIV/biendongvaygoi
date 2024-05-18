@@ -1,0 +1,68 @@
+.background{
+    overflow: hidden;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-image: url('../../assets/Images/Bien_.png');
+    background-size: cover;
+    z-index: 0;
+}
+
+.matBien{
+    position: relative;
+    top: 0;
+    border-bottom: 1px solid #333;
+    height: 150px;
+    width: 100%;
+    z-index: 2;
+}
+
+.ship{
+    position: absolute;
+    left: 75px;
+    bottom: 0%;
+    background-image: url('../../assets/Images/Con_thuyen.png');
+    background-size: cover;
+    background-position: center center;
+    min-height: 120px;
+    min-width: 120px;
+    animation: bounce 1.2s infinite alternate;
+    transition: all 0.3s ease-in;
+  }
+  
+  @keyframes bounce {
+    0% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform:translateY(-5px);
+    }
+  }
+
+.question{
+    background-image: url('../../assets/Images/chamhoi.png');
+    background-size: cover;
+    background-position: center center;
+    min-height: 110px;
+    min-width: 150px;
+    position: absolute;
+    bottom: 0;
+    right: 0%;
+}
+
+.anmationQuestion{
+    animation: moveRightToLeft 7s linear infinite; 
+}
+
+@keyframes moveRightToLeft {
+    0% {
+      transform: translateX(270%);
+    }
+    95% {
+        transform: translateX(-760%);
+    }
+    100% {
+        transform: translateX(-760%);
+    }
+  }
+  
+ 
