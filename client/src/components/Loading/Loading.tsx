@@ -12,7 +12,7 @@ export default function Loading() {
           <circle
             fill="#52A0C8"
             stroke="#52A0C8"
-            stroke-width="18"
+            strokeWidth="18"
             r="15"
             cx="40"
             cy="65"
@@ -30,7 +30,7 @@ export default function Loading() {
           <circle
             fill="#52A0C8"
             stroke="#52A0C8"
-            stroke-width="18"
+            strokeWidth="18"
             r="15"
             cx="100"
             cy="65"
@@ -48,7 +48,7 @@ export default function Loading() {
           <circle
             fill="#52A0C8"
             stroke="#52A0C8"
-            stroke-width="18"
+            strokeWidth="18"
             r="15"
             cx="160"
             cy="65"

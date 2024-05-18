@@ -6,10 +6,10 @@ import img_txt from "../../assets/Images/biendongvaygoichu.png";
 import img_bg from "../../assets/Images/biendongvaygoinen.png";
 import boat from "../../assets/Images/Con_thuyen.png";
 import tick from "../../assets/Images/nut_danh_dau.png";
-import Menu from "@/app/(homepage)/_components/Menu/Menu";
 import Loading from "@/components/Loading/Loading";
-import ModalQuestion from "@/app/(homepage)/_components/Modal/ModalQuestion";
-import Question from "@/app/types/question";
+import ModalQuestion from "@/components/ModalQuestion/ModalQuestion";
+import Question from "@/types/question";
+import VisualNovel from "@/components/VisualNovel/VisualNovel";
 
 export default function HomePage() {
   // const [abc, setAbc] = useState<number>(0);
@@ -63,7 +63,7 @@ export default function HomePage() {
   useEffect(() => {
     setTimeout(() => {
       setLoadingState(false);
-    }, 0);
+    }, 2000);
   }, []);
 
   // const handleButtonClick = () => {
@@ -107,7 +107,7 @@ export default function HomePage() {
     let a = stage;
     a++;
     setStage(a);
-  }
+  };
 
   return (
     <>
@@ -115,13 +115,13 @@ export default function HomePage() {
         <Loading />
       ) : (
         <>
-          <Menu />
+          {/* <VisualNovel></VisualNovel> */}
           <div
             className={`${getZoomClass()} ${style.background_Login} ${
               isZoom ? style.zoom : ""
             }`}
           >
-                  <button onClick={st2}>aaa</button>
+            <button onClick={st2}>aaa</button>
 
             <div
               className={`${style.logo} ${isZoom ? style.display_none : ""}`}
@@ -153,26 +153,37 @@ export default function HomePage() {
               </div>
             )}
             {stage == 2 && (
-            <div>
-              <div className={`${style.boat_img_st_2} ${style.boat_img}`}>
-                <Image src={boat} alt={""} />
+              <div>
+                <div className={`${style.boat_img_st_2} ${style.boat_img}`}>
+                  <Image src={boat} alt={""} />
+                </div>
               </div>
-            </div>
-          )}
-          {stage == 3 && (
-            <div>
-              <div className={`${style.boat_img_st_3} ${style.boat_img}`}>
-                <Image src={boat} alt={""} />
+            )}
+            {stage == 3 && (
+              <div>
+                <div className={`${style.boat_img_st_3} ${style.boat_img}`}>
+                  <Image src={boat} alt={""} />
+                </div>
               </div>
-            </div>
-          )}
+            )}
+
+            {stage == 4 && (
+              <div>
+                <div className={`${style.boat_img_st_4} ${style.boat_img}`}>
+                  <Image src={boat} alt={""} />
+                </div>
+              </div>
+            )}
           </div>
+          {/* <VisualNovel
+            open={modalState}
+            onClose={() => setModalState(false)}
+          ></VisualNovel> */}
           {/* <ModalQuestion
             open={modalState}
             onClose={() => setModalState(false)}
           question={questions}
           />  */}
-          
         </>
       )}
     </>
