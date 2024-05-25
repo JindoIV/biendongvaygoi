@@ -12,6 +12,7 @@ import Question from "@/types/question";
 import VisualNovel from "@/components/VisualNovel/VisualNovel";
 
 export default function HomePage() {
+  const [loadingState, setLoadingState] = useState<boolean>(true);
   // const [abc, setAbc] = useState<number>(0);
   const [isZoom, setIsZoom] = useState<boolean>(false);
   const [showTick, setShowTick] = useState(false);
@@ -51,14 +52,6 @@ export default function HomePage() {
 
     fetchData();
   }, []);
-
-  const [loadingState, setLoadingState] = useState<boolean>(true);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setLoadingState(false);
-  //   }, 3000);
-  // }, []);
 
   useEffect(() => {
     setTimeout(() => {
