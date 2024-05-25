@@ -1,16 +1,15 @@
 "use client";
 import Image from "next/image";
-import style from "./homepage.module.scss";
-import { Suspense, useEffect, useState } from "react";
+import style from "./_components/homepage.module.scss";
+import { SetStateAction, Suspense, useEffect, useState } from "react";
 import img_txt from "../../assets/Images/biendongvaygoichu.png";
 import img_bg from "../../assets/Images/biendongvaygoinen.png";
 import boat from "../../assets/Images/Con_thuyen.png";
 import boat_st4 from "../../assets/Images/Con_thuyen_nguoc.png";
 import tick from "../../assets/Images/nut_danh_dau.png";
 import Loading from "@/components/Loading/Loading";
-import ModalQuestion from "@/components/ModalQuestion/ModalQuestion";
 import Question from "@/types/question";
-import VisualNovel from "@/components/VisualNovel/VisualNovel";
+import Stage1 from "@/app/(homepage)/_components/stage1";
 
 export default function HomePage() {
   const [loadingState, setLoadingState] = useState<boolean>(true);
@@ -141,15 +140,7 @@ export default function HomePage() {
             </div>
             {stage == 1 && showTick && (
               <>
-                <div>
-                  <div className={`${style.boat_img_st_1} ${style.boat_img}`}>
-                    <Image src={boat} alt={""} />
-                  </div>
-                </div>
-                <VisualNovel
-                  open={modalState}
-                  onClose={() => setModalState(false)}
-                ></VisualNovel>
+                <Stage1 open={modalState} onClose={setModalState}></Stage1>
               </>
             )}
             {stage == 2 && (
