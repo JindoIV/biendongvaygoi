@@ -47,10 +47,11 @@
     position: absolute;
     bottom: 0;
     right: 0%;
+    animation: moveRightToLeft 7s linear infinite; 
+
 }
 
 .anmationQuestion{
-    animation: moveRightToLeft 7s linear infinite; 
 }
 
 @keyframes moveRightToLeft {
