@@ -4,6 +4,7 @@ import Modal from "react-modal";
 import React, { useState, useRef, useEffect } from "react";
 import { Button, Col, Row } from "antd";
 import Loading from "@/components/Loading/Loading";
+import { _Playfair, _Roboto } from "@/utils/font";
 
 export default function Menu() {
   const audioElement = useRef<HTMLAudioElement>(null);
@@ -73,7 +74,9 @@ export default function Menu() {
               <div className="BackgroundConfirmMusic">
                 <div className="BoxConfirmMusic">
                   <Row>
-                    <h4>Bạn muốn trải nghiệm web với âm thanh không?</h4>
+                    <h4 className={`${_Playfair}`}>
+                      Bạn muốn trải nghiệm web với âm thanh không?
+                    </h4>
                   </Row>
                   <Row gutter={16}>
                     <Col>
