@@ -22,7 +22,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("../../assets/Images/ImageBG.gif");
+  background-image: url("../../assets/Images/BgLoading.png");
   background-size: 100% 100%;
   background-position: center center;
   background-repeat: no-repeat;
@@ -37,11 +37,16 @@
   right: 15%;
   display: grid;
   place-items: center;
-  background-image: url("../../assets/Images/Nen_CH.png");
+  /* background-image: url("../../assets/Images/Nen_CH.png");
   background-size: 100% 100%;
   background-position: center center;
   background-repeat: no-repeat;
-  border: none;
+  border: none; */
+}
+
+.ModalConfirmMusic:focus,
+.ModalConfirmMusic *:focus {
+  outline: none;
 }
 
 .ModalContainerConfirmMusic {
