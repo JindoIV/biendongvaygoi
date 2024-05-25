@@ -2,7 +2,7 @@
 import style from "../homepage.module.scss";
 import Image from "next/image";
 import boat from "../../../../assets/Images/Con_thuyen.png";
-import VisualNovel from "@/components/VisualNovel/VisualNovel";
+import VisualNovel from "@/components/VisualNovel1/VisualNovel";
 import { Dispatch, SetStateAction } from "react";
 
 interface Stage1 {
