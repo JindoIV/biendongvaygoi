@@ -5,6 +5,7 @@ import { Suspense, useEffect, useState } from "react";
 import img_txt from "../../assets/Images/biendongvaygoichu.png";
 import img_bg from "../../assets/Images/biendongvaygoinen.png";
 import boat from "../../assets/Images/Con_thuyen.png";
+import boat_st4 from "../../assets/Images/Con_thuyen_nguoc.png";
 import tick from "../../assets/Images/nut_danh_dau.png";
 import Loading from "@/components/Loading/Loading";
 import ModalQuestion from "@/components/ModalQuestion/ModalQuestion";
@@ -146,11 +147,17 @@ export default function HomePage() {
               </button>
             </div>
             {stage == 1 && showTick && (
-              <div>
-                <div className={`${style.boat_img_st_1} ${style.boat_img}`}>
-                  <Image src={boat} alt={""} />
+              <>
+                <div>
+                  <div className={`${style.boat_img_st_1} ${style.boat_img}`}>
+                    <Image src={boat} alt={""} />
+                  </div>
                 </div>
-              </div>
+                <VisualNovel
+                  open={modalState}
+                  onClose={() => setModalState(false)}
+                ></VisualNovel>
+              </>
             )}
             {stage == 2 && (
               <div>
@@ -170,7 +177,14 @@ export default function HomePage() {
             {stage == 4 && (
               <div>
                 <div className={`${style.boat_img_st_4} ${style.boat_img}`}>
-                  <Image src={boat} alt={""} />
+                  <Image src={boat_st4} alt={""} />
+                </div>
+              </div>
+            )}
+            {stage == 5 && (
+              <div>
+                <div className={`${style.boat_img_st_5} ${style.boat_img}`}>
+                  <Image src={boat_st4} alt={""} />
                 </div>
               </div>
             )}
