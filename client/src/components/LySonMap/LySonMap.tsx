@@ -18,8 +18,22 @@ const LySonMap = () => {
         <div className="trung_bay">
           <Image src={image.trung_bay} alt=""></Image>
         </div>
+        <div className="chua1">
+          <Image src={image.chua} alt=""></Image>
+        </div>
+        <div className="chua2">
+          <Image src={image.chua} alt=""></Image>
+        </div>
+        <div className="nui1">
+          <Image src={image.nui_lua} alt=""></Image>
+        </div>
+        <div className="nui2">
+          <Image src={image.nui_lua} alt=""></Image>
+        </div>
+        <div className="dinh_lang2">
+          <Image src={image.dinh_lang} alt=""></Image>
+        </div>
         <div className="con_thuyen"></div>
-        <div></div>
       </div>
     </>
   );
