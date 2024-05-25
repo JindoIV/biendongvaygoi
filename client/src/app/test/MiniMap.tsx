@@ -1,5 +1,4 @@
 "use client";
-
 import "./MiniMap.css";
 import Modal from "react-modal";
 
@@ -12,7 +11,9 @@ const MiniMap = ({ open, onClose }: ModalAction) => {
   return (
     <>
       <Modal isOpen={open} onRequestClose={onClose}>
-        <div className="background"></div>
+        <div className="background">
+
+        </div>
       </Modal>
     </>
   );
