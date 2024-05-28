@@ -1,6 +1,6 @@
 "use client";
 
-import "./MiniMap.css";
+import ScreenAvA from "@/components/ScreenAvA/ScreenAvA";
 import Modal from "react-modal";
 
 interface ModalAction {
@@ -11,9 +11,7 @@ interface ModalAction {
 const MiniMap = ({ open, onClose }: ModalAction) => {
   return (
     <>
-      <Modal isOpen={open} onRequestClose={onClose}>
-        <div className="background"></div>
-      </Modal>
+      <ScreenAvA></ScreenAvA>
     </>
   );
 };
