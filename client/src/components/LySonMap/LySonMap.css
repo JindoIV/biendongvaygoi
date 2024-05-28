@@ -49,7 +49,45 @@
     width: 4%;
 }
 
+.chua1{
+    position: absolute;
+    top: 52%;
+    left: 36%;
+    transform: translate(-50%, -50%);
+    width: 3%;
+}
 
+.chua2{
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 3%;
+}
+
+.nui1{
+    position: absolute;
+    top: 63%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    width: 7%;
+}
+
+.nui2{
+    position: absolute;
+    top: 63%;
+    left: 36.5%;
+    transform: translate(-50%, -50%);
+    width: 5%;
+}
+
+.dinh_lang2{
+    position: absolute;
+    top: 74%;
+    left: 34%;
+    transform: translate(-50%, -50%);
+    width: 5%;
+}
 
 img{
     width: 100%; 

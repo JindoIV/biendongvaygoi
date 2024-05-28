@@ -1,0 +1,115 @@
+.background{
+    position: relative;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-image: url('../../assets/Images/Ban\ Do\ Dao\ Ly\ Son.png');
+    background-size: contain;
+    transform-origin: 45% 85%;
+    animation: scaleMap 1.2s forwards 1s;
+}
+
+@keyframes scaleMap{
+    0%{
+        scale: 1;
+    }
+    100%{
+        scale: 2;
+    }
+}
+
+.cot_co{
+    position: absolute;
+    top: 51%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    width: 4%;
+}
+
+.dinh_lang{
+    position: absolute;
+    top: 75%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    width: 5%;
+}
+
+.hai_dang{
+    position: absolute;
+    top: 55%;
+    left: 61.5%;
+    transform: translate(-50%, -50%);
+    width: 3%;
+}
+
+.trung_bay{
+    position: absolute;
+    top: 80%;
+    left: 44%;
+    transform: translate(-50%, -50%);
+    width: 4%;
+}
+
+.chua1{
+    position: absolute;
+    top: 52%;
+    left: 36%;
+    transform: translate(-50%, -50%);
+    width: 3%;
+}
+
+.chua2{
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 3%;
+}
+
+.nui1{
+    position: absolute;
+    top: 63%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    width: 7%;
+}
+
+.nui2{
+    position: absolute;
+    top: 63%;
+    left: 36.5%;
+    transform: translate(-50%, -50%);
+    width: 5%;
+}
+
+.dinh_lang2{
+    position: absolute;
+    top: 74%;
+    left: 34%;
+    transform: translate(-50%, -50%);
+    width: 5%;
+}
+
+img{
+    width: 100%; 
+    height: 100%;
+    object-fit: contain;
+    scale: 1;
+    transition: 0.5s ease-in-out;
+}
+
+img:hover{
+    scale: 1.2;
+    filter: drop-shadow(0 0 5px yellow);
+}
+
+.con_thuyen{
+    position: absolute;
+    top: 75%;
+    left: 29%;
+    transform: translate(-50%, -50%);
+    background-image: url('../../assets/Images/Con_thuyen.png');
+    background-size: cover;
+    background-position: center center;
+    min-height: 5%;
+    min-width: 4%;
+}
