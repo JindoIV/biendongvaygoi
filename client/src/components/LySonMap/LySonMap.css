@@ -5,7 +5,11 @@
     background-image: url('../../assets/Images/Ban\ Do\ Dao\ Ly\ Son.png');
     background-size: contain;
     transform-origin: 45% 85%;
-    animation: scaleMap 1.2s forwards 1s;
+    animation: scaleMap 1.8s forwards 1s;
+}
+
+.blur{
+    filter: blur(5px);
 }
 
 @keyframes scaleMap{
@@ -17,12 +21,24 @@
     }
 }
 
+
+
 .cot_co{
     position: absolute;
     top: 51%;
     left: 53%;
     transform: translate(-50%, -50%);
     width: 4%;
+}
+
+.cot_co p{
+    position: absolute;
+    width: 100px;
+    top: 10px;
+    left: 50px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 .dinh_lang{
@@ -33,12 +49,31 @@
     width: 5%;
 }
 
+.dinh_lang p{
+    position: absolute;
+    left: 30px;
+    width: 80px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
 .hai_dang{
     position: absolute;
     top: 55%;
     left: 61.5%;
     transform: translate(-50%, -50%);
     width: 3%;
+}
+
+.hai_dang p{
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    width: 70px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 .trung_bay{
@@ -49,12 +84,31 @@
     width: 4%;
 }
 
+.trung_bay p{
+    position: absolute;
+    left: -90px;
+    width: 200px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
 .chua1{
     position: absolute;
     top: 52%;
     left: 36%;
     transform: translate(-50%, -50%);
     width: 3%;
+}
+
+.chua1 p{
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    width: 220px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 .chua2{
@@ -65,12 +119,32 @@
     width: 3%;
 }
 
+.chua2 p{
+    position: absolute;
+    top: -20px;
+    left: -30px;
+    width: 220px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
 .nui1{
     position: absolute;
     top: 63%;
     left: 54%;
     transform: translate(-50%, -50%);
     width: 7%;
+}
+
+.nui1 p{
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    width: 220px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 .nui2{
@@ -81,6 +155,16 @@
     width: 5%;
 }
 
+.nui2 p{
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    width: 220px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
 .dinh_lang2{
     position: absolute;
     top: 74%;
@@ -89,7 +173,25 @@
     width: 5%;
 }
 
-img{
+.dinh_lang2 p{
+    position: absolute;
+    width: 70px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.cang_ly_son{
+    position: absolute;
+    top: 520px;
+    left: 360px;
+    width: 50px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.image_LSMap img{
     width: 100%; 
     height: 100%;
     object-fit: contain;
@@ -97,7 +199,7 @@ img{
     transition: 0.5s ease-in-out;
 }
 
-img:hover{
+.image_LSMap img:hover{
     scale: 1.2;
     filter: drop-shadow(0 0 5px yellow);
 }
@@ -113,3 +215,4 @@ img:hover{
     min-height: 5%;
     min-width: 4%;
 }
+

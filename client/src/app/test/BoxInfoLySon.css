@@ -12,9 +12,43 @@
   bottom: 5%;
   left: 15%;
   right: 15%;
-  background-image: url("../../assets/Images/Nen_CH.png");
+  background-image: url("../../assets/Images/Khung\ Thoai\ To.png");
   background-size: 100% 100%;
   background-position: center center;
   background-repeat: no-repeat;
   border: none;
+}
+
+.Modal:focus,
+.Modal *:focus {
+  outline: none;
+}
+
+.box{
+  position: absolute;
+  top: 53%;
+  left: 51.5%;
+  transform: translate(-50%, -50%);
+  height: 500px;
+  width: 740px;
+  padding: 30px;
+}
+.box h1{
+  color: rgb(0, 117, 184);
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.box p{
+  color: #333;
+  line-height: 30px;
+  font-size: 20px;
+}
+
+.xemTiep{
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  text-decoration: underline;
+  cursor: pointer;
 }

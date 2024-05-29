@@ -19,41 +19,48 @@ const LySonMap = () => {
 
   return (
     <>
-      <div className="background">
+      <div className={`background ${isOpen ? 'blur' : ''}`}> 
         <div className="dinh_lang" onClick={() => displayBoxInfo("dinh_lang")}>
           <Image src={image.dinh_lang} alt="" />
+          <p>Đình Làng An Hải</p>
         </div>
         <div className="cot_co" onClick={() => displayBoxInfo("cot_co")}>
           <Image src={image.cot_co} alt="" />
+          <p>Cột cờ Tổ Quốc</p>
         </div>
         <div className="hai_dang" onClick={() => displayBoxInfo("hai_dang")}>
           <Image src={image.hai_dang} alt="" />
+          <p>Hải Đăng</p>
         </div>
         <div className="trung_bay" onClick={() => displayBoxInfo("trung_bay")}>
           <Image src={image.trung_bay} alt="" />
+          <p>Nhà Trưng bày Hải đội Hoàng Sa kiêm quản Bắc Hải</p>
         </div>
         <div className="chua1" onClick={() => displayBoxInfo("chua1")}>
           <Image src={image.chua} alt="" />
+          <p>Chùa Đục</p>
         </div>
         <div className="chua2" onClick={() => displayBoxInfo("chua2")}>
           <Image src={image.chua} alt="" />
+          <p>Chùa Hang</p>
         </div>
         <div className="nui1" onClick={() => displayBoxInfo("nui1")}>
           <Image src={image.nui_lua} alt="" />
+          <p>Núi Thới Lới</p>
         </div>
         <div className="nui2" onClick={() => displayBoxInfo("nui2")}>
           <Image src={image.nui_lua} alt="" />
+          <p>Núi Giếng Tiên</p>
         </div>
-        <div
-          className="dinh_lang2"
-          onClick={() => displayBoxInfo("dinh_lang2")}
+        <div className="dinh_lang2" onClick={() => displayBoxInfo("dinh_lang2")}
         >
           <Image src={image.dinh_lang} alt="" />
+          <p>Đình Làng An Vĩnh</p>
         </div>
         <div className="con_thuyen"></div>
+        <p className="cang_ly_son">Cảng Lý Sơn</p>
       </div>
-      <BoxInfoLySon open={true} place={currentPlace} />
-      {isOpen && <button onClick={closeModal}>Close</button>}
+      <BoxInfoLySon open={isOpen} place={currentPlace} closeModal={closeModal}/>
     </>
   );
 };

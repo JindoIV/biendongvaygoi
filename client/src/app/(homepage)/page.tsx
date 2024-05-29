@@ -10,6 +10,7 @@ import tick from "../../assets/Images/nut_danh_dau.png";
 import Loading from "@/components/Loading/Loading";
 import Question from "@/types/question";
 import Stage1 from "@/app/(homepage)/_components/stage1";
+import Stage2 from "@/app/(homepage)/_components/stage2";
 
 export default function HomePage() {
   const [loadingState, setLoadingState] = useState<boolean>(true);
@@ -110,7 +111,7 @@ export default function HomePage() {
         <>
           {/* <VisualNovel></VisualNovel> */}
           <div
-            className={`${getZoomClass()} ${style.background_Login} ${
+            className={`${getZoomClass()} ${stage == 2 ? style.aniGoLySon : ""} ${style.background_Login} ${
               isZoom ? style.zoom : ""
             }`}
           >
@@ -144,33 +145,25 @@ export default function HomePage() {
               </>
             )}
             {stage == 2 && (
-              <div>
-                <div className={`${style.boat_img_st_2} ${style.boat_img}`}>
-                  <Image src={boat} alt={""} />
-                </div>
-              </div>
+              <>
+                <Stage2></Stage2>
+              </>
             )}
             {stage == 3 && (
-              <div>
-                <div className={`${style.boat_img_st_3} ${style.boat_img}`}>
-                  <Image src={boat} alt={""} />
-                </div>
-              </div>
+              <>
+                <Stage2></Stage2>
+              </>
             )}
 
             {stage == 4 && (
-              <div>
-                <div className={`${style.boat_img_st_4} ${style.boat_img}`}>
-                  <Image src={boat_st4} alt={""} />
-                </div>
-              </div>
+              <>
+                <Stage2></Stage2>
+              </>
             )}
             {stage == 5 && (
-              <div>
-                <div className={`${style.boat_img_st_5} ${style.boat_img}`}>
-                  <Image src={boat_st4} alt={""} />
-                </div>
-              </div>
+              <>
+                <Stage2></Stage2>
+              </>
             )}
           </div>
           {/* <VisualNovel
