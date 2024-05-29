@@ -4,3 +4,4 @@ export { default as dinh_lang } from "./Dinh Lang.png";
 export { default as trung_bay } from "./Nha Hang Trung Bay.png";
 export { default as nui_lua } from "./Nui Lua.png";
 export { default as chua } from "./Chua.png";
+export { default as con_thuyen } from "./Con_thuyen.png";

@@ -57,8 +57,10 @@ const LySonMap = () => {
           <Image src={image.dinh_lang} alt="" />
           <p>Đình Làng An Vĩnh</p>
         </div>
-        <div className="con_thuyen"></div>
-        <p className="cang_ly_son">Cảng Lý Sơn</p>
+        <div className="con_thuyen_ls">
+          <Image src={image.con_thuyen} alt="" />
+          <p>Cảng Lý Sơn</p>
+        </div>
       </div>
       <BoxInfoLySon open={isOpen} place={currentPlace} closeModal={closeModal}/>
     </>
