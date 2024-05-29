@@ -18,16 +18,27 @@ interface ModalAction {
 
 const Thoai = [
   {
-    character: "Thủy thủ",
-    content: "Chào cô hướng dẫn viên!",
+    character: "Hướng dẫn viên Ngân",
+    content:
+      "Xin chào các bạn, chị là A cũng là hướng dẫn viên du lịch đồng hành cùng các em vào lần trải nghiệm này. ",
   },
   {
-    character: "Võ Thị Sáu",
-    content: "Chào tất cả mọi người! Chúng ta cùng tham quan biển Đông nha",
+    character: "Hướng dẫn viên Ngân",
+    content: `Trong chuyến đi này, chúng ta sẽ có 3 chặng đường chính.
+    Chặng 1: Bắt đầu từ Côn Đảo đến “Vương quốc tỏi-Lý Sơn”.
+    Chặng 2: Từ Lý Sơn ta sẽ đi đến Biển đảo “Hoàng Sa-Trường Sa”. 
+    Chặng 3, cũng là chặng đường cuối cùng: từ biển khơi, ta sẽ trở về Côn Đảo.
+    `,
   },
   {
-    character: "Thủy Thủ",
-    content: "Oki lun!",
+    character: "Hướng dẫn viên Ngân",
+    content:
+      "Và để vượt qua các chặng đường, các bạn phải trả lời lần lượt các câu hỏi liên quan đến lịch sử, địa lý và tự nhiên,…",
+  },
+  {
+    character: "Hướng dẫn viên Ngân",
+    content:
+      "Nhưng các bạn cũng đừng quá lo lắng nhé, vì chị luôn ở đây để giúp đỡ các bạn, chúc các em may mắn!",
   },
 ];
 
@@ -56,9 +67,8 @@ const VisualNovel = ({ open, onClose }: ModalAction) => {
   useEffect(() => {
     if (typewriterRef.current) {
       typewriterRef.current
-        .deleteAll()
-        .typeString(content ?? "")
-        .pauseFor(5000)
+        .deleteAll(20)
+        .pasteString(content ?? "")
         .start();
     }
   }, [content]);
@@ -103,10 +113,7 @@ const VisualNovel = ({ open, onClose }: ModalAction) => {
               <Typewriter
                 onInit={(typewriter) => {
                   typewriterRef.current = typewriter;
-                  typewriter
-                    .typeString(content ?? "")
-                    .pauseFor(2500)
-                    .start();
+                  typewriter.typeString(content ?? "").start();
                 }}
               />
             </div>

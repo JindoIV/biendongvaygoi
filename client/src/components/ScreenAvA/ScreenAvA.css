@@ -1,13 +1,13 @@
-.background{
+.background {
   overflow: hidden;
   min-width: 100vw;
   min-height: 100vh;
-  background-image: url('../../assets/Images/Bien_.png');
+  background-image: url("../../assets/Images/Bien_.png");
   background-size: cover;
   z-index: 0;
 }
 
-.matBien{
+.matBien {
   position: relative;
   top: 0;
   border-bottom: 1px solid #333;
@@ -16,11 +16,11 @@
   z-index: 2;
 }
 
-.ship{
+.ship {
   position: absolute;
   left: 75px;
   bottom: 0%;
-  background-image: url('../../assets/Images/Con_thuyen.png');
+  background-image: url("../../assets/Images/Con_thuyen.png");
   background-size: cover;
   background-position: center center;
   min-height: 120px;
@@ -34,12 +34,12 @@
     transform: translateY(10px);
   }
   100% {
-    transform:translateY(-5px);
+    transform: translateY(-5px);
   }
 }
 
-.question{
-  background-image: url('../../assets/Images/chamhoi.png');
+.question {
+  background-image: url("../../assets/Images/chamhoi.png");
   background-size: cover;
   background-position: center center;
   min-height: 110px;
@@ -47,7 +47,7 @@
   position: absolute;
   bottom: 0;
   right: 0%;
-  animation: moveRightToLeft 7s linear infinite; 
+  animation: moveRightToLeft 7s linear forwards;
 }
 
 @keyframes moveRightToLeft {
@@ -55,10 +55,9 @@
     transform: translateX(270%);
   }
   95% {
-      transform: translateX(-760%);
+    transform: translateX(-760%);
   }
   100% {
-      transform: translateX(-760%);
+    transform: translateX(-760%);
   }
 }
-

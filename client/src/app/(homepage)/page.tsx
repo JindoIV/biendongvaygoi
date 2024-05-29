@@ -56,7 +56,7 @@ export default function HomePage() {
   useEffect(() => {
     setTimeout(() => {
       setLoadingState(false);
-    }, 2000);
+    });
   }, []);
 
   // const handleButtonClick = () => {

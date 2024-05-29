@@ -60,11 +60,12 @@
 
 .ImageCharacter2VisualNovel {
   min-height: 100%;
-  background-image: url("../../assets/Images/nhan_vat_chinh.png");
+  background-image: url("../../assets/Images/Nhan vat chinh(sua).png");
   background-size: contain;
-  background-size: 80%;
+  background-size: 70%;
   background-position: bottom center;
   background-repeat: no-repeat;
+  transform: rotateY(180deg);
   border: none;
 }
 
@@ -117,14 +118,17 @@
 
 .ContentVisualNovel {
   position: absolute;
+  padding: 3px;
   top: 40%;
   left: 23%;
+  right: 23%;
   font-weight: 400;
   font-size: 20px;
+  overflow: auto;
 }
 
 .ButtonNextVisualNovel {
   position: absolute;
-  bottom: 25%;
+  bottom: 23%;
   right: 25%;
 }
