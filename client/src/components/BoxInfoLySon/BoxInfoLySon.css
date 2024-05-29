@@ -45,6 +45,12 @@
   font-size: 20px;
 }
 
+.infoText {
+  white-space: pre-line;
+}
+
+
+
 .xemTiep{
   position: absolute;
   bottom: 20px;

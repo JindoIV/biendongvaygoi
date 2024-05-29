@@ -1,0 +1,61 @@
+.background{
+    position: relative;
+    background-color: #8D5542;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-image: url('../../assets/Images/Ban\ Do\ Truong\ Sa.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.blur{
+    filter: blur(5px);
+}
+
+.question1{
+    position: absolute;
+    top: 75%;
+    left: 29%;
+    transform: translate(-50%, -50%);
+    width: 12%;
+    transition: 0.5s ease-in-out; 
+}
+
+.question1:hover {
+    transform: translate(-50%, -55%)
+}
+
+.question1 img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.diaDiem1{
+    position: absolute;
+    top: 75%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    width: 7%;
+    transition: 0.7s ease-in-out; 
+}
+
+.diaDiem1 img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.diaDiem1:hover {
+    animation: upDown 0.7s ease-in-out infinite alternate; 
+}
+
+@keyframes upDown {
+    0% {
+        transform: translate(-50%, -50%) translateY(0); 
+    }
+    100% {
+        transform: translate(-50%, -50%) translateY(-10px); 
+    }
+}
