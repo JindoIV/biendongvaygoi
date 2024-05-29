@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Modal from "react-modal";
+import "./BoxInfoLySon.css";
 
 interface IBoxInfoLySon {
   open: boolean;
@@ -50,7 +51,7 @@ const BoxInfoLySon = ({ open, place }: IBoxInfoLySon) => {
     <>
       <Modal
         isOpen={open}
-        onRequestClose={()=>{}}
+        onRequestClose={() => {}}
         className="Modal"
         contentLabel="Example Modal"
         overlayClassName="Overlay"

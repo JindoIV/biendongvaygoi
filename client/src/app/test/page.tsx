@@ -7,20 +7,20 @@ import { useState } from "react";
 const LySonMap = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [currentPlace, setCurrentPlace] = useState<string>("");
-  
+
   const displayBoxInfo = (place: string) => {
     setCurrentPlace(place);
     setIsOpen(true);
-  }
+  };
 
   const closeModal = () => {
     setIsOpen(false);
-  }
+  };
 
   return (
     <>
       <div className="background">
-      <div className="dinh_lang" onClick={() => displayBoxInfo("dinh_lang")}>
+        <div className="dinh_lang" onClick={() => displayBoxInfo("dinh_lang")}>
           <Image src={image.dinh_lang} alt="" />
         </div>
         <div className="cot_co" onClick={() => displayBoxInfo("cot_co")}>
@@ -44,12 +44,15 @@ const LySonMap = () => {
         <div className="nui2" onClick={() => displayBoxInfo("nui2")}>
           <Image src={image.nui_lua} alt="" />
         </div>
-        <div className="dinh_lang2" onClick={() => displayBoxInfo("dinh_lang2")}>
+        <div
+          className="dinh_lang2"
+          onClick={() => displayBoxInfo("dinh_lang2")}
+        >
           <Image src={image.dinh_lang} alt="" />
         </div>
         <div className="con_thuyen"></div>
       </div>
-      <BoxInfoLySon open={isOpen} place={currentPlace}/>
+      <BoxInfoLySon open={true} place={currentPlace} />
       {isOpen && <button onClick={closeModal}>Close</button>}
     </>
   );
