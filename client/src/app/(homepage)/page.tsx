@@ -100,7 +100,7 @@ export default function HomePage() {
   const st2 = () => {
     let a = stage;
     a++;
-    setStage(2);
+    setStage(a);
   };
 
   return (
