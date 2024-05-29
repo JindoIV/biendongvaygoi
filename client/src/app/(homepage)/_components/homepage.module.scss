@@ -1,3 +1,8 @@
+.aaa{
+  position: fixed;
+  top: 0;
+}
+
 .background_Login {
   overflow: hidden;
   position: relative;
@@ -30,6 +35,21 @@
 .background_Login.zoom_st2:before {
   transform-origin: 32% 56%;
   transition: 3s ease-out 3.7s;
+}
+
+.aniGoLySon{
+  animation: goLySon 2s alternate 8s;
+}
+
+@keyframes goLySon{
+  0% {
+    scale: 1;
+    opacity: 1;
+  }
+  100% {
+    scale: 2;
+    opacity: 0;
+  }
 }
 
 .background_Login.zoom_st3:before {
@@ -169,6 +189,8 @@
     transform: translate(-50%, -50%);
   }
 }
+
+
 
 .boat_img_st_3 {
   position: absolute;
