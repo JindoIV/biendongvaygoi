@@ -3,12 +3,32 @@ import "./LySonMap.css";
 import * as image from "@/assets/Images/LySonMap";
 import Image from "next/image";
 import BoxInfoLySon from "../BoxInfoLySon/BoxInfoLySon";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const LySonMap = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [currentPlace, setCurrentPlace] = useState<string>("");
+  const [randomNumber, setRandomNumber] = useState<number>(0);
+  const [showStar, setShowStar] = useState<boolean>(false);
+  const [points, setPoints] = useState<number>(0);
 
-  const displayBoxInfo = (place: string) => {
+  useEffect(() => {
+    setRandomNumber(Math.floor(Math.random() * 10) + 1);
+  }, []);
+
+  const displayBoxInfo = (place: string, number: number) => {
+    if (number === randomNumber) {
+      setShowStar(true);
+      setRandomNumber(0);
+      setTimeout(() => {
+
+        
+      setPoints(points + 1);
+
+
+      }, 3400);
+    } else {
+      setShowStar(false);
+    }
     setCurrentPlace(place);
     setIsOpen(true);
   };
@@ -17,52 +37,31 @@ const LySonMap = () => {
     setIsOpen(false);
   };
 
+  const places = [
+    { className: "dinh_lang", label: "Đình Làng An Hải", img: image.dinh_lang, place: "dinh_lang", number: 1 },
+    { className: "cot_co", label: "Cột cờ Tổ Quốc", img: image.cot_co, place: "cot_co", number: 2 },
+    { className: "hai_dang", label: "Hải Đăng", img: image.hai_dang, place: "hai_dang", number: 3 },
+    { className: "trung_bay", label: "Nhà Trưng bày Hải đội Hoàng Sa kiêm quản Bắc Hải", img: image.trung_bay, place: "trung_bay", number: 4 },
+    { className: "chua1", label: "Chùa Đục", img: image.chua, place: "chua1", number: 5 },
+    { className: "chua2", label: "Chùa Hang", img: image.chua, place: "chua2", number: 6 },
+    { className: "nui1", label: "Núi Thới Lới", img: image.nui_lua, place: "nui1", number: 7 },
+    { className: "nui2", label: "Núi Giếng Tiên", img: image.nui_lua, place: "nui2", number: 8 },
+    { className: "dinh_lang2", label: "Đình Làng An Vĩnh", img: image.dinh_lang, place: "dinh_lang2", number: 9 },
+    { className: "cang_bien", label: "Cảng Lý Sơn", img: image.cang, place: "cang_LS", number: 10 },
+  ];
+
   return (
     <>
       <div className={`background ${isOpen ? 'blur' : ''}`}> 
-        <div className="dinh_lang image_LSMap" onClick={() => displayBoxInfo("dinh_lang")}>
-          <Image src={image.dinh_lang} alt="" />
-          <p>Đình Làng An Hải</p>
-        </div>
-        <div className="cot_co image_LSMap" onClick={() => displayBoxInfo("cot_co")}>
-          <Image src={image.cot_co} alt="" />
-          <p>Cột cờ Tổ Quốc</p>
-        </div>
-        <div className="hai_dang image_LSMap" onClick={() => displayBoxInfo("hai_dang")}>
-          <Image src={image.hai_dang} alt="" />
-          <p>Hải Đăng</p>
-        </div>
-        <div className="trung_bay image_LSMap" onClick={() => displayBoxInfo("trung_bay")}>
-          <Image src={image.trung_bay} alt="" />
-          <p>Nhà Trưng bày Hải đội Hoàng Sa kiêm quản Bắc Hải</p>
-        </div>
-        <div className="chua1 image_LSMap" onClick={() => displayBoxInfo("chua1")}>
-          <Image src={image.chua} alt="" />
-          <p>Chùa Đục</p>
-        </div>
-        <div className="chua2 image_LSMap" onClick={() => displayBoxInfo("chua2")}>
-          <Image src={image.chua} alt="" />
-          <p>Chùa Hang</p>
-        </div>
-        <div className="nui1 image_LSMap" onClick={() => displayBoxInfo("nui1")}>
-          <Image src={image.nui_lua} alt="" />
-          <p>Núi Thới Lới</p>
-        </div>
-        <div className="nui2 image_LSMap" onClick={() => displayBoxInfo("nui2")}>
-          <Image src={image.nui_lua} alt="" />
-          <p>Núi Giếng Tiên</p>
-        </div>
-        <div className="dinh_lang2 image_LSMap" onClick={() => displayBoxInfo("dinh_lang2")}
-        >
-          <Image src={image.dinh_lang} alt="" />
-          <p>Đình Làng An Vĩnh</p>
-        </div>
-        <div className="con_thuyen_ls">
-          <Image src={image.con_thuyen} alt="" />
-          <p>Cảng Lý Sơn</p>
-        </div>
+      {places.map(({ className, label, img, place, number }) => (
+          <div key={place} className={`${className} image_LSMap`} onClick={() => displayBoxInfo(place, number)}>
+            <Image src={img} alt="" />
+            <p>{label}</p>
+          </div>
+        ))}
       </div>
-      <BoxInfoLySon open={isOpen} place={currentPlace} closeModal={closeModal}/>
+      <div className="points">Points: {points}</div>
+      <BoxInfoLySon open={isOpen} place={currentPlace} showStar={showStar} closeModal={closeModal}/>
     </>
   );
 };

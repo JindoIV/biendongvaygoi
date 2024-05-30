@@ -9,12 +9,21 @@ const TruongSaMap = () => {
   return (
 <>
   <div className={`background ${isOpen ? 'blur' : ''}`}> 
-  <div className="question1">
+  <div className="question1 question">
     <Image src={image.question} alt=""/>
   </div>
-  <div className="diaDiem1">
-    <Image src={image.diaDiem} alt=""/>
+  <div className="question2 question">
+    <Image src={image.question} alt=""/>
   </div>
+  <div className="question3 question">
+    <Image src={image.question} alt=""/>
+  </div>
+  <div className="question4 question">
+    <Image src={image.question} alt=""/>
+  </div>
+  {/* <div className="diaDiem1">
+    <Image src={image.diaDiem} alt=""/>
+  </div> */}
   </div>
   </>
   );
