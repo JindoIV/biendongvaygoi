@@ -1,5 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
+import * as image from "@/assets/Images/LySonMap";
+import Image from "next/image";
 import Modal from "react-modal";
 import "./BoxInfoLySon.css";
 
@@ -7,10 +9,20 @@ interface IBoxInfoLySon {
   open: boolean;
   place: string;
   images?: string[];
+  showStar: boolean;
   closeModal: () => void;
 }
 
-const BoxInfoLySon = ({ open, place, images = [], closeModal }: IBoxInfoLySon) => {
+const BoxInfoLySon = ({ open, place, images = [], showStar, closeModal }: IBoxInfoLySon) => {
+  const [modalClass, setModalClass] = useState<string>("Modal");
+
+  useEffect(() => {
+    if (open) {
+      setModalClass("Modal Modal--open");
+    } else {
+      setModalClass("Modal Modal--close");
+    }
+  }, [open]);
   const [showInfo, setShowInfo] = useState<string>("");
   const [showTittle, setShowTittle] = useState<string>("");
   useEffect(() => {
@@ -21,8 +33,8 @@ const BoxInfoLySon = ({ open, place, images = [], closeModal }: IBoxInfoLySon) =
           setShowInfo("Cột cờ được xây dựng vào năm 2013 từ chương trình “Sinh viên với biển, đảo Tổ quốc năm 2013.” Nằm trên núi Thới Lới, huyện đảo Lý Sơn tỉnh Quảng Ngãi Việt Nam với chiều cao khoảng 20m được làm từ bê tông cốt thép chắc chắn.\n Không chỉ khẳng định chủ quyền biển đảo của đất nước mà cột cờ Thới Lới còn thể hiện tinh thần đoàn kết, sự đồng lòng, sẵn sàng chiến đấu bảo vệ Tổ quốc của thế hệ trẻ; là sự quyết tâm, là điểm tựa của ngư dân nơi đảo xa.");
           break;
         case "hai_dang":
-          setShowTittle("Hải Đăng");
-          setShowInfo("haiDang nay bu cha ba lun");
+          setShowTittle("Ngọn Hải Đăng");
+          setShowInfo("Ngọn Hải Đăng Lý Sơn còn có tên gọi thời xưa là Phare Polo Canton. Được người Pháp xây dựng đưa vào hoạt động từ năm 1898 cho đến nay. Hải đăng thuộc Đảo Lý Sơn, xã Lý Hải, huyện Lý Sơn, tỉnh Quảng Ngãi. Nơi đây được xem là ngọn hải đăng cao nhất Việt Nam, với độ cao lên đến 45m, được thiết kế để chiếu sáng và thấu kính cho các con tàu thuyền tìm đường hay đánh bắt cá trên biển, đánh dấu đường trên bờ biển và các bãi cạn nguy hiểm, các lối an toàn vào cảng. Ngoài ra còn giúp máy bay định hướng, tìm đường đi.");
           break;
         case "nui1":
           setShowTittle("Núi Thới Lới");
@@ -30,7 +42,7 @@ const BoxInfoLySon = ({ open, place, images = [], closeModal }: IBoxInfoLySon) =
           break;
         case "nui2":
           setShowTittle("Núi Giếng Tiên");
-          setShowInfo("nui2 nay bu cha ba lun");
+          setShowInfo("Núi Giếng Tiền là một trong các di tích của núi lửa khi xưa ở Việt Nam, nằm tại xã An Vĩnh, huyện đảo Lý Sơn với chiều cao 90m và đường kính to lớn khoảng 500m. \nSở dĩ, ngọn núi này có tên “Giếng Tiền” là vì cấu trúc miệng núi tròn trông giống đồng xu. Ngoài ra đây còn là nơi gắn liền với buổi lễ đặc trưng “Lễ Khao Lề Thế Lính Hoàng Sa” vì cư dân thường lấy đất sét từ cái núi lửa này để tạo ra hình nộm cho buổi lễ. Hơn nữa núi Giếng Tiền khá màu mỡ, nhiều đất đỏ bazan nên người dân đảo Lý Sơn thường sử dụng cát từ biển và đất đỏ lấy từ núi Giếng Tiền trồng tỏi. \nChính vì vậy mà tỏi Lý Sơn có một hương vị rất nồng, thơm chứ không hắc, trở thành đặc sản số một của huyện đảo này.");
           break;
         case "chua1":
           setShowTittle("Chùa Đục");
@@ -42,15 +54,20 @@ const BoxInfoLySon = ({ open, place, images = [], closeModal }: IBoxInfoLySon) =
           break;
         case "dinh_lang":
           setShowTittle("Đình Làng An Hải");
-          setShowInfo("dinhlang1 nay bu cha ba lun");
+          setShowInfo("Tọa lạc tại thôn Đông, xã An Hải, huyện Lý Sơn, Việt Nam, theo ghi chép, nơi đây được xây dựng vào khoảng năm Minh Mạng nhằm phục cho việc sinh hoạt tâm linh, tín ngưỡng của người dân làng An Hải từ xưa đến nay. Ở đây cư dân đề cao tín ngưỡng tự nhiên và sùng bái các vị thần như Ngu Man Nương, tiền hiền hay Thiên Y A Na,... \nĐình Làng An Hải cũng có vai trò quan trọng nhằm phản ánh nên lịch sử hình thành của vùng đất Lý Sơn chính là sự dung hòa giữa  văn hóa Chăm Pa trong lòng văn hóa Việt cổ. Nơi đây cũng được nhà nước công nhận là di tích cấp quốc gia vào năm 1995 và là một trong những đình làng cổ nhất còn lại nguyên vẹn ở Quảng Ngãi hiện nay.");
           break;
         case "dinh_lang2":
           setShowTittle("Đình Làng An Vĩnh");
-          setShowInfo("dinhlang2 nay bu cha ba lun");
+          setShowInfo("Đình Làng An Vĩnh được xây dựng từ thế kỷ 18, tọa lạc tại đảo Lý Sơn, có giá trị lịch sử to lớn, chứng minh chủ quyền của Việt Nam đối với  2 quần đảo Hoàng Sa và Trường Sa. Đây cũng là nơi được 13 dòng họ trên huyện đảo Lý Sơn tổ chức Lễ khao lề thế lính Hoàng Sa vào nhằm ngày 16/3 âm lịch hàng năm.Lễ hội này tri ân những hùng binh đã vâng mệnh triều đình vượt muôn sóng cả ra biển đảo Hoàng Sa, Trường Sa, cắm mốc, dựng bia khẳng định chủ quyền của Việt Nam trên Biển Đông.");
           break;
         case "trung_bay":
           setShowTittle("Nhà Trưng bày Hải đội Hoàng Sa kiêm quản Bắc Hải");
           setShowInfo("Theo những thông tin ghi lại được thì vào cuối thế kỷ 16 và đầu thế kỷ 17, để tăng cường và quản lý vùng biển đảo của Tổ Quốc, chúa Nguyễn đã ý thức được điều đó nên đã cho xây dựng đội hùng binh Hoàng Sa kiêm quản Bắc Hải do đội quân triều đình quản lý.\n Nhằm để bày tỏ lòng biết ơn to lớn với ông cha và tổ tiên, năm 2010 huyện đảo Lý Sơn đã cho xây Nhà trưng bày Hải đội Hoàng Sa, đây là nơi linh thiêng và có ý nghĩa vô cùng quan trọng với đất nước. Nơi trưng bày Ở đây trưng bày hơn 100 hiện vật của người lính Hoàng Sa cùng nhiều bản đồ và tư liệu cổ để chứng minh Hoàng Sa Trường Sa là của Việt Nam (Bức tượng Đội Hoàng Sa kiêm quản Bắc Hải,Tư liệu về Trường Sa, Hoàng Sa,... )");
+          break;
+          
+          case "cang_LS":
+          setShowTittle("Cảng Lý Sơn");
+          setShowInfo("Cảng Lý Sơn hay còn gọi là bến tàu Lý Sơn xây dựng năm 1990 có vị trí nằm ở thôn Tây An Vĩnh, huyện Lý Sơn, tỉnh Quảng Ngãi, chiều ngang cầu tàu khoảng  60m2, dài 150m2, ngoài tiếp nhận tàu cá, tàu hàng, tàu khách tuyến Sa Kỳ – Lý Sơn và Đà Nẵng – Lý Sơn, cảng còn phục vụ cho hoạt động tàu cá. Gần 10 năm nay, cảng còn là nơi đón nhận khách du lịch với lưu lượng tăng dần mỗi năm. ");
           break;
         default:
           setShowTittle("");
@@ -65,12 +82,18 @@ const BoxInfoLySon = ({ open, place, images = [], closeModal }: IBoxInfoLySon) =
       <Modal
         isOpen={open}
         onRequestClose={closeModal}
-        className="Modal"
+        className={modalClass}
         contentLabel="Example Modal"
-        overlayClassName="Overlay"
+        overlayClassName={`Overlay ${open ? "Overlay--after-open" : "Overlay--before-close"}`}
+        onAfterClose={() => setModalClass("Modal")}
       >
         <div className="box">
           <h1>{showTittle}</h1>
+          {showStar && 
+          <div className="starImage">
+            <Image src={image.star} alt="Star"/>
+          </div>
+          }
           <p className="infoText">{showInfo}</p>
           {/* <div className="image">
           {images.map((image, index) => (

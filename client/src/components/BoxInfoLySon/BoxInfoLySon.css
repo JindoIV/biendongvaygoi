@@ -4,6 +4,38 @@
   left: 0;
   right: 0;
   bottom: 0;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.Overlay--after-open {
+  opacity: 1;
+}
+
+.Overlay--before-close {
+  opacity: 0;
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToTop {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
 }
 
 .Modal {
@@ -16,7 +48,14 @@
   background-size: 100% 100%;
   background-position: center center;
   background-repeat: no-repeat;
-  border: none;
+}
+
+.Modal--open {
+  animation: slideInFromTop 0.5s ease-in-out forwards;
+}
+
+.Modal--close {
+  animation: slideOutToTop 0.5s ease-in-out forwards;
 }
 
 .Modal:focus,
@@ -29,10 +68,43 @@
   top: 53%;
   left: 51.5%;
   transform: translate(-50%, -50%);
-  height: 500px;
-  width: 740px;
+  height: 85%;
+  width: 77%;
   padding: 30px;
 }
+
+.starImage{
+  position: absolute;
+  top: 0%;
+  right: -12%;
+  transform: translate(-50%, -50%);
+  width: 12%;
+  animation: moveStar 2s ease-in-out forwards 1.5s;
+}
+
+@keyframes moveStar {
+  0% {
+  top: 0%;
+  right: -12%;
+  transform: translate(-50%, -50%);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: -10%;
+    right: -35%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.starImage img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .box h1{
   color: rgb(0, 117, 184);
   font-weight: bold;

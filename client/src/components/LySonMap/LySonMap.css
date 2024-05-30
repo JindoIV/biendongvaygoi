@@ -12,6 +12,19 @@
     filter: blur(5px);
 }
 
+.points {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 1000;
+  }
+
 @keyframes scaleMap{
     0%{
         scale: 1;
@@ -21,27 +34,26 @@
     }
 }
 
-.con_thuyen_ls{
+.cang_bien{
     position: absolute;
     top: 75%;
-    left: 29%;
+    left: 28%;
     transform: translate(-50%, -50%);
-    width: 4%;
+    width: 3%;
 }
 
-.con_thuyen_ls p{
+.cang_bien p{
     font-weight: 600;
     position: absolute;
-    top: -24px;
+    top: -40px;
     left: -10px;
     width: 50px;
-    color: #fff;
     font-size: 14px;
     cursor: pointer;
     color: #c0fffc;
 }
 
-.con_thuyen_ls img{
+.cang_bien img{
     width: 100%; 
     height: 100%;
     object-fit: contain;
