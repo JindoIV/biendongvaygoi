@@ -4,16 +4,23 @@ import * as image from "@/assets/Images/LySonMap";
 import Image from "next/image";
 import BoxInfoLySon from "../BoxInfoLySon/BoxInfoLySon";
 import { useState, useEffect } from "react";
-const LySonMap = () => {
+interface LySonMapProps{
+  closeMap: () => void;
+}
+
+const LySonMap = ({ closeMap }: LySonMapProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [currentPlace, setCurrentPlace] = useState<string>("");
   const [randomNumber, setRandomNumber] = useState<number>(0);
   const [showStar, setShowStar] = useState<boolean>(false);
   const [points, setPoints] = useState<number>(0);
 
+
   useEffect(() => {
     setRandomNumber(Math.floor(Math.random() * 10) + 1);
   }, []);
+
+
 
   const displayBoxInfo = (place: string, number: number) => {
     if (number === randomNumber) {
@@ -25,7 +32,7 @@ const LySonMap = () => {
       setPoints(points + 1);
 
 
-      }, 3400);
+      }, 5200);
     } else {
       setShowStar(false);
     }
@@ -36,6 +43,7 @@ const LySonMap = () => {
   const closeModal = () => {
     setIsOpen(false);
   };
+
 
   const places = [
     { className: "dinh_lang", label: "Đình Làng An Hải", img: image.dinh_lang, place: "dinh_lang", number: 1 },
@@ -50,6 +58,7 @@ const LySonMap = () => {
     { className: "cang_bien", label: "Cảng Lý Sơn", img: image.cang, place: "cang_LS", number: 10 },
   ];
 
+
   return (
     <>
       <div className={`background ${isOpen ? 'blur' : ''}`}> 
@@ -60,8 +69,13 @@ const LySonMap = () => {
           </div>
         ))}
       </div>
+
       <div className="points">Points: {points}</div>
+      <div className="btnX" onClick={closeMap}>
+        <Image src={image.btn_thoat} alt=""></Image>
+      </div>
       <BoxInfoLySon open={isOpen} place={currentPlace} showStar={showStar} closeModal={closeModal}/>
+        
     </>
   );
 };

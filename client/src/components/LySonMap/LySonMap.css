@@ -234,23 +234,31 @@
     cursor: pointer;
 }
 
-.cang_ly_son{
-    position: absolute;
-    top: 520px;
-    left: 360px;
-    width: 50px;
-    color: #fff;
-    font-size: 14px;
-    cursor: pointer;
-}
-
 .image_LSMap img{
     width: 100%; 
     height: 100%;
     object-fit: contain;
     scale: 1;
-    transition: 0.5s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
+.btnX{
+    position: absolute;
+    bottom: 5%;
+    right: 3%;
+    width: 7%;
+    scale: 1;
+    transition: 0.5s ease-in-out;
+  }
+  
+  .btnX:hover{
+    scale: 1.3;
+  }
+  
+  .btnX img{
+    width: 100%; 
+    height: 100%;
+    object-fit: contain;
+  }
 
 .image_LSMap img:hover{
     scale: 1.2;
@@ -265,5 +273,6 @@
 .image_LSMap p:hover{
     filter: drop-shadow(0 0 5px yellow);
 }
+
 
 

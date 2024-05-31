@@ -54,7 +54,7 @@
 
 .background_Login.zoom_st3:before {
   transform-origin: 45% 97%;
-  transition: 4s ease-out 1s;
+  transition: 4s ease-out 2s;
 }
 
 .background_Login.zoom_st4:before {
@@ -198,7 +198,7 @@
   left: 55%;
   transform: translate(-50%, -50%);
   width: 8%;
-  animation: pathThird 4s forwards 1s;
+  animation: pathThird 4s forwards 2.5s;
 }
 
 @keyframes pathThird {
