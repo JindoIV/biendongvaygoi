@@ -11,6 +11,7 @@ import Loading from "@/components/Loading/Loading";
 import Question from "@/types/question";
 import Stage1 from "@/app/(homepage)/_components/stage1";
 import Stage2 from "@/app/(homepage)/_components/stage2";
+import Stage3 from "@/app/(homepage)/_components/stage3";
 
 export default function HomePage() {
   const [loadingState, setLoadingState] = useState<boolean>(true);
@@ -23,7 +24,7 @@ export default function HomePage() {
 
   const handleButtonClick = () => {
     setIsZoom(true);
-    setStage(1);
+    setStage(2);
 
     setTimeout(() => {
       setShowTick(true);
@@ -101,7 +102,13 @@ export default function HomePage() {
     let a = stage;
     a++;
     setStage(a);
+    console.log(stage);
   };
+
+  const changeNewStage = () =>{
+    setStage(stage + 1);
+    console.log(stage);
+  }
 
   return (
     <>
@@ -111,11 +118,11 @@ export default function HomePage() {
         <>
           {/* <VisualNovel></VisualNovel> */}
           <div
-            className={`${getZoomClass()} ${stage == 2 ? style.aniGoLySon : ""} ${style.background_Login} ${
+            className={`${getZoomClass()} ${stage == 2 ? style.aniGoLySon : ""} ${stage == 3 ? style.aniGoTrSa : ""} ${style.background_Login} ${
               isZoom ? style.zoom : ""
             }`}
           >
-            <button onClick={st2}>aaa</button>
+            {/* <button onClick={st2}>aaa</button> */}
 
             <div
               className={`${style.logo} ${isZoom ? style.display_none : ""}`}
@@ -146,23 +153,21 @@ export default function HomePage() {
             )}
             {stage == 2 && (
               <>
-                <Stage2></Stage2>
+                <Stage2 onSt2Close={changeNewStage}></Stage2>
               </>
             )}
             {stage == 3 && (
               <>
-                <Stage2></Stage2>
+                <Stage3 onSt3Close={changeNewStage}></Stage3>
               </>
             )}
 
             {stage == 4 && (
               <>
-                <Stage2></Stage2>
               </>
             )}
             {stage == 5 && (
               <>
-                <Stage2></Stage2>
               </>
             )}
           </div>

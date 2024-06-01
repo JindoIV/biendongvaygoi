@@ -1,0 +1,58 @@
+CREATE TABLE questionSinhTon
+    question TEXT,
+    options TEXT,
+    correctAnswer SMALLINT,
+    Image TEXT,
+    explanation TEXT NULL
+);
+
+INSERT INTO questionSinhTon (question, options, correctAnswer, Image, explanation) VALUES
+(
+    'Việt Nam công nhận chủ quyền với đảo Sinh Tồn vào năm nào?',
+    '1890|1945|2023|1975',
+    3,
+    '',
+    'Đảo Sinh Tồn được giải phóng và công nhận chủ quyền bởi Việt Nam vào ngày 28/4/1975.'
+),
+(
+    'Loài cây đặc trưng ở đảo Sinh Tồn là cây gì?',
+    'Cây roi mây|Cây bàng vuông|Cây diêu bông|Cây Pi Ai',
+    1,
+    'image/path',
+    'Điều kiện đảo Sinh Tồn vô cùng khắc nghiệt, nhưng cây bàng vuông vẫn mọc rất nhiều trên đảo.'
+),
+(
+    'Đảo Sinh Tồn thuộc quần đảo nào?',
+    'Quần đảo Hoàng Sa|Quần đảo Trường Sa|Quần đảo Trường Sơn|Quần đảo Hoàng Thành',
+    1,
+    '',
+    'Đảo Sinh Tồn là một bãi đá cùng với các cụm đảo lân cận thuộc quần đảo Trường Sa.'
+),
+(
+    'Đảo nào sau đây là 1 trong 5 đảo được giải phóng sớm nhất trên quần đảo Trường Sa?',
+    'Đảo Ngược|Đảo Sương Mù|Đảo Quân Sự|Đảo Sinh Tồn',
+    3,
+    '',
+    'Năm 1975, đảo Sinh Tồn được giải phóng và công nhận là đảo thuộc chủ quyền Việt Nam.'
+),
+(
+    'Việt Nam đóng quân tại đảo Sinh Tồn từ ngày mấy?',
+    '17/3/1978|22/12/1975|30/10/2008|23/4/2006',
+    0,
+    '',
+    'Hải quân Việt Nam bắt đầu đóng quân tại đây từ ngày 17 tháng 3 năm 1978.'
+),
+(
+    'Đảo Sinh Tồn có mấy mùa gió chính?',
+    '2|3|4|5',
+    0,
+    '',
+    'Đảo Sinh Tồn có 2 mùa gió chính là đông bắc và tây nam.'
+),
+(
+    'Đảo Sinh Tồn trải dài theo hướng gì?',
+    'Tây Bắc|Đông Bắc|Đông Tây|Tây Nam',
+    2,
+    '',
+    'Hai đầu của đảo theo hướng đông tây có hai dải cát di chuyển theo mùa sóng gió.'
+);
