@@ -4,7 +4,6 @@ import "./VisualNovel.css";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Khung_Thoai from "../../assets/Images/Khung_Thoai.png";
-import Typewriter from "typewriter-effect";
 import Button from "antd/es/button";
 import { CaretRightOutlined } from "@ant-design/icons";
 import { ConfigProvider } from "antd";
@@ -20,7 +19,7 @@ const Thoai = [
   {
     character: "Hướng dẫn viên Ngân",
     content:
-      "Xin chào các bạn, chị là A cũng là hướng dẫn viên du lịch đồng hành cùng các em vào lần trải nghiệm này. ",
+      "Xin chào các bạn, chị là Ngân cũng là hướng dẫn viên du lịch đồng hành cùng các em vào lần trải nghiệm này. ",
   },
   {
     character: "Hướng dẫn viên Ngân",
@@ -43,35 +42,51 @@ const Thoai = [
 ];
 
 const VisualNovel = ({ open, onClose }: ModalAction) => {
-  //   const [modalConfirm, setModalConfirm] = useState<boolean>(true);
-
-  const [character, setCharacter] = useState<string>();
-  const [content, setContent] = useState<string>();
-
+  const [character, setCharacter] = useState<string>("");
+  const [content, setContent] = useState<string>("");
   const [stageThoai, setStageThoai] = useState<number>(0);
+  const typewriterRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setCharacter(Thoai[0].character);
-    setContent(Thoai[0].content);
-  }, []);
-
-  useEffect(() => {
-    if (stageThoai < 3) {
-      setCharacter(Thoai[stageThoai].character);
-      setContent(Thoai[stageThoai].content);
-    }
+    setCharacter(Thoai[stageThoai].character);
+    setContent(Thoai[stageThoai].content);
   }, [stageThoai]);
 
-  const typewriterRef = useRef<any>(null);
+  // useEffect(() => {
+  //   if (typewriterRef.current) {
+  //     typewriterRef.current.innerHTML = "";
+  //   }
+  // }, []);
 
   useEffect(() => {
-    if (typewriterRef.current) {
-      typewriterRef.current
-        .deleteAll(20)
-        .pasteString(content ?? "")
-        .start();
+    if (open) {
+      initText();
     }
+  }, [open]);
+
+  useEffect(() => {
+    typeTextEffect(content);
   }, [content]);
+
+  const initText = () => {
+    setCharacter(Thoai[0].character);
+    typeTextEffect(Thoai[0].content);
+    return <></>;
+  };
+
+  const typeTextEffect = (text: string = "") => {
+    if (typewriterRef.current) {
+      typewriterRef.current.innerHTML = "";
+    }
+    const speed = 50;
+    for (let i = 0; i < text.length; i++) {
+      setTimeout(() => {
+        if (typewriterRef.current) {
+          typewriterRef.current.innerHTML += text.charAt(i);
+        }
+      }, speed * i);
+    }
+  };
 
   const colors1 = ["#3300FF", "#04BEFE"];
   const colors2 = ["#FF0000", "#8B1A1A"];
@@ -109,14 +124,7 @@ const VisualNovel = ({ open, onClose }: ModalAction) => {
             <div className="RoleVisualNovel">
               <span>{character}</span>
             </div>
-            <div className="ContentVisualNovel">
-              <Typewriter
-                onInit={(typewriter) => {
-                  typewriterRef.current = typewriter;
-                  typewriter.typeString(content ?? "").start();
-                }}
-              />
-            </div>
+            <div className="ContentVisualNovel" ref={typewriterRef}></div>
             <div className="ButtonNextVisualNovel">
               <ConfigProvider
                 theme={{

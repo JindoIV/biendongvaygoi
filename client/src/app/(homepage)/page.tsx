@@ -97,12 +97,6 @@ export default function HomePage() {
     }
   };
 
-  const st2 = () => {
-    let a = stage;
-    a++;
-    setStage(a);
-  };
-
   return (
     <>
       {loadingState ? (
@@ -111,11 +105,11 @@ export default function HomePage() {
         <>
           {/* <VisualNovel></VisualNovel> */}
           <div
-            className={`${getZoomClass()} ${stage == 2 ? style.aniGoLySon : ""} ${style.background_Login} ${
-              isZoom ? style.zoom : ""
-            }`}
+            className={`${getZoomClass()} ${
+              stage == 2 ? style.aniGoLySon : ""
+            } ${style.background_Login} ${isZoom ? style.zoom : ""}`}
           >
-            <button onClick={st2}>aaa</button>
+            {/* <button onClick={st2}>aaa</button> */}
 
             <div
               className={`${style.logo} ${isZoom ? style.display_none : ""}`}
