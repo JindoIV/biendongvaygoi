@@ -13,7 +13,7 @@ const Stage2 = ({ onSt2Close }: Stage2Props) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowMap(true);
-    }, 10000);
+    }, 9900);
 
     return () => clearTimeout(timer); 
   }, []);

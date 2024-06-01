@@ -1,8 +1,6 @@
-.click {
-  position: absolute;
-  top: 70%;
-  left: 45%;
-  transform: translate(-50%, -50%);
+.aaa{
+  position: fixed;
+  top: 0;
 }
 
 .background_Login {
@@ -10,45 +8,40 @@
   position: relative;
   min-width: 100vw;
   min-height: 100vh;
-  background-color: #7b3624;
-  background-image: url("../../../assets/Images/Ban\ Do\ Vn.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  scale: 1;
+  &:before {
+    background-color: #7B3624;
+    content: "";
+    background-image: url("../../../assets/Images/Ban\ Do\ Vn.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    scale: 1;
+  }
 }
 
-.background_Login.zoom_st1 {
+
+
+
+.background_Login.zoom_st1:before {
   transform-origin: 33% 100%;
   transition: transform 1.5s ease-out 2.5s;
 }
 
-.background_Login.zoom_st2 {
-  transform-origin: 39% 56%;
-}
-
-.zoom_1{
-  scale: 1;
-}
-
-.aniGoLySon {
-  scale: 2.5;
+.background_Login.zoom_st2:before {
+  transform-origin: 32% 56%;
   transition: 3s ease-out 3.7s;
+}
+
+.aniGoLySon{
   animation: goLySon 2s alternate 8s;
 }
 
-@keyframes goLySon {
-  0% {
-    scale: 2.5;
-    opacity: 1;
-  }
-  100% {
-    scale: 5;
-    opacity: 0.5;
-  }
-}
-
-@keyframes goTrSa {
+@keyframes goLySon{
   0% {
     scale: 1;
     opacity: 1;
@@ -59,39 +52,42 @@
   }
 }
 
-.background_Login.zoom_st3 {
+@keyframes goTrSa{
+  0% {
+    scale: 1;
+    opacity: 1;
+  }
+  100% {
+    scale: 2;
+    opacity: 0.5;
+  }
+}
+
+
+.background_Login.zoom_st3:before {
   transform-origin: 45% 97%;
   transition: 4s ease-out 2s;
 }
 
-.aniGoTrSa {
+.aniGoTrSa{
   transform-origin: 78% 87%;
   animation: goTrSa 2s alternate 7.5s;
 }
 
-.background_Login.zoom_st4 {
+.background_Login.zoom_st4:before {
   transform-origin: 33% 100%;
   transition: 4s ease-out 2.5s;
 }
 
-.background_Login.zoom_st5 {
+.background_Login.zoom_st5:before {
   transform-origin: 33% 100%;
   transition: 4s ease-out 2.5s;
 }
 
-.background_Login.zoom {
-  animation: scaleMainMap 2s forwards;
-}
+.background_Login.zoom:before {
+  scale: 2.5;
 
-@keyframes scaleMainMap{
-  0%{
-      scale: 1;
-  }
-  100%{
-      scale: 2.5;
-  }
 }
-
 
 .logo {
   width: 30vw;
@@ -114,6 +110,8 @@
     scale: 1.2;
   }
 }
+
+
 
 .logo img {
   width: 100%;
@@ -158,82 +156,32 @@
   opacity: 0;
 }
 
-.mainDiaDiem img {
+
+.mainDiaDiem img{
   width: 100%;
   height: 100%;
   object-fit: contain;
   scale: 1;
-  transition: 0.5s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
-.mainDiaDiem img:hover{
-  scale: 1.3;
-  filter: drop-shadow(0 0 5px yellow);
-}
-
-.mainDiaDiem p {
+.ruongBT{
   position: absolute;
-  width: 120px;
-  font-size: 14px;
-}
-
-.ruongBT p{
-  position: absolute;
-  top: 25px;
-}
-
-.canTho{
-  position: absolute;
-  top: 84%;
+  top: 12%;
   left: 28%;
-  transform: translate(-50%, -50%);
-}
-
-.conDao{
-  position: absolute;
-  top: 91%;
-  left: 33%;
-  transform: translate(-50%, -50%);
-}
-
-.lySon{
-  position: absolute;
-  top: 51%;
-  left: 41%;
-  transform: translate(-50%, -50%);
-}
-
-.trSa{
-  position: absolute;
-  top: 80%;
-  left: 56%;
-  transform: translate(-50%, -50%);
-}
-
-.hSa{
-  position: absolute;
-  top: 40%;
-  left: 44%;
-  transform: translate(-50%, -50%);
-}
-
-.ruongBT {
-  position: absolute;
-  top: 15%;
-  left: 24.5%;
   transform: translate(-50%, -50%);
   width: 5%;
 }
 
-.thapTH {
+.thapTH{
   width: 3%;
   top: 70%;
-  left: 39%;
+  left: 40%;
   position: absolute;
   transform: translate(-50%, -50%);
 }
 
-.nhaThoDB {
+.nhaThoDB{
   width: 3%;
   top: 75%;
   left: 33%;
@@ -243,8 +191,8 @@
 
 .boat_img_st_1 {
   position: absolute;
-  top: 85%;
-  left: 31.5%;
+  top: 59%;
+  left: 23%;
   transform: translate(-50%, -50%);
   width: 8%;
   animation: pathFirst 5s forwards 2s, fadeIn 1.2s forwards;
@@ -261,8 +209,8 @@
 
 @keyframes pathFirst {
   100% {
-    top: 92.5%;
-    left: 33%;
+    top: 79%;
+    left: 28%;
     transform: translate(-50%, -50%);
   }
 }
@@ -271,26 +219,27 @@
 
 .boat_img_st_2 {
   position: absolute;
-  top: 92.5%;
-  left: 33%;
+  top: 79%;
+  left: 28%;
   transform: translate(-50%, -50%);
   width: 8%;
-  animation: pathSecond 6s forwards 1s;
+  animation: pathSecond 4s forwards 1s;
 }
 
 @keyframes pathSecond {
-  60% {
-    top: 75%;
-    left: 45%;
+  0% {
+    top: 79%;
+    left: 28%;
     transform: translate(-50%, -50%);
   }
-
   100% {
-    top: 55%;
-    left: 43%;
+    top: 50%;
+    left: 55%;
     transform: translate(-50%, -50%);
   }
 }
+
+
 
 .boat_img_st_3 {
   position: absolute;
@@ -359,31 +308,17 @@
 }
 
 .boat_img img {
-  width: 50%;
-  height: 50%;
-}
-
-.tick_img img {
-  width: 50%;
-  height: 50%;
+  width: 100%;
+  height: 100%;
 }
 
 .tick_img {
   position: absolute;
-  top: 84%;
-  left: 29.5%;
+  top: 79%;
+  left: 32%;
   transform: translate(-50%, -50%);
-  width: 3.5%;
-  animation: fadeIn 1.2s forwards, bounce 1.2s infinite alternate, fadeOut 1.2s forwards 3s;
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+  width: 7%;
+  animation: fadeIn 1.2s forwards, bounce 1.2s infinite alternate;
 }
 
 .tick_img img {
@@ -396,78 +331,27 @@
 // }
 
 @media not all and (min-aspect-ratio: 1.8) {
-  .ruongBT {
-    top: 21%;
-  }
-  
-  .thapTH {
-    top: 67%;
-  }
-  
-  .nhaThoDB {
-    top: 71%;
-  }
-  
-.canTho{
-  top: 78.7%;
-}
-
-.conDao{
-  top: 84.6%;
-}
-
-.lySon{
-  top: 51%;
-}
-
-.trSa{
-  top: 75.3%;
-}
-
-.hSa{
-  top: 40%;
-}
-
-.tick_img {
-  top: 78.5%;
-}
-
-  .background_Login.zoom_st1 {
-    transform-origin: 33% 90%;
-  }
-  
   .boat_img_st_1 {
-    top: 79.5%;
-    left: 31.5%;
+    top: 56.5%;
+    left: 23%;
+    transform: translate(-50%, -50%);
+  }
+
+  .tick_img {
+    top: 73%;
+    left: 32%;
     transform: translate(-50%, -50%);
   }
 
   @keyframes pathFirst {
     100% {
-      top: 86%;
-      left: 33%;
+      top: 75%;
+      left: 28%;
       transform: translate(-50%, -50%);
     }
   }
-  
-  .boat_img_st_2 {
-      top: 86%;
-      left: 33%;
-      transform: translate(-50%, -50%);
-  }
-  
-  @keyframes pathSecond {
-    60% {
-      top: 71.1%;
-      left: 44%;
-      transform: translate(-50%, -50%);
-    }
-    100% {
-      top: 54.4%;
-      left: 43.2%;
-      transform: translate(-50%, -50%);
-    }
-  }
-  
 
+  .background_Login::before {
+    transform-origin: 33% 93%;
+  }
 }
