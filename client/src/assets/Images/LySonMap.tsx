@@ -18,8 +18,8 @@ export { default as chuaHang2 } from "./CHUA HANG.2.png";
 export { default as cotCo1 } from "./COT CO TO QUOC.1.png";
 export { default as cotCo2 } from "./COT CO TO QUOC.2.png";
 
-export { default as anHai1 } from "./DINH LANG AN HAI.1.png";
-export { default as anHai2 } from "./DINH LANG AN HAI.2.png";
+export { default as anHai1 } from "./dinhlanganhai(1)(1).png";
+export { default as anHai2 } from "./dinh-lang-an-hai-ly-son-2(1)(1).png";
 
 export { default as anVinh1 } from "./DINH LANG AN VINH.1.jpg";
 export { default as anVinh2 } from "./DINH LANG AN VINH.2.jpg";

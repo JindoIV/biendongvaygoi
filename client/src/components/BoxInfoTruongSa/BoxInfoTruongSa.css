@@ -145,24 +145,35 @@
   white-space: pre-line;
 }
 
-.imageContainer{
+.imageContainerTS{
   display: flex;
+  align-items: flex-start;
 }
 
-.imageContainer > *{
+.imageContainerTS > *{
   width: 50%;
+  padding: 5px;
 }
 
-.imageContainer img{
-  height: 100%;
-  padding: 5px;
+.imageContainerTS img{
   object-fit: contain;
 }
 
 .xemTiep{
+  background-image: url('../../assets/Images/Mui\ Ten.png');
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-width: 8%;
+  min-height: 8%;
   position: absolute;
   bottom: 20px;
   right: 30px;
-  text-decoration: underline;
   cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+.xemTiep:hover{
+  background-image: url('../../assets/Images/Mui\ Ten\ hover.png');
+
 }
