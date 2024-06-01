@@ -33,13 +33,13 @@
   position: absolute;
   top: 0%;
   bottom: 0%;
-  left: 0;
-  right: 0;
+  left: 10%;
+  right: 10%;
   z-index: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* display: grid;
+  grid-template-columns: 0.8fr 0.8fr 0.8fr;
   grid-auto-flow: column;
-  gap: 40%;
+  gap: 0%; */
 }
 
 .ModalVisualNovel {
@@ -59,10 +59,10 @@
 }
 
 .ImageCharacter2VisualNovel {
-  min-height: 100%;
+  /* min-height: 100%; */
   background-image: url("../../assets/Images/Nhan vat chinh(sua).png");
   background-size: contain;
-  background-size: 70%;
+  background-size: 30%;
   background-position: bottom center;
   background-repeat: no-repeat;
   transform: rotateY(180deg);
@@ -70,9 +70,10 @@
 }
 
 .ImageCharacter1VisualNovel {
-  min-height: 100%;
+  /* min-height: 100%; */
   background-image: url("../../assets/Images/Huong\ dan\ vien.png");
   background-size: contain;
+  background-size: 40%;
   background-position: bottom center;
   background-repeat: no-repeat;
   border: none;

@@ -27,7 +27,7 @@ export default function HomePage() {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [stage2Class, setStage2Class] = useState(style.aniGoLySon);
 
-  const handleButtonClick = () => {
+  const handleBtnStart = () => {
     setIsLogo(true);
     setStage(1);
 
@@ -101,18 +101,9 @@ export default function HomePage() {
     }
   };
 
-  const st2 = () => {
-    let a = stage;
-    a++;
-    setStage(a);
-    console.log(stage);
-  };
-
   const changeNewStage = () => {
-    let a = stage;
-    a++;
     setStage(stage + 1);
-    console.log(stage);
+    // console.log(stage);
     if (stage == 1) {
       setIsZoom(false);
     }
@@ -142,7 +133,7 @@ export default function HomePage() {
               </div>
               <button
                 className={`${style.button_start}`}
-                onClick={handleButtonClick}
+                onClick={handleBtnStart}
               >
                 Bắt Đầu
               </button>
@@ -175,17 +166,20 @@ export default function HomePage() {
               <p>Đảo Hoàng Sa</p>
             </div>
 
-            {stage == 1 && showTick && (
+            {stage == 1 && (
               <>
-                <div className={`${style.tick_img}`}>
-                  <Image src={tick} alt=""></Image>
-                </div>
-              </>
-            )}
-
-            {stage == 1 && showBoat && (
-              <>
-                <Stage1 open={modalState} onClose={setModalState}></Stage1>
+                {showTick && (
+                  <>
+                    <div className={`${style.tick_img}`}>
+                      <Image src={tick} alt=""></Image>
+                    </div>
+                  </>
+                )}
+                {showBoat && (
+                  <>
+                    <Stage1 open={modalState} onClose={setModalState}></Stage1>
+                  </>
+                )}
               </>
             )}
             {stage == 2 && (
