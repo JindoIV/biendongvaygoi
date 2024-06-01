@@ -72,7 +72,7 @@
   width: 77%;
   padding: 30px;
 }
-
+/* 
 .starImage{
   position: absolute;
   top: 0%;
@@ -103,14 +103,14 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-}
+}*/
 
 .box h1{
   color: rgb(0, 117, 184);
   font-weight: bold;
   padding-bottom: 10px;
   font-size: 30px;
-}
+} 
 
 .box p{
   color: #333;
@@ -147,7 +147,6 @@
 
 .imageContainer{
   display: flex;
-  align-items: flex-start;
 }
 
 .imageContainer > *{
@@ -160,3 +159,10 @@
   object-fit: contain;
 }
 
+.xemTiep{
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  text-decoration: underline;
+  cursor: pointer;
+}

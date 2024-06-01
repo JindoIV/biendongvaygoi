@@ -1,0 +1,45 @@
+CREATE TABLE questionTruongSa 
+(
+    question TEXT,
+    options TEXT,
+    correctAnswer SMALLINT,
+    Image TEXT,
+    explanation TEXT NULL
+);
+
+INSERT INTO questionTruongSa (question, options, correctAnswer, Image, explanation) VALUES
+(
+    'Đảo Trường Sa Lớn thuộc địa phận của tỉnh thành nào sau đây?',
+    'Vũng Tàu| Bình Thuận| Đồng Nai| Khánh Hòa',
+    3,
+    '',
+    'Là một trong 9 đảo nổi thuộc quần đảo Trường Sa của Việt Nam, Trường Sa Lớn thuộc địa phận của huyện đảo Trường Sa, tỉnh Khánh Hòa.'
+),
+(
+    'Đảo Trường Sa Lớn còn có mệnh danh đặc biệt nào sau đây của tỉnh Khánh Hòa?',
+    'Thủ Đô| Pháo Đài| Lâu Đài |Hòn Ngọc Bích',
+    0,
+    '',
+    'Trường Sa Lớn được mệnh danh là “thủ đô” của huyện đảo Trường Sa, tỉnh Khánh Hòa.'
+),
+(
+    'Đâu là hòn đảo lớn nhất trong cụm đảo Trường Sa?',
+    'Đảo Sinh Tồn| Đảo Lý Sơn| Đảo Trường Sa Lớn| Đảo Kim Ngưu',
+    2,
+    '',
+    'Đảo lớn nhất trong 9 đảo Trường Sa.'
+),
+(
+    'Đảo Trường Sa Lớn có hình dạng như vật nào dưới đây?',
+    'Hình Vòng Xuyến| Hình Cong| Hình Mũi Giáo| Hình Tam Giác',
+    2,
+    'image/path',
+    'Đảo Trường Sa Lớn hình mũi giáo, có người lại nói trông giống như hình mũi của con tàu, hiên ngang, vững chãi giữa biển khơi.'
+),
+(
+    'Đảo Trường Sa Lớn cách quân cảng Cam Ranh bao nhiêu hải lí?',
+    'Khoảng 425 Hải Lí| Khoảng 452 Hải Lí| Khoảng 245 Hải Lí| Khoảng 254 Hải Lí',
+    3,
+    '',
+    ''
+);

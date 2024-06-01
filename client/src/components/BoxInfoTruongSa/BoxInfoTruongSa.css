@@ -72,7 +72,7 @@
   width: 77%;
   padding: 30px;
 }
-
+/* 
 .starImage{
   position: absolute;
   top: 0%;
@@ -103,14 +103,14 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-}
+}*/
 
 .box h1{
   color: rgb(0, 117, 184);
   font-weight: bold;
   padding-bottom: 10px;
   font-size: 30px;
-}
+} 
 
 .box p{
   color: #333;
@@ -145,18 +145,35 @@
   white-space: pre-line;
 }
 
-.imageContainer{
+.imageContainerTS{
   display: flex;
   align-items: flex-start;
 }
 
-.imageContainer > *{
+.imageContainerTS > *{
   width: 50%;
+  padding: 5px;
 }
 
-.imageContainer img{
-  height: 100%;
-  padding: 5px;
+.imageContainerTS img{
   object-fit: contain;
 }
 
+.xemTiep{
+  background-image: url('../../assets/Images/Mui\ Ten.png');
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-width: 8%;
+  min-height: 8%;
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+.xemTiep:hover{
+  background-image: url('../../assets/Images/Mui\ Ten\ hover.png');
+
+}

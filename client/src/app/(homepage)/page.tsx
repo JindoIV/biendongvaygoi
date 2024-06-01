@@ -2,8 +2,10 @@
 import Image from "next/image";
 import style from "./_components/homepage.module.scss";
 import { SetStateAction, Suspense, useEffect, useState } from "react";
-import img_txt from "../../assets/Images/biendongvaygoichu.png";
-import img_bg from "../../assets/Images/biendongvaygoinen.png";
+import logo from "../../assets/Images/Bien Dong Vay Goi.png";
+import ruongBT from "../../assets/Images/Ruong bac thang.png";
+import nhaThoBD from "../../assets/Images/Nha tho duc ba.png";
+import thapTH from "../../assets/Images/Thap tram huong-Khanh Hoa.png";
 import boat from "../../assets/Images/Con_thuyen.png";
 import boat_st4 from "../../assets/Images/Con_thuyen_nguoc.png";
 import tick from "../../assets/Images/nut_danh_dau.png";
@@ -11,6 +13,7 @@ import Loading from "@/components/Loading/Loading";
 import Question from "@/types/question";
 import Stage1 from "@/app/(homepage)/_components/stage1";
 import Stage2 from "@/app/(homepage)/_components/stage2";
+import Stage3 from "@/app/(homepage)/_components/stage3";
 
 export default function HomePage() {
   const [loadingState, setLoadingState] = useState<boolean>(true);
@@ -23,7 +26,7 @@ export default function HomePage() {
 
   const handleButtonClick = () => {
     setIsZoom(true);
-    setStage(1);
+    setStage(2);
 
     setTimeout(() => {
       setShowTick(true);
@@ -97,6 +100,18 @@ export default function HomePage() {
     }
   };
 
+  const st2 = () => {
+    let a = stage;
+    a++;
+    setStage(a);
+    console.log(stage);
+  };
+
+  const changeNewStage = () => {
+    setStage(stage + 1);
+    console.log(stage);
+  };
+
   return (
     <>
       {loadingState ? (
@@ -107,7 +122,9 @@ export default function HomePage() {
           <div
             className={`${getZoomClass()} ${
               stage == 2 ? style.aniGoLySon : ""
-            } ${style.background_Login} ${isZoom ? style.zoom : ""}`}
+            } ${stage == 3 ? style.aniGoTrSa : ""} ${style.background_Login} ${
+              isZoom ? style.zoom : ""
+            }`}
           >
             {/* <button onClick={st2}>aaa</button> */}
 
@@ -115,16 +132,7 @@ export default function HomePage() {
               className={`${style.logo} ${isZoom ? style.display_none : ""}`}
             >
               <div className={`${style.logo_img}`}>
-                <Image
-                  className={`${style.logo_txt}`}
-                  src={img_txt}
-                  alt={""}
-                ></Image>
-                <Image
-                  className={`${style.logo_bg}`}
-                  src={img_bg}
-                  alt={""}
-                ></Image>
+                <Image src={logo} alt={""}></Image>
               </div>
               <button
                 className={`${style.button_start}`}
@@ -133,6 +141,17 @@ export default function HomePage() {
                 Bắt Đầu
               </button>
             </div>
+            {/* <div className={`${style.mainDiaDiem}`}> */}
+            <div className={`${style.ruongBT} ${style.mainDiaDiem}`}>
+              <Image src={ruongBT} alt=""></Image>
+            </div>
+            <div className={`${style.thapTH} ${style.mainDiaDiem}`}>
+              <Image src={thapTH} alt=""></Image>
+            </div>
+            <div className={`${style.nhaThoDB} ${style.mainDiaDiem}`}>
+              <Image src={nhaThoBD} alt=""></Image>
+            </div>
+            {/* </div> */}
             {stage == 1 && showTick && (
               <>
                 <Stage1 open={modalState} onClose={setModalState}></Stage1>
@@ -140,25 +159,17 @@ export default function HomePage() {
             )}
             {stage == 2 && (
               <>
-                <Stage2></Stage2>
+                <Stage2 onSt2Close={changeNewStage}></Stage2>
               </>
             )}
             {stage == 3 && (
               <>
-                <Stage2></Stage2>
+                <Stage3 onSt3Close={changeNewStage}></Stage3>
               </>
             )}
 
-            {stage == 4 && (
-              <>
-                <Stage2></Stage2>
-              </>
-            )}
-            {stage == 5 && (
-              <>
-                <Stage2></Stage2>
-              </>
-            )}
+            {stage == 4 && <></>}
+            {stage == 5 && <></>}
           </div>
           {/* <VisualNovel
             open={modalState}

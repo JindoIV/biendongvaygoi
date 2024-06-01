@@ -2,25 +2,35 @@
 import style from "../homepage.module.scss";
 import Image from "next/image";
 import boat from "../../../../assets/Images/Con_thuyen.png";
-import VisualNovel from "@/components/VisualNovel1/VisualNovel";
-import { Dispatch, SetStateAction } from "react";
-
-interface Stage1 {
-  open: boolean;
-  onClose: Dispatch<SetStateAction<boolean>>;
+import { useEffect, useState } from "react";
+import TruongSaMap from "@/components/TruongSaMap/TruongSaMap";
+interface Stage3Props {
+  onSt3Close: () => void; 
 }
+const Stage3 = ({ onSt3Close }: Stage3Props) => {
+  const[showMap, setShowMap] = useState<boolean>(false);
 
-const Stage1 = ({ open, onClose }: Stage1) => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowMap(true);
+    }, 9500);
+
+    return () => clearTimeout(timer); 
+  }, []);
+
+  const handleCloseMap = () =>{
+    setShowMap(false);
+    // onMapClose();
+  }
+
   return (
     <>
-      <div>
-        <div className={`${style.boat_img_st_1} ${style.boat_img}`}>
+        <div className={`${style.boat_img_st_3} ${style.boat_img}`}>
           <Image src={boat} alt={""} />
         </div>
-      </div>
-      <VisualNovel open={open} onClose={() => onClose(false)}></VisualNovel>
+        {showMap && <TruongSaMap closeMap={handleCloseMap}/>}
     </>
   );
 };
 
-export default Stage1;
+export default Stage3;
