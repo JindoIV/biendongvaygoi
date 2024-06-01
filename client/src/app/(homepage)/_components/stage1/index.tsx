@@ -18,7 +18,7 @@ const Stage1 = ({ open, onClose }: Stage1) => {
           <Image src={boat} alt={""} />
         </div>
       </div>
-      {/* <VisualNovel open={open} onClose={() => onClose(false)}></VisualNovel> */}
+      <VisualNovel open={open} onClose={() => onClose(false)}></VisualNovel>
     </>
   );
 };

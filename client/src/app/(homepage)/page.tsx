@@ -27,7 +27,7 @@ export default function HomePage() {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [stage2Class, setStage2Class] = useState(style.aniGoLySon);
 
-  const handleButtonClick = () => {
+  const handleBtnStart = () => {
     setIsLogo(true);
     setStage(1);
 
@@ -79,11 +79,10 @@ export default function HomePage() {
     if (stage === 2) {
       timer = setTimeout(() => {
         setStage2Class(style.zoom_1);
-      }, 10000); 
+      }, 10000);
     }
     return () => clearTimeout(timer);
   }, [stage]);
-
 
   const getZoomClass = () => {
     switch (stage) {
@@ -102,22 +101,13 @@ export default function HomePage() {
     }
   };
 
-  const st2 = () => {
-    let a = stage;
-    a++;
-    setStage(a);
-    console.log(stage);
-  };
-
-  const changeNewStage = () =>{
-    let a = stage;
-    a++;
+  const changeNewStage = () => {
     setStage(stage + 1);
-    console.log(stage);
-    if(stage == 1){
+    // console.log(stage);
+    if (stage == 1) {
       setIsZoom(false);
     }
-  }
+  };
 
   return (
     <>
@@ -127,68 +117,69 @@ export default function HomePage() {
         <>
           {/* <VisualNovel></VisualNovel> */}
           <div
-            className={`${getZoomClass()} ${stage == 2 ? stage2Class  : ""} ${stage == 3 ? style.aniGoTrSa : ""} ${style.background_Login} ${
-              isZoom ? style.zoom : ""
-            }`}
+            className={`${getZoomClass()} ${stage == 2 ? stage2Class : ""} ${
+              stage == 3 ? style.aniGoTrSa : ""
+            } ${style.background_Login} ${isZoom ? style.zoom : ""}`}
           >
-            <button className={`${style.click}`} onClick={changeNewStage}>aaa</button>
+            <button className={`${style.click}`} onClick={changeNewStage}>
+              aaa
+            </button>
 
             <div
               className={`${style.logo} ${isLogo ? style.display_none : ""}`}
             >
               <div className={`${style.logo_img}`}>
-                
-                <Image
-                  src={logo}
-                  alt={""}
-                ></Image>
+                <Image src={logo} alt={""}></Image>
               </div>
               <button
                 className={`${style.button_start}`}
-                onClick={handleButtonClick}
+                onClick={handleBtnStart}
               >
                 Bắt Đầu
               </button>
             </div>
-              <div className={`${style.ruongBT} ${style.mainDiaDiem}`}>
-                <Image src={ruongBT} alt=""></Image>
-                <p>Điện Biên</p>
-              </div>
-              <div className={`${style.thapTH} ${style.mainDiaDiem}`}>
-                <Image src={thapTH} alt=""></Image>
-                <p>Khánh Hòa</p>
-              </div>
-              <div className={`${style.nhaThoDB} ${style.mainDiaDiem}`}>
-                <Image src={nhaThoBD} alt=""></Image>
-                <p>TP. Hồ Chí Minh</p>
-              </div>
-              <div className={`${style.canTho} ${style.mainDiaDiem}`}>
-                <p>Cần Thơ</p>
-              </div>
-              <div className={`${style.conDao} ${style.mainDiaDiem}`}>
-                <p>Côn Đảo</p>
-              </div>
-              <div className={`${style.lySon} ${style.mainDiaDiem}`}>
-                <p>Đảo Lý Sơn</p>
-              </div>
-              <div className={`${style.trSa} ${style.mainDiaDiem}`}>
-                <p>Đảo Trường Sa</p>
-              </div>
-              <div className={`${style.hSa} ${style.mainDiaDiem}`}>
-                <p>Đảo Hoàng Sa</p>
-              </div>
+            <div className={`${style.ruongBT} ${style.mainDiaDiem}`}>
+              <Image src={ruongBT} alt=""></Image>
+              <p>Điện Biên</p>
+            </div>
+            <div className={`${style.thapTH} ${style.mainDiaDiem}`}>
+              <Image src={thapTH} alt=""></Image>
+              <p>Khánh Hòa</p>
+            </div>
+            <div className={`${style.nhaThoDB} ${style.mainDiaDiem}`}>
+              <Image src={nhaThoBD} alt=""></Image>
+              <p>TP. Hồ Chí Minh</p>
+            </div>
+            <div className={`${style.canTho} ${style.mainDiaDiem}`}>
+              <p>Cần Thơ</p>
+            </div>
+            <div className={`${style.conDao} ${style.mainDiaDiem}`}>
+              <p>Côn Đảo</p>
+            </div>
+            <div className={`${style.lySon} ${style.mainDiaDiem}`}>
+              <p>Đảo Lý Sơn</p>
+            </div>
+            <div className={`${style.trSa} ${style.mainDiaDiem}`}>
+              <p>Đảo Trường Sa</p>
+            </div>
+            <div className={`${style.hSa} ${style.mainDiaDiem}`}>
+              <p>Đảo Hoàng Sa</p>
+            </div>
 
-              {stage == 1 && showTick && (
+            {stage == 1 && (
               <>
-              <div className={`${style.tick_img}`}>
-              <Image src={tick} alt=""></Image>
-              </div>
-              </>
-            )}
-
-            {stage == 1 && showBoat && (
-              <>
-                <Stage1 open={modalState} onClose={setModalState}></Stage1>
+                {showTick && (
+                  <>
+                    <div className={`${style.tick_img}`}>
+                      <Image src={tick} alt=""></Image>
+                    </div>
+                  </>
+                )}
+                {showBoat && (
+                  <>
+                    <Stage1 open={modalState} onClose={setModalState}></Stage1>
+                  </>
+                )}
               </>
             )}
             {stage == 2 && (
@@ -202,14 +193,8 @@ export default function HomePage() {
               </>
             )}
 
-            {stage == 4 && (
-              <>
-              </>
-            )}
-            {stage == 5 && (
-              <>
-              </>
-            )}
+            {stage == 4 && <></>}
+            {stage == 5 && <></>}
           </div>
           {/* <VisualNovel
             open={modalState}
