@@ -8,6 +8,8 @@ export { default as cang } from "./Cang bien.png";
 export { default as star } from "./Star.png";
 export { default as btn_thoat } from "./Nut Thoat.png";
 
+export { default as trungga } from "./trungga.png";
+
 export { default as cangSK } from "./Cang-Ly-Son.jpg";
 export { default as cangSK2 } from "./CANG SA KY.2.png";
 
