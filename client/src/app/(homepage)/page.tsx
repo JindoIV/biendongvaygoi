@@ -26,7 +26,7 @@ export default function HomePage() {
 
   const handleButtonClick = () => {
     setIsZoom(true);
-    setStage(2);
+    setStage(1);
 
     setTimeout(() => {
       setShowTick(true);

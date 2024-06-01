@@ -44,6 +44,7 @@ const Thoai = [
 const VisualNovel = ({ open, onClose }: ModalAction) => {
   const [character, setCharacter] = useState<string>("");
   const [content, setContent] = useState<string>("");
+  const [isTextWrite, setIsTextWrite] = useState<boolean>(false);
   const [stageThoai, setStageThoai] = useState<number>(0);
   const typewriterRef = useRef<HTMLDivElement>(null);
 
