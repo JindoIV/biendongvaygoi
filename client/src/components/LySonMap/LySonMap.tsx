@@ -61,16 +61,16 @@ const LySonMap = ({ closeMap }: LySonMapProps) => {
 
   return (
     <>
-      <div className={`background ${isOpen ? 'blur' : ''}`}> 
+      <div className={`backgroundLS ${isOpen ? 'blur' : ''}`}> 
       {places.map(({ className, label, img, place, number }) => (
           <div key={place} className={`${className} image_LSMap`} onClick={() => displayBoxInfo(place, number)}>
             <Image src={img} alt="" />
             <p>{label}</p>
           </div>
         ))}
-      </div>
 
       <div className="points">Points: {points}</div>
+      </div>
       <div className="btnX" onClick={closeMap}>
         <Image src={image.btn_thoat} alt=""></Image>
       </div>

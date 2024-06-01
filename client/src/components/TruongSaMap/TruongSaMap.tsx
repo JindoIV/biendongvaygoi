@@ -3,9 +3,13 @@ import "./TruongSaMap.css";
 import * as image from "@/assets/Images/TruongSaMap";
 import Image from "next/image";
 import { useState } from "react";
+import BoxInfoTruongSa from "../BoxInfoTruongSa/BoxInfoTruongSa";
+interface TruongSaMapProps {
+  closeMap: () => void;
+}
 
-const TruongSaMap = () => {
-  type QuestionKeys = 'question1' | 'question2' | 'question3' | 'question4';
+const TruongSaMap = ({ closeMap }: TruongSaMapProps) => {
+  type QuestionKeys = "question1" | "question2" | "question3" | "question4";
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [questions, setQuestions] = useState({
     question1: true,
@@ -13,6 +17,7 @@ const TruongSaMap = () => {
     question3: true,
     question4: true,
   });
+  const [currentPlace, setCurrentPlace] = useState<string>("");
 
   const handleQuestionClick = (question: QuestionKeys) => {
     setTimeout(() => {
@@ -22,12 +27,31 @@ const TruongSaMap = () => {
       }));
     }, 1000);
   };
-    const allQuestionsHidden = Object.values(questions).every(
-      (isVisible) => !isVisible
-    );
+
+  const allQuestionsHidden = Object.values(questions).every(
+    (isVisible) => !isVisible
+  );
+
+  const displayBoxInfo = (place: string) => {
+    
+    setCurrentPlace(place);
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  const places = [
+    { className: "diaDiem1", label: "Đảo Trường Sa Lớn", img: image.diaDiem, place: "diaDiem1"},
+    { className: "diaDiem2", label: "Đảo Song Tử Tây", img: image.diaDiem, place: "diaDiem2"},
+    { className: "diaDiem3", label: "Đảo Gạc Ma", img: image.diaDiem, place: "diaDiem3"},
+    { className: "diaDiem4", label: "Đảo An Bang", img: image.diaDiem, place: "diaDiem4"},
+  ];
+
   return (
     <>
-      <div className={`background ${isOpen ? "blur" : ""}`}>
+      <div className={`backgroundTS ${isOpen ? "blur" : ""}`}>
         {questions.question1 && (
           <div
             className="question1 question"
@@ -61,11 +85,28 @@ const TruongSaMap = () => {
           </div>
         )}
         {allQuestionsHidden && (
-          <div className="diaDiem1">
-            <Image src={image.diaDiem} alt="" />
+          <>
+            {places.map(({ className, label, img, place}) => (
+          <div key={place} className={`${className} diaDiem`} onClick={() => displayBoxInfo(place)}>
+            <Image src={img} alt="" />
+            <p>{label}</p>
           </div>
+        ))}
+            <div className="btnX" onClick={closeMap}>
+              <Image src={image.btn_thoat} alt=""></Image>
+            </div>
+          </>
         )}
       </div>
+        {allQuestionsHidden && (
+          <>
+            <div className="btnX" onClick={closeMap}>
+              <Image src={image.btn_thoat} alt=""></Image>
+            </div>
+          </>
+        )}
+      <BoxInfoTruongSa open={isOpen} place={currentPlace} closeModal={closeModal}/>
+
     </>
   );
 };

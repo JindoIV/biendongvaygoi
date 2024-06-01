@@ -1,0 +1,168 @@
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.Overlay--after-open {
+  opacity: 1;
+}
+
+.Overlay--before-close {
+  opacity: 0;
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToTop {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.Modal {
+  position: absolute;
+  top: 5%;
+  bottom: 5%;
+  left: 15%;
+  right: 15%;
+  background-image: url("../../assets/Images/Khung\ Thoai\ To.png");
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.Modal--open {
+  animation: slideInFromTop 0.5s ease-in-out forwards;
+}
+
+.Modal--close {
+  animation: slideOutToTop 0.5s ease-in-out forwards;
+}
+
+.Modal:focus,
+.Modal *:focus {
+  outline: none;
+}
+
+.box{
+  position: absolute;
+  top: 53%;
+  left: 51.5%;
+  transform: translate(-50%, -50%);
+  height: 85%;
+  width: 77%;
+  padding: 30px;
+}
+/* 
+.starImage{
+  position: absolute;
+  top: 0%;
+  right: 85%;
+  transform: translate(-50%, -50%);
+  width: 12%;
+  animation: moveStar 4s ease-in-out forwards 1.5s;
+}
+
+@keyframes moveStar {
+  0% {
+  top: 0%;
+  right: 85%;
+  transform: translate(-50%, -50%);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: -10%;
+    right: -35%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.starImage img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}*/
+
+.box h1{
+  color: rgb(0, 117, 184);
+  font-weight: bold;
+  padding-bottom: 10px;
+  font-size: 30px;
+} 
+
+.box p{
+  color: #333;
+  line-height: 30px;
+  font-size: 20px;
+}
+
+.scrollableContent {
+  max-height: 80%;
+  overflow-y: auto; 
+  padding-right: 10px; 
+}
+.scrollableContent::-webkit-scrollbar {
+  width: 10px; 
+}
+
+.scrollableContent::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 10px; 
+}
+
+.scrollableContent::-webkit-scrollbar-thumb {
+  background: #7A9EE4; 
+  border-radius: 10px; 
+}
+
+.scrollableContent::-webkit-scrollbar-thumb:hover {
+  background: #2E59AF; 
+}
+
+.infoText {
+  white-space: pre-line;
+}
+
+.imageContainer{
+  display: flex;
+}
+
+.imageContainer > *{
+  width: 50%;
+}
+
+.imageContainer img{
+  height: 100%;
+  padding: 5px;
+  object-fit: contain;
+}
+
+.xemTiep{
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -5,22 +5,22 @@ import boat from "../../../../assets/Images/Con_thuyen.png";
 import { useEffect, useState } from "react";
 import LySonMap from "@/components/LySonMap/LySonMap";
 interface Stage2Props {
-  onMapClose: () => void; 
+  onSt2Close: () => void; 
 }
-const Stage2 = ({ onMapClose }: Stage2Props) => {
+const Stage2 = ({ onSt2Close }: Stage2Props) => {
   const[showMap, setShowMap] = useState<boolean>(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowMap(true);
-    }, 9900);
+    }, 10000);
 
     return () => clearTimeout(timer); 
   }, []);
 
   const handleCloseMap = () =>{
     setShowMap(false);
-    onMapClose();
+    onSt2Close();
   }
 
   return (

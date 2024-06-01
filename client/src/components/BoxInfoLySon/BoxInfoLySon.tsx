@@ -143,7 +143,7 @@ const BoxInfoLySon = ({ open, place, showStar, closeModal }: IBoxInfoLySon) => {
             <p className="infoText">{showInfo}</p>
             <div className="imageContainer">
               {showImg1 && <Image src={showImg1} alt="Image 1"/>}
-              {showImg2 && <Image src={showImg2} alt="Image 2"/>}
+              {showImg2 && <Image src={showImg2} alt="Image 2"/>} 
             </div>
             <p className="xemTiep" onClick={closeModal}>
               Xem tiếp

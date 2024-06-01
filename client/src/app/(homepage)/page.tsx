@@ -24,7 +24,7 @@ export default function HomePage() {
 
   const handleButtonClick = () => {
     setIsZoom(true);
-    setStage(1);
+    setStage(2);
 
     setTimeout(() => {
       setShowTick(true);
@@ -107,6 +107,7 @@ export default function HomePage() {
 
   const changeNewStage = () =>{
     setStage(stage + 1);
+    console.log(stage);
   }
 
   return (
@@ -117,11 +118,11 @@ export default function HomePage() {
         <>
           {/* <VisualNovel></VisualNovel> */}
           <div
-            className={`${getZoomClass()} ${stage == 2 ? style.aniGoLySon : ""} ${style.background_Login} ${
+            className={`${getZoomClass()} ${stage == 2 ? style.aniGoLySon : ""} ${stage == 3 ? style.aniGoTrSa : ""} ${style.background_Login} ${
               isZoom ? style.zoom : ""
             }`}
           >
-            <button onClick={st2}>aaa</button>
+            {/* <button onClick={st2}>aaa</button> */}
 
             <div
               className={`${style.logo} ${isZoom ? style.display_none : ""}`}
@@ -152,12 +153,12 @@ export default function HomePage() {
             )}
             {stage == 2 && (
               <>
-                <Stage2 onMapClose={changeNewStage}></Stage2>
+                <Stage2 onSt2Close={changeNewStage}></Stage2>
               </>
             )}
             {stage == 3 && (
               <>
-                <Stage3></Stage3>
+                <Stage3 onSt3Close={changeNewStage}></Stage3>
               </>
             )}
 

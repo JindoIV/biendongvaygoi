@@ -1,4 +1,4 @@
-.background{
+.backgroundTS{
     position: relative;
     background-color: #8D5542;
     min-width: 100vw;
@@ -14,6 +14,8 @@
 }
 
 .question{
+    position: absolute;
+    transform: translate(-50%, -50%);
     width: 11%;
     transition: 0.5s ease-in-out; 
 }
@@ -29,56 +31,101 @@
 }
 
 .question1{
-    position: absolute;
     top: 61%;
     left: 37.5%;
-    transform: translate(-50%, -50%);
 }
 .question2{
-    position: absolute;
     top: 15%;
     left: 55%;
-    transform: translate(-50%, -50%);
 }
 .question3{
-    position: absolute;
     top: 42%;
     left: 56%;
-    transform: translate(-50%, -50%);
 }
 .question4{
-    position: absolute;
     top: 73%;
     left: 45%;
-    transform: translate(-50%, -50%);
 }
 
-
-
-.diaDiem1{
+.diaDiem{
     position: absolute;
-    top: 25%;
-    left: 30%;
     transform: translate(-50%, -50%);
     width: 7%;
-    transition: 0.7s ease-in-out; 
 }
 
-.diaDiem1 img{
+.diaDiem1{
+    top: 61%;
+    left: 37.5%;
+}
+
+.diaDiem2{
+    top: 15%;
+    left: 55%;
+}
+
+.diaDiem3{
+    top: 42%;
+    left: 56%;
+}
+
+.diaDiem4{
+    top: 73%;
+    left: 45%;
+}
+
+.diaDiem img{
     width: 100%;
     height: 100%;
     object-fit: contain;
+    transition: 0.5s ease-in-out; 
 }
 
-.diaDiem1:hover {
-    animation: upDown 0.7s ease-in-out infinite alternate; 
+.diaDiem p{
+    position: absolute;
+    top: 100%;
+    left: 75%;
+    width: 110px;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease-in-out; 
+    color: rgb(133, 18, 18);
+}
+
+.diaDiem p:hover{
+    filter: drop-shadow(0 0 5px yellow);
+}
+
+.diaDiem img:hover {
+    filter: drop-shadow(0 0 5px yellow);
+    animation: upDown 0.5s ease-in-out infinite alternate; 
 }
 
 @keyframes upDown {
     0% {
-        transform: translate(-50%, -50%) translateY(0); 
+        transform:  translateY(0); 
     }
     100% {
-        transform: translate(-50%, -50%) translateY(-10px); 
+        transform:  translateY(-15px); 
     }
 }
+
+.btnX{
+    position: absolute;
+    bottom: 5%;
+    right: 3%;
+    width: 7%;
+    scale: 1;
+    transition: 0.5s ease-in-out;
+  }
+  
+  .btnX:hover{
+    scale: 1.3;
+  }
+  
+  .btnX img{
+    width: 100%; 
+    height: 100%;
+    object-fit: contain;
+  }

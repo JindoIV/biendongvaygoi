@@ -3,7 +3,6 @@ import style from "../homepage.module.scss";
 import Image from "next/image";
 import boat from "../../../../assets/Images/Con_thuyen.png";
 import { useEffect, useState } from "react";
-import LySonMap from "@/components/LySonMap/LySonMap";
 import TruongSaMap from "@/components/TruongSaMap/TruongSaMap";
 interface Stage3Props {
   onSt3Close: () => void; 
@@ -14,7 +13,7 @@ const Stage3 = ({ onSt3Close }: Stage3Props) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowMap(true);
-    }, 7500);
+    }, 9500);
 
     return () => clearTimeout(timer); 
   }, []);
@@ -29,7 +28,7 @@ const Stage3 = ({ onSt3Close }: Stage3Props) => {
         <div className={`${style.boat_img_st_3} ${style.boat_img}`}>
           <Image src={boat} alt={""} />
         </div>
-        {/* {showMap && <TruongSaMap closeMap={handleCloseMap}/>} */}
+        {showMap && <TruongSaMap closeMap={handleCloseMap}/>}
     </>
   );
 };
