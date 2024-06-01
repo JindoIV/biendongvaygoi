@@ -41,11 +41,13 @@ export default function HomePage() {
 
     setTimeout(() => {
       setShowBoat(true);
+      setTimeout(() => {
+        setIsZoom(false);
+        setTimeout(() => {
+          setModalState(true);
+        }, 2000);
+      }, 7000);
     }, 8500);
-
-    setTimeout(() => {
-      setModalState(true);
-    }, 12000);
   };
 
   useEffect(() => {
@@ -117,7 +119,9 @@ export default function HomePage() {
         <>
           {/* <VisualNovel></VisualNovel> */}
           <div
-            className={`${getZoomClass()} ${stage == 2 ? stage2Class : ""} ${
+            className={`${getZoomClass()} ${
+              stage == 1 && !isZoom ? style.zoom_1 : ""
+            } ${stage == 2 ? stage2Class : ""} ${
               stage == 3 ? style.aniGoTrSa : ""
             } ${style.background_Login} ${isZoom ? style.zoom : ""}`}
           >
