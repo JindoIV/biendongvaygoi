@@ -2,8 +2,10 @@
 import Image from "next/image";
 import style from "./_components/homepage.module.scss";
 import { SetStateAction, Suspense, useEffect, useState } from "react";
-import img_txt from "../../assets/Images/biendongvaygoichu.png";
-import img_bg from "../../assets/Images/biendongvaygoinen.png";
+import logo from "../../assets/Images/Bien Dong Vay Goi.png";
+import ruongBT from "../../assets/Images/Ruong bac thang.png";
+import nhaThoBD from "../../assets/Images/Nha tho duc ba.png";
+import thapTH from "../../assets/Images/Thap tram huong-Khanh Hoa.png";
 import boat from "../../assets/Images/Con_thuyen.png";
 import boat_st4 from "../../assets/Images/Con_thuyen_nguoc.png";
 import tick from "../../assets/Images/nut_danh_dau.png";
@@ -128,14 +130,9 @@ export default function HomePage() {
               className={`${style.logo} ${isZoom ? style.display_none : ""}`}
             >
               <div className={`${style.logo_img}`}>
+                
                 <Image
-                  className={`${style.logo_txt}`}
-                  src={img_txt}
-                  alt={""}
-                ></Image>
-                <Image
-                  className={`${style.logo_bg}`}
-                  src={img_bg}
+                  src={logo}
                   alt={""}
                 ></Image>
               </div>
@@ -146,6 +143,17 @@ export default function HomePage() {
                 Bắt Đầu
               </button>
             </div>
+            {/* <div className={`${style.mainDiaDiem}`}> */}
+              <div className={`${style.ruongBT} ${style.mainDiaDiem}`}>
+                <Image src={ruongBT} alt=""></Image>
+              </div>
+              <div className={`${style.thapTH} ${style.mainDiaDiem}`}>
+                <Image src={thapTH} alt=""></Image>
+              </div>
+              <div className={`${style.nhaThoDB} ${style.mainDiaDiem}`}>
+                <Image src={nhaThoBD} alt=""></Image>
+              </div>
+            {/* </div> */}
             {stage == 1 && showTick && (
               <>
                 <Stage1 open={modalState} onClose={setModalState}></Stage1>

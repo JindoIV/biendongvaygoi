@@ -147,6 +147,7 @@
 
 .imageContainer{
   display: flex;
+  align-items: flex-start;
 }
 
 .imageContainer > *{
@@ -159,10 +160,3 @@
   object-fit: contain;
 }
 
-.xemTiep{
-  position: absolute;
-  bottom: 20px;
-  right: 30px;
-  text-decoration: underline;
-  cursor: pointer;
-}
