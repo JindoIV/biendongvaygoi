@@ -23,16 +23,13 @@
   transition: transform 1.5s ease-out 2.5s;
 }
 
-.background_Login.zoom_st2 {
-  transform-origin: 39% 56%;
-}
-
 .zoom_1{
   scale: 1;
 }
 
 .aniGoLySon {
   scale: 2.5;
+  transform-origin: 39% 56%;
   transition: 3s ease-out 3.7s;
   animation: goLySon 2s alternate 8s;
 }
@@ -50,33 +47,36 @@
 
 @keyframes goTrSa {
   0% {
-    scale: 1;
+    scale: 2.5;
     opacity: 1;
   }
   100% {
-    scale: 2;
+    scale: 5;
     opacity: 0.5;
   }
 }
 
-.background_Login.zoom_st3 {
-  transform-origin: 45% 97%;
-  transition: 4s ease-out 2s;
+.startStage3{
+  scale: 2.5;
+  transform-origin: 39% 56%;
 }
 
 .aniGoTrSa {
-  transform-origin: 78% 87%;
-  animation: goTrSa 2s alternate 7.5s;
+  scale: 2.5;
+  transform-origin: 54% 85%;
+  transition: 4s ease-out 2.5s;
+  animation: goTrSa 2s alternate 8s;
 }
 
-.background_Login.zoom_st4 {
-  transform-origin: 33% 100%;
-  transition: 4s ease-out 2.5s;
+.startStage4{
+  scale: 2.5;
+  transform-origin: 54% 85%;
 }
 
-.background_Login.zoom_st5 {
+.aniGoConDao {
+  scale: 2.5;
   transform-origin: 33% 100%;
-  transition: 4s ease-out 2.5s;
+  transition: 4s ease-out 1s;
 }
 
 .background_Login.zoom {
@@ -294,44 +294,34 @@
 
 .boat_img_st_3 {
   position: absolute;
-  top: 50%;
-  left: 55%;
+  top: 55%;
+  left: 43%;
   transform: translate(-50%, -50%);
   width: 8%;
   animation: pathThird 4s forwards 2.5s;
 }
 
 @keyframes pathThird {
-  0% {
-    top: 50%;
-    left: 55%;
-    transform: translate(-50%, -50%);
-  }
   100% {
-    top: 65%;
-    left: 63%;
+    top: 74%;
+    left: 56%;
     transform: translate(-50%, -50%);
   }
 }
 
 .boat_img_st_4 {
   position: absolute;
-  top: 65%;
-  left: 65%;
+  top: 74%;
+  left: 56%;
   transform: translate(-50%, -50%);
   width: 8%;
   animation: pathFour 4s forwards 1s;
 }
 
 @keyframes pathFour {
-  0% {
-    top: 65%;
-    left: 63%;
-    transform: translate(-50%, -50%);
-  }
   100% {
-    top: 79%;
-    left: 34%;
+    top: 95%;
+    left: 36%;
     transform: translate(-50%, -50%);
   }
 }
@@ -468,6 +458,39 @@
       transform: translate(-50%, -50%);
     }
   }
+
+  .boat_img_st_3 {
+    position: absolute;
+    top: 54.4%;
+      left: 43.2%;
+    transform: translate(-50%, -50%);
+    width: 8%;
+    animation: pathThird 4s forwards 2.5s;
+  }
   
+  @keyframes pathThird {
+    100% {
+      top: 70%;
+      left: 56%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  .aniGoConDao {
+    transform-origin: 33% 90%;
+  }
+
+  
+.boat_img_st_4 {
+  top: 70%;
+  left: 56%;
+}
+
+@keyframes pathFour {
+  100% {
+    top: 88%;
+    left: 36%;
+  }
+}
 
 }

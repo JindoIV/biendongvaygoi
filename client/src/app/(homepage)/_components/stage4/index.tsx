@@ -1,26 +1,26 @@
 "use-client";
 import style from "../homepage.module.scss";
 import Image from "next/image";
-import boat from "../../../../assets/Images/Con_thuyen.png";
-import VisualNovel from "@/components/VisualNovel1/VisualNovel";
-import { Dispatch, SetStateAction } from "react";
-
-interface Stage1 {
-  open: boolean;
-  onClose: Dispatch<SetStateAction<boolean>>;
+import boat_st4 from "../../../../assets/Images/Con_thuyen_nguoc.png";
+interface Stage4Props {
+  onSt3Close: () => void; 
 }
+const Stage4 = ({ onSt3Close }: Stage4Props) => {
 
-const Stage1 = ({ open, onClose }: Stage1) => {
+
+
+
+  const handleCloseMap = () =>{
+    // onMapClose();
+  }
+
   return (
     <>
-      <div>
-        <div className={`${style.boat_img_st_1} ${style.boat_img}`}>
-          <Image src={boat} alt={""} />
+        <div className={`${style.boat_img_st_4} ${style.boat_img}`}>
+          <Image src={boat_st4} alt={""} />
         </div>
-      </div>
-      <VisualNovel open={open} onClose={() => onClose(false)}></VisualNovel>
     </>
   );
 };
 
-export default Stage1;
+export default Stage4;

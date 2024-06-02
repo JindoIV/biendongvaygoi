@@ -68,8 +68,6 @@ const LySonMap = ({ closeMap }: LySonMapProps) => {
             <p>{label}</p>
           </div>
         ))}
-
-      <div className="points">Points: {points}</div>
       </div>
       <div className="btnX" onClick={closeMap}>
         <Image src={image.btn_thoat} alt=""></Image>

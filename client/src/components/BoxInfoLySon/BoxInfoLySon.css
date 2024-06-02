@@ -160,3 +160,19 @@
   object-fit: contain;
 }
 
+.xemTiep{
+  background-image: url('../../assets/Images/Mui\ Ten.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 7%;
+  height: 8%;
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.xemTiep:hover{
+  background-image: url('../../assets/Images/Mui\ Ten\ hover.png');
+}
