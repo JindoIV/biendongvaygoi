@@ -12,14 +12,14 @@ import { TinyColor } from "@ctrl/tinycolor";
 interface ModalAction {
   open: boolean;
   onClose: () => void;
-  //   question: Question | undefined;
+  onEndVN: () => void;
 }
 
 const Thoai = [
   {
     character: "Hướng dẫn viên Ngân",
     content:
-      "Xin chào các bạn, chị là Ngân cũng là hướng dẫn viên du lịch đồng hành cùng các em vào lần trải nghiệm này. ",
+      " Xin chào các bạn, chị là Ngân cũng là hướng dẫn viên du lịch đồng hành cùng các em vào lần trải nghiệm này. ",
   },
   {
     character: "Hướng dẫn viên Ngân",
@@ -41,23 +41,17 @@ const Thoai = [
   },
 ];
 
-const VisualNovel = ({ open, onClose }: ModalAction) => {
+const VisualNovel = ({ open, onClose, onEndVN }: ModalAction) => {
+  const min = 0,
+    max = 3;
   const [character, setCharacter] = useState<string>("");
   const [content, setContent] = useState<string>("");
-  const [isTextWrite, setIsTextWrite] = useState<boolean>(false);
   const [stageThoai, setStageThoai] = useState<number>(0);
+
+  const [isClickk, setIsClickk] = useState<boolean>(false);
+  const [isTextWrite, setIsTextWrite] = useState<boolean>(false);
   const typewriterRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setCharacter(Thoai[stageThoai].character);
-    setContent(Thoai[stageThoai].content);
-  }, [stageThoai]);
-
-  // useEffect(() => {
-  //   if (typewriterRef.current) {
-  //     typewriterRef.current.innerHTML = "";
-  //   }
-  // }, []);
+  const typingRef = useRef<boolean>(false);
 
   useEffect(() => {
     if (open) {
@@ -65,28 +59,69 @@ const VisualNovel = ({ open, onClose }: ModalAction) => {
     }
   }, [open]);
 
+  const initText = () => {
+    setCharacter(Thoai[min].character);
+    typeTextEffect(Thoai[min].content);
+  };
+
+  const handleStageThoai = () => {
+    if (!isTextWrite) {
+      if (stageThoai < max) {
+        setStageThoai(stageThoai + 1);
+      } else {
+        onEndVN();
+        onClose();
+      }
+    } else {
+      typingRef.current = false;
+    }
+  };
+
+  const handleSkipStageThoai = () => {
+    onEndVN();
+    onClose();
+  };
+
+  useEffect(() => {
+    if (!typingRef.current) {
+      setIsTextWrite(false);
+      if (typewriterRef.current) {
+        typewriterRef.current.innerHTML = "";
+        typewriterRef.current.innerHTML = Thoai[stageThoai].content;
+      }
+    }
+  }, [typingRef.current]);
+
+  useEffect(() => {
+    setCharacter(Thoai[stageThoai].character);
+    setContent(Thoai[stageThoai].content);
+  }, [stageThoai]);
+
   useEffect(() => {
     typeTextEffect(content);
   }, [content]);
-
-  const initText = () => {
-    setCharacter(Thoai[0].character);
-    typeTextEffect(Thoai[0].content);
-    return <></>;
-  };
 
   const typeTextEffect = (text: string = "") => {
     if (typewriterRef.current) {
       typewriterRef.current.innerHTML = "";
     }
     const speed = 50;
-    for (let i = 0; i < text.length; i++) {
-      setTimeout(() => {
+    setIsTextWrite(true);
+    typingRef.current = true;
+
+    let i = 0;
+    const type = () => {
+      if (typingRef.current && i < text.length) {
         if (typewriterRef.current) {
           typewriterRef.current.innerHTML += text.charAt(i);
         }
-      }, speed * i);
-    }
+        i++;
+        setTimeout(type, speed);
+      } else {
+        setIsTextWrite(false);
+      }
+    };
+    type();
   };
 
   const colors1 = ["#3300FF", "#04BEFE"];
@@ -145,10 +180,7 @@ const VisualNovel = ({ open, onClose }: ModalAction) => {
                   },
                 }}
               >
-                <Button
-                  type={"primary"}
-                  onClick={() => setStageThoai(stageThoai + 1)}
-                >
+                <Button type={"primary"} onClick={() => handleStageThoai()}>
                   Tiếp <CaretRightOutlined />
                 </Button>{" "}
               </ConfigProvider>
@@ -170,7 +202,7 @@ const VisualNovel = ({ open, onClose }: ModalAction) => {
                   },
                 }}
               >
-                <Button type={"primary"}>
+                <Button type={"primary"} onClick={() => handleSkipStageThoai()}>
                   Skip <CaretRightOutlined />
                 </Button>
               </ConfigProvider>

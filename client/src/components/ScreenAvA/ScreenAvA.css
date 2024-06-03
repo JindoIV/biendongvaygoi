@@ -1,17 +1,49 @@
+.OverlayScreenAvA {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  /* background-image: url("../../assets/Images/trungga.png"); */
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: none;
+}
+
+.ModalScreenAvA {
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: grid;
+  place-items: bottom;
+  /* background-image: url("../../assets/Images/Nen_CH.png");
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: none; */
+}
+
 .background {
   overflow: hidden;
   min-width: 100vw;
   min-height: 100vh;
-  background-image: url("../../assets/Images/Bien_.png");
+  background-image: url("../../assets/Images/trungga.png");
   background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   z-index: 0;
 }
 
 .matBien {
   position: relative;
   top: 0;
-  border-bottom: 1px solid #333;
-  height: 150px;
+  /* border-bottom: 1px solid #333; */
+  height: 100%;
   width: 100%;
   z-index: 2;
 }
@@ -19,12 +51,12 @@
 .ship {
   position: absolute;
   left: 75px;
-  bottom: 0%;
+  bottom: 20%;
   background-image: url("../../assets/Images/Con_thuyen.png");
   background-size: cover;
   background-position: center center;
-  min-height: 120px;
-  min-width: 120px;
+  min-height: 16%;
+  min-width: 16%;
   animation: bounce 1.2s infinite alternate;
   transition: all 0.3s ease-in;
 }
@@ -42,10 +74,10 @@
   background-image: url("../../assets/Images/chamhoi.png");
   background-size: cover;
   background-position: center center;
-  min-height: 110px;
-  min-width: 150px;
+  min-height: 16%;
+  min-width: 16%;
   position: absolute;
-  bottom: 0;
+  bottom: 20%;
   right: 0%;
   animation: moveRightToLeft 7s linear forwards;
 }
@@ -55,9 +87,9 @@
     transform: translateX(270%);
   }
   95% {
-    transform: translateX(-760%);
+    transform: translateX(-720%);
   }
   100% {
-    transform: translateX(-760%);
+    transform: translateX(-720%);
   }
 }
