@@ -274,5 +274,64 @@
     filter: drop-shadow(0 0 5px yellow);
 }
 
+@media not all and (min-aspect-ratio: 1.8) {
+    .backgroundLS{
+        transform-origin: 60% 85%;
+    }
 
+    
+.cang_bien{
+    top: 75%;
+    left: 33.5%;
+}
+
+
+
+.cot_co{
+    top: 51%;
+    left: 63%;
+}
+
+.dinh_lang{
+    top: 75%;
+    left: 64%;
+}
+
+.hai_dang{
+    top: 55.5%;
+    left: 72.5%;
+}
+
+.trung_bay{
+    top: 80%;
+    left: 52%;
+}
+
+.chua1{
+    top: 52%;
+    left: 42.5%;
+}
+
+.chua2{
+    top: 52%;
+    left: 59.5%;
+}
+
+.nui1{
+    top: 63%;
+    left: 63.5%;
+}
+
+
+.nui2{
+    top: 63%;
+    left: 43%;
+}
+
+.dinh_lang2{
+    top: 74%;
+    left: 39.5%;
+}
+
+}
 

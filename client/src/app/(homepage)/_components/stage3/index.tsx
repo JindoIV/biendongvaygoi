@@ -13,14 +13,14 @@ const Stage3 = ({ onSt3Close }: Stage3Props) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowMap(true);
-    }, 9500);
+    }, 10000);
 
     return () => clearTimeout(timer); 
   }, []);
 
   const handleCloseMap = () =>{
     setShowMap(false);
-    // onMapClose();
+    onSt3Close();
   }
 
   return (

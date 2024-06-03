@@ -129,3 +129,41 @@
     height: 100%;
     object-fit: contain;
   }
+
+  @media not all and (min-aspect-ratio: 1.8) {
+    .question1{
+        top: 61%;
+        left: 35.2%;
+    }
+    .question2{
+        top: 15.5%;
+        left: 56%;
+    }
+    .question3{
+        top: 42.5%;
+        left: 57%;
+    }
+    .question4{
+        top: 73%;
+        left: 44%;
+    }
+    .diaDiem1{
+        top: 61%;
+        left: 35.2%;
+    }
+    
+    .diaDiem2{
+        top: 15.5%;
+        left: 56%;
+    }
+    
+    .diaDiem3{
+        top: 42.5%;
+        left: 57%;
+    }
+    
+    .diaDiem4{
+        top: 73%;
+        left: 44%;
+    }
+  }

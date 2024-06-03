@@ -14,6 +14,7 @@ import Question from "@/types/question";
 import Stage1 from "@/app/(homepage)/_components/stage1";
 import Stage2 from "@/app/(homepage)/_components/stage2";
 import Stage3 from "@/app/(homepage)/_components/stage3";
+import Stage4 from "@/app/(homepage)/_components/stage4";
 
 export default function HomePage() {
   const [loadingState, setLoadingState] = useState<boolean>(true);
@@ -26,6 +27,8 @@ export default function HomePage() {
   const [stage, setStage] = useState<number>(0);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [stage2Class, setStage2Class] = useState(style.aniGoLySon);
+  const [stage3Class, setStage3Class] = useState(style.startStage3);
+  const [stage4Class, setStage4Class] = useState(style.startStage4);
 
   const handleBtnStart = () => {
     setIsLogo(true);
@@ -86,28 +89,58 @@ export default function HomePage() {
     return () => clearTimeout(timer);
   }, [stage]);
 
-  const getZoomClass = () => {
-    switch (stage) {
-      case 1:
-        return style.zoom_st1;
-      case 2:
-        return style.zoom_st2;
-      case 3:
-        return style.zoom_st3;
-      case 4:
-        return style.zoom_st4;
-      case 5:
-        return style.zoom_st5;
-      default:
-        return "";
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
+    if (stage === 3) {
+      timer = setTimeout(() => {
+        setStage3Class(style.aniGoTrSa);
+      }, 100);
+      timer = setTimeout(() => {
+        setStage3Class(style.zoom_1);
+      }, 10000);
     }
-  };
+    return () => clearTimeout(timer);
+  }, [stage]);
+
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
+    if (stage === 4) {
+      timer = setTimeout(() => {
+        setStage4Class(style.aniGoConDao);
+      }, 100);
+      timer = setTimeout(() => {
+        setStage4Class(style.zoom_1);
+      }, 7000);
+    }
+    return () => clearTimeout(timer);
+  }, [stage]);
+
+  
+  // const getZoomClass = () => {
+  //   switch (stage) {
+  //     case 1:
+  //       return style.zoom_st1;
+  //     case 2:
+  //       return style.zoom_st2;
+  //     case 3:
+  //       return style.zoom_st3;
+  //     case 4:
+  //       return style.zoom_st4;
+  //     case 5:
+  //       return style.zoom_st5;
+  //     default:
+  //       return "";
+  //   }
+  // };
 
   const changeNewStage = () => {
-    setStage(stage + 1);
+      setStage(stage + 1);
     // console.log(stage);
     if (stage == 1) {
       setIsZoom(false);
+    }
+    if (stage == 3){
+      
     }
   };
 
@@ -119,11 +152,9 @@ export default function HomePage() {
         <>
           {/* <VisualNovel></VisualNovel> */}
           <div
-            className={`${getZoomClass()} ${
-              stage == 1 && !isZoom ? style.zoom_1 : ""
-            } ${stage == 2 ? stage2Class : ""} ${
-              stage == 3 ? style.aniGoTrSa : ""
-            } ${style.background_Login} ${isZoom ? style.zoom : ""}`}
+            className={`${stage == 1 ? style.zoom_st1 : ""} ${stage == 2 ? stage2Class : ""} ${
+              stage == 3 ? stage3Class : ""
+            } ${stage == 4 ? stage4Class : ""} ${style.background_Login} ${isZoom ? style.zoom : ""}`}
           >
             <button className={`${style.click}`} onClick={changeNewStage}>
               aaa
@@ -144,15 +175,15 @@ export default function HomePage() {
             </div>
             <div className={`${style.ruongBT} ${style.mainDiaDiem}`}>
               <Image src={ruongBT} alt=""></Image>
-              <p>Điện Biên</p>
+              {/* <p>Điện Biên</p> */}
             </div>
             <div className={`${style.thapTH} ${style.mainDiaDiem}`}>
               <Image src={thapTH} alt=""></Image>
-              <p>Khánh Hòa</p>
+              {/* <p>Khánh Hòa</p> */}
             </div>
             <div className={`${style.nhaThoDB} ${style.mainDiaDiem}`}>
               <Image src={nhaThoBD} alt=""></Image>
-              <p>TP. Hồ Chí Minh</p>
+              {/* <p>TP. Hồ Chí Minh</p> */}
             </div>
             <div className={`${style.canTho} ${style.mainDiaDiem}`}>
               <p>Cần Thơ</p>
@@ -197,7 +228,9 @@ export default function HomePage() {
               </>
             )}
 
-            {stage == 4 && <></>}
+            {stage == 4 && <>
+                <Stage4 onSt3Close={changeNewStage}></Stage4>
+            </>}
             {stage == 5 && <></>}
           </div>
           {/* <VisualNovel
