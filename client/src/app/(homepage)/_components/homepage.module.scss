@@ -23,12 +23,9 @@
   transition: transform 1.5s ease-out 2.5s;
 }
 
-.zoom_1{
-.background_Login.zoom_st2 {
-  transform-origin: 39% 56%;
-}
-
 .zoom_1 {
+  scale: 1;
+}
 
 .aniGoLySon {
   scale: 2.5;
@@ -59,7 +56,7 @@
   }
 }
 
-.startStage3{
+.startStage3 {
   scale: 2.5;
   transform-origin: 39% 56%;
 }
@@ -71,7 +68,7 @@
   animation: goTrSa 2s alternate 8s;
 }
 
-.startStage4{
+.startStage4 {
   scale: 2.5;
   transform-origin: 54% 85%;
 }
@@ -465,12 +462,12 @@
   .boat_img_st_3 {
     position: absolute;
     top: 54.4%;
-      left: 43.2%;
+    left: 43.2%;
     transform: translate(-50%, -50%);
     width: 8%;
     animation: pathThird 4s forwards 2.5s;
   }
-  
+
   @keyframes pathThird {
     100% {
       top: 70%;
@@ -478,21 +475,20 @@
       transform: translate(-50%, -50%);
     }
   }
-  
+
   .aniGoConDao {
     transform-origin: 33% 90%;
   }
 
-  
-.boat_img_st_4 {
-  top: 70%;
-  left: 56%;
-}
+  .boat_img_st_4 {
+    top: 70%;
+    left: 56%;
+  }
 
-@keyframes pathFour {
-  100% {
-    top: 88%;
-    left: 36%;
+  @keyframes pathFour {
+    100% {
+      top: 88%;
+      left: 36%;
+    }
   }
 }
-

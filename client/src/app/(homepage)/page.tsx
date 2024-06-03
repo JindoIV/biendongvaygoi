@@ -48,30 +48,10 @@ export default function HomePage() {
         setIsZoom(false);
         setTimeout(() => {
           setModalState(true);
-        }, 2000);
+        }, 1000);
       }, 7000);
     }, 8500);
   };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API}/5494af1f14a8c19939968c3e9e2d4f79.json`
-        );
-        if (!response.ok) {
-          throw new Error("Lỗi khi tải dữ liệu.");
-        }
-        const data = await response.json();
-        console.log(data);
-        // setJsonData(data);
-      } catch (error) {
-        console.error("Lỗi khi đọc file JSON:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -115,7 +95,6 @@ export default function HomePage() {
     return () => clearTimeout(timer);
   }, [stage]);
 
-  
   // const getZoomClass = () => {
   //   switch (stage) {
   //     case 1:
@@ -134,13 +113,12 @@ export default function HomePage() {
   // };
 
   const changeNewStage = () => {
-      setStage(stage + 1);
+    setStage(stage + 1);
     // console.log(stage);
     if (stage == 1) {
       setIsZoom(false);
     }
-    if (stage == 3){
-      
+    if (stage == 3) {
     }
   };
 
@@ -152,9 +130,11 @@ export default function HomePage() {
         <>
           {/* <VisualNovel></VisualNovel> */}
           <div
-            className={`${stage == 1 ? style.zoom_st1 : ""} ${stage == 2 ? stage2Class : ""} ${
-              stage == 3 ? stage3Class : ""
-            } ${stage == 4 ? stage4Class : ""} ${style.background_Login} ${isZoom ? style.zoom : ""}`}
+            className={`${stage == 1 ? style.zoom_st1 : ""} ${
+              stage == 2 ? stage2Class : ""
+            } ${stage == 3 ? stage3Class : ""} ${
+              stage == 4 ? stage4Class : ""
+            } ${style.background_Login} ${isZoom ? style.zoom : ""}`}
           >
             <button className={`${style.click}`} onClick={changeNewStage}>
               aaa
@@ -228,9 +208,11 @@ export default function HomePage() {
               </>
             )}
 
-            {stage == 4 && <>
+            {stage == 4 && (
+              <>
                 <Stage4 onSt3Close={changeNewStage}></Stage4>
-            </>}
+              </>
+            )}
             {stage == 5 && <></>}
           </div>
           {/* <VisualNovel
