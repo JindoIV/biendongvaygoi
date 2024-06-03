@@ -44,11 +44,13 @@ export default function HomePage() {
 
     setTimeout(() => {
       setShowBoat(true);
+      setTimeout(() => {
+        setIsZoom(false);
+        setTimeout(() => {
+          setModalState(true);
+        }, 2000);
+      }, 7000);
     }, 8500);
-
-    setTimeout(() => {
-      setModalState(true);
-    }, 12000);
   };
 
   useEffect(() => {
