@@ -1,5 +1,5 @@
 .menu {
-  position: absolute;
+  position: fixed;
   z-index: 2;
   top: 20px;
   right: 35px;
@@ -13,7 +13,8 @@
   background-position: center;
   background-repeat: no-repeat;
   border: none;
-  transition: transform 0.3s ease-in-out;
+  scale: 1;
+  transition: 0.3s ease-in-out;
 }
 
 .OverlayConfirmMusic {
@@ -22,11 +23,10 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("../../assets/Images/BgLoading.png");
+  background-image: url("../../assets/Images/Nen\ Rieng\ Loading.png");
   background-size: 100% 100%;
   background-position: center center;
   background-repeat: no-repeat;
-  border: none;
 }
 
 .ModalConfirmMusic {
@@ -87,12 +87,14 @@
   cursor: pointer;
 }
 
-.map_btn {
-  background-image: url("../../assets/Images/nut_ban_do.png");
-  background-size: 225px;
+.mainStar {
+  background-image: url("../../assets/Images/Star.png");
+  background-size: contain;
+  min-width: 10px;
+  min-height: 80px;
   cursor: pointer;
 }
 
 .menu > *:hover {
-  transform: scale(1.2);
+   scale: 1.2;
 }

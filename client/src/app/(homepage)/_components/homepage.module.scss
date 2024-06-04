@@ -11,7 +11,7 @@
   min-width: 100vw;
   min-height: 100vh;
   background-color: #7b3624;
-  background-image: url("../../../assets/Images/Ban\ Do\ Vn.png");
+  background-image: url("../../../assets/Images/Ban\ Do\ Viet\ Nam.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -31,7 +31,7 @@
   scale: 2.5;
   transform-origin: 39% 56%;
   transition: 3s ease-out 3.7s;
-  animation: goLySon 2s alternate 8s;
+  animation: goLySon 2s alternate 7.9s;
 }
 
 @keyframes goLySon {
@@ -54,6 +54,11 @@
     scale: 5;
     opacity: 0.5;
   }
+}
+
+.startStage2 {
+  scale: 2.5;
+  transform-origin: 33% 100%;
 }
 
 .startStage3 {
