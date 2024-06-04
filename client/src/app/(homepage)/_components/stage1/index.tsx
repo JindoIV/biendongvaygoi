@@ -9,13 +9,18 @@ import ScreenAvA from "@/components/ScreenAvA/ScreenAvA";
 interface Stage1 {
   open: boolean;
   onClose: Dispatch<SetStateAction<boolean>>;
+  onNewStage: () => void;
 }
 
-const Stage1 = ({ open, onClose }: Stage1) => {
+const Stage1 = ({ open, onClose, onNewStage }: Stage1) => {
   const [isVisualNovelDone, setIsVisualNovelDone] = useState<boolean>();
 
   const handleEndVisual = () => {
     setIsVisualNovelDone(true);
+  };
+
+  const handleChangeStage = () => {
+    onNewStage();
   };
 
   return (
@@ -34,8 +39,9 @@ const Stage1 = ({ open, onClose }: Stage1) => {
         <>
           <ScreenAvA
             open={isVisualNovelDone}
-            onClose={function (): void {
-              throw new Error("Function not implemented.");
+            onClose={() => {
+              setIsVisualNovelDone(false);
+              handleChangeStage();
             }}
           ></ScreenAvA>
         </>

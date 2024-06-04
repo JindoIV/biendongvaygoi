@@ -18,7 +18,7 @@
   bottom: 0%;
   left: 0;
   right: 0;
-  z-index: 20;
+  z-index: 3;
   display: grid;
   place-items: bottom;
   /* background-image: url("../../assets/Images/Nen_CH.png");
@@ -28,7 +28,7 @@
   border: none; */
 }
 
-.background {
+.backgroundMatBien {
   overflow: hidden;
   min-width: 100vw;
   min-height: 100vh;
@@ -48,7 +48,7 @@
   z-index: 2;
 }
 
-.ship {
+.shipStage1 {
   position: absolute;
   left: 75px;
   bottom: 20%;
@@ -70,7 +70,7 @@
   }
 }
 
-.question {
+.questionStage1 {
   background-image: url("../../assets/Images/chamhoi.png");
   background-size: cover;
   background-position: center center;

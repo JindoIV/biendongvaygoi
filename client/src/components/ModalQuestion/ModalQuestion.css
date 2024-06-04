@@ -1,17 +1,19 @@
-.Overlay {
+.OverlayQuestion {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 5;
 }
 
-.Modal {
+.ModalQuestion {
   position: absolute;
   top: 5%;
   bottom: 5%;
   left: 15%;
   right: 15%;
+  z-index: 20;
   background-image: url("../../assets/Images/Nen_CH.png");
   background-size: 100% 100%;
   background-position: center center;
@@ -19,8 +21,8 @@
   border: none;
 }
 
-.Modal:focus,
-.Modal *:focus {
+.ModalQuestion:focus,
+.ModalQuestion *:focus {
   outline: none;
 }
 
