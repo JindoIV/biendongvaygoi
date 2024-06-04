@@ -1,10 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Modal from "react-modal";
 import "./ScreenAvA.css";
 import ModalQuestion from "@/components/ModalQuestion/ModalQuestion";
 import { http } from "@/utils/config";
 import Question from "@/types/question";
+import { Button } from "antd";
 
 interface IScreenAvA {
   open: boolean;
@@ -14,32 +15,54 @@ interface IScreenAvA {
 const ScreenAvA = ({ open, onClose }: IScreenAvA) => {
   const [numberOfQuestion, setNumberOfQuestion] = useState<number>(0);
 
+  const maxQuestion = 1;
+  const [modalQuestion, setModalQuestion] = useState<boolean>(false);
   const [questions, setQuestions] = useState<Question[]>([]);
+
+  const questionContainer = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await http.get(`/api/get-questionLySon`);
-        // console.log(response.data.questions.rows);
-        console.log(response.data.questions.rows.correctanswer);
-        setQuestions({
-          ...response.data.questions.rows,
-          correctAnswer: response.data.questions.rows.correctanswer,
-        });
-        // setQuestionSelected(
-        //   {
-        //     ...response.data.questions.rows,
-        //     correctAnswer: response.data.questions.rows.correctanswer,
-        //   }[1]
-        // );
-        // setJsonData(data);
+        console.log(response.data.questions.rows);
+        const newQuestions = response.data.questions.rows.map(
+          (quesion: any) => {
+            return { ...quesion, correctAnswer: quesion.correctanswer };
+          }
+        );
+        setQuestions(newQuestions);
       } catch (error) {
         console.error("Lỗi khi đọc file JSON:", error);
       }
     };
 
     fetchData();
-  }, []);
+
+    initQuestion();
+  }, [open]);
+
+  useEffect(() => {
+    if (!modalQuestion && numberOfQuestion === maxQuestion) {
+      onClose();
+    }
+    if (!modalQuestion && numberOfQuestion < maxQuestion) {
+      initQuestion();
+      setNumberOfQuestion(numberOfQuestion + 1);
+    }
+  }, [modalQuestion]);
+
+  const initQuestion = () => {
+    if (questionContainer.current) {
+      questionContainer.current.innerHTML = `
+      <div class="shipStage1"></div>
+      <div class="questionStage1"></div>
+      `;
+    }
+    setTimeout(() => {
+      setModalQuestion(true);
+    }, 6000);
+  };
 
   return (
     <>
@@ -52,20 +75,20 @@ const ScreenAvA = ({ open, onClose }: IScreenAvA) => {
         contentLabel="Confirm music"
         overlayClassName="OverlayScreenAvA"
       >
-        <div className="background">
-          <div className="matBien">
+        <div className="backgroundMatBien">
+          <div className="matBien" ref={questionContainer}>
             <div className="ship"></div>
-            <div className="question"></div>
-            <div className="question"></div>
-            <div className="question"></div>
+            {}
+            {/* <div className="question"></div>
+            <div className="question"></div> */}
           </div>
           <div style={{ position: "relative" }}>
             <ModalQuestion
-              open={true}
-              onClose={function (): void {
-                throw new Error("Function not implemented.");
+              open={modalQuestion}
+              onClose={() => {
+                setModalQuestion(false);
               }}
-              question={questions[0]}
+              questions={questions}
             ></ModalQuestion>
           </div>
         </div>

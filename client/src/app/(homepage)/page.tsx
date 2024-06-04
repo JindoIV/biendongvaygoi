@@ -192,7 +192,11 @@ export default function HomePage() {
                 )}
                 {showBoat && (
                   <>
-                    <Stage1 open={modalState} onClose={setModalState}></Stage1>
+                    <Stage1
+                      open={modalState}
+                      onClose={setModalState}
+                      onNewStage={changeNewStage}
+                    ></Stage1>
                   </>
                 )}
               </>

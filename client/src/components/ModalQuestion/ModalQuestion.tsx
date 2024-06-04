@@ -8,21 +8,34 @@ import { Image } from "antd";
 interface ModalAction {
   open: boolean;
   onClose: () => void;
-  question: Question | undefined;
+  questions: Question[];
 }
 
 const linkAssets = process.env.NEXT_PUBLIC_API + "/ImageCH/";
 
-const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
+const ModalQuestion = ({ open, onClose, questions }: ModalAction) => {
   // useEffect(() => {
   //   setTimeout(() => {
   //     console.log(question);
   //   }, 1000);
   // }, [question]);
+  const [questionIndex, setQuestionIndex] = useState<number>(0);
+  const [questionSelected, setQuestionSelected] = useState<Question>();
+
+  useEffect(() => {
+    if (open) {
+      const temp = Math.floor(Math.random() * questions.length);
+      setQuestionIndex(temp);
+      setQuestionSelected(questions[temp]);
+    }
+  }, [open]);
 
   const handleCheckDN = (key: number) => {
-    if (key === question?.correctAnswer) {
+    if (key === questions[questionIndex]?.correctAnswer) {
       refAns.current[key].classList.add("answerBox_Correct");
+      setTimeout(() => {
+        onClose();
+      }, 2000);
       // alert("dung roi");
     } else {
       refAns.current[key].classList.add("answerBox_Incorrect");
@@ -36,22 +49,22 @@ const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
     <>
       <Modal
         isOpen={open}
-        className="Modal"
+        className="ModalQuestion"
         // onAfterOpen={afterOpenModal}
         // onRequestClose={onClose}
         // style={customStyles}
         contentLabel="Example Modal"
-        overlayClassName="Overlay"
+        overlayClassName="OverlayQuestion"
       >
         <div className="modalContainer">
           <div className="questionBackground">
             <div className="questionContainer">
               <div className="questionText">
-                <span>{question?.question}</span>
+                <span>{questionSelected?.question}</span>
               </div>
               <div className="questionImage">
-                {question?.images &&
-                  question?.images
+                {questionSelected?.images &&
+                  questionSelected?.images
                     .split("|")
                     .map((image: any, index: number) => {
                       return (
@@ -81,25 +94,27 @@ const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
           </div>
 
           <div className="answerContainer">
-            {question?.options &&
-              question?.options.split("|").map((option: any, index: number) => {
-                return (
-                  <>
-                    <div
-                      key={index}
-                      className="answerBox"
-                      onClick={() => handleCheckDN(index)}
-                      ref={(element) => {
-                        if (element) {
-                          refAns.current[index] = element;
-                        }
-                      }}
-                    >
-                      <span>{option}</span>
-                    </div>
-                  </>
-                );
-              })}
+            {questionSelected?.options &&
+              questionSelected?.options
+                .split("|")
+                .map((option: any, index: number) => {
+                  return (
+                    <>
+                      <div
+                        key={index}
+                        className="answerBox"
+                        onClick={() => handleCheckDN(index)}
+                        ref={(element) => {
+                          if (element) {
+                            refAns.current[index] = element;
+                          }
+                        }}
+                      >
+                        <span key={"AS" + index}>{option}</span>
+                      </div>
+                    </>
+                  );
+                })}
           </div>
         </div>
       </Modal>
