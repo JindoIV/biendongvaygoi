@@ -6,6 +6,8 @@ import daoSTT from "@/assets/Images/song-tu-tay-1.jpg"; // Add this import
 import daoSTT2 from "@/assets/Images/songtutay.2.jpg"; // Add this import
 import daoAnBang from "@/assets/Images/daoanbang.jpg"; // Add this import
 import daoAnBang2 from "@/assets/Images/daoanbang.2.png"; // Add this import
+import daoGMa from "@/assets/Images/ĐGACMA.jpg"; // Add this import
+import daoGMa2 from "@/assets/Images/ĐGACMA.2.jpg"; // Add this import
 import { Image } from "antd";
 import Modal from "react-modal";
 import "./BoxInfoTruongSa.css";
@@ -53,11 +55,12 @@ const BoxInfoTruongSa = ({ open, place, closeModal }: IBoxInfoTruongSa) => {
           setShowImg2(daoSTT2.src);
           break;
         case "diaDiem3":
-          setShowTittle("Núi Giếng Tiên");
+          setShowTittle("ĐẢO GẠC MA");
           setShowInfo(
-            "Núi Giếng Tiền là một trong các di tích của núi lửa khi xưa ở Việt Nam, nằm tại xã An Vĩnh, huyện đảo Lý Sơn với chiều cao 90m và đường kính to lớn khoảng 500m. \nSở dĩ, ngọn núi này có tên “Giếng Tiền” là vì cấu trúc miệng núi tròn trông giống đồng xu. Ngoài ra đây còn là nơi gắn liền với buổi lễ đặc trưng “Lễ Khao Lề Thế Lính Hoàng Sa” vì cư dân thường lấy đất sét từ cái núi lửa này để tạo ra hình nộm cho buổi lễ. Hơn nữa núi Giếng Tiền khá màu mỡ, nhiều đất đỏ bazan nên người dân đảo Lý Sơn thường sử dụng cát từ biển và đất đỏ lấy từ núi Giếng Tiền trồng tỏi. \nChính vì vậy mà tỏi Lý Sơn có một hương vị rất nồng, thơm chứ không hắc, trở thành đặc sản số một của huyện đảo này."
+            "Sự kiện đảo Gạc Ma là một bi kịch đau lòng của dân tộc Việt Nam ta. Vào ngày 14 tháng 3 năm 1988, Hải quân Trung Quốc đã tấn công và chiếm đóng Đảo Gạc Ma, gây cho quân ta thiệt hại lớn về quân lực và của cải. Trong cuộc tiến công của quân địch, 64 thủy thủ quân ta đã hy sinh anh dũng nhưng vẫn một lòng phất cao lá cờ dân tộc, các anh ra đi để lại những vết thương sâu sắc trong lòng người ở lại và sự tự hào về tinh thần hy sinh quả cảm của những người chiến sĩ bảo vệ chủ quyền biển đảo của đất nước.\n Đảo Gạc Ma giờ đây đã trở thành chứng nhân lịch sử cho tấm lòng yêu nước cao cả của nhân dân Việt Nam, và nó còn là biểu tượng của sự kiên cường và sự hy sinh không hối tiếc của những người chiến sĩ trong việc bảo vệ biên cương và chủ quyền quốc gia. Từ lòng biết ơn sâu sắc, nhân dân và chính quyền đảo Gạc Ma đã xây dựng nên tượng đài tưởng niệm các chiến sĩ Gạc Ma, mang tên “Những người nằm lại phía chân trời” nhằm tưởng nhớ công lao to lớn, tấm lòng anh dũng của các anh."
           );
-          // Add relevant images for this place
+          setShowImg1(daoGMa.src);
+          setShowImg2(daoGMa2.src);
           break;
         case "diaDiem4":
           setShowTittle("ĐẢO AN BANG");

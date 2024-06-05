@@ -55,7 +55,7 @@ const BoxInfoLySon = ({ open, place, showStar, closeModal }: IBoxInfoLySon) => {
           setshowImg2(image.thoiLoi2.src);
           break;
         case "nui2":
-          setShowTittle("Núi Giếng Tiên");
+          setShowTittle("Núi Giếng Tiền");
           setShowInfo(
             "Núi Giếng Tiền là một trong các di tích của núi lửa khi xưa ở Việt Nam, nằm tại xã An Vĩnh, huyện đảo Lý Sơn với chiều cao 90m và đường kính to lớn khoảng 500m. \nSở dĩ, ngọn núi này có tên “Giếng Tiền” là vì cấu trúc miệng núi tròn trông giống đồng xu. Ngoài ra đây còn là nơi gắn liền với buổi lễ đặc trưng “Lễ Khao Lề Thế Lính Hoàng Sa” vì cư dân thường lấy đất sét từ cái núi lửa này để tạo ra hình nộm cho buổi lễ. Hơn nữa núi Giếng Tiền khá màu mỡ, nhiều đất đỏ bazan nên người dân đảo Lý Sơn thường sử dụng cát từ biển và đất đỏ lấy từ núi Giếng Tiền trồng tỏi. \nChính vì vậy mà tỏi Lý Sơn có một hương vị rất nồng, thơm chứ không hắc, trở thành đặc sản số một của huyện đảo này."
           );

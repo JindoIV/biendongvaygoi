@@ -53,7 +53,7 @@ const LySonMap = ({ closeMap }: LySonMapProps) => {
     { className: "chua1", label: "Chùa Đục", img: image.chua, place: "chua1", number: 5 },
     { className: "chua2", label: "Chùa Hang", img: image.chua, place: "chua2", number: 6 },
     { className: "nui1", label: "Núi Thới Lới", img: image.nui_lua, place: "nui1", number: 7 },
-    { className: "nui2", label: "Núi Giếng Tiên", img: image.nui_lua, place: "nui2", number: 8 },
+    { className: "nui2", label: "Núi Giếng Tiền", img: image.nui_lua, place: "nui2", number: 8 },
     { className: "dinh_lang2", label: "Đình Làng An Vĩnh", img: image.dinh_lang, place: "dinh_lang2", number: 9 },
     { className: "cang_bien", label: "Cảng Lý Sơn", img: image.cang, place: "cang_LS", number: 10 },
   ];
