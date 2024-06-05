@@ -9,7 +9,7 @@ CREATE TABLE questionLySon
 
 INSERT INTO questionLySon (question, options, correctAnswer, Image, explanation) VALUES
 (
-    'Đảo Lý Sơn tọa lạc ở tỉnh nào',
+    'Đảo Lý Sơn tọa lạc ở tỉnh nào?',
     'Khánh Hòa| Trà Vinh| Thái Nguyên| Quãng Ngãi',
     3,
     '',
@@ -23,7 +23,7 @@ INSERT INTO questionLySon (question, options, correctAnswer, Image, explanation)
     'Nếu du khách ghé thăm đảo vào độ đông xuân sẽ được thưởng thức vô vàn món ngon làm từ tỏi Lý Sơn. Bên cạnh đó vào độ mùa mưa (tháng 9 đến tháng 2) mùa khô (tháng 3 đến tháng 8) sẽ là mùa rong| ta sẽ được thưởng thức những món ngon từ rong đặc sản nơi này.'
 ),
 (
-    'Ngôi chùa nào sau đây thuộc địa phận của đảo Lý Sơn',
+    'Ngôi chùa nào sau đây thuộc địa phận của đảo Lý Sơn?',
     'Chùa Ông| Chùa Một Cột| Chùa Đục| Chùa Phật Học',
     2,
     '',
@@ -34,7 +34,7 @@ INSERT INTO questionLySon (question, options, correctAnswer, Image, explanation)
     'Hải đội Hoàng Thùy Linh| Hải đội Hoàng A Mã| Hải đội Hoàng Sa| Hải đội Hoàng Lê Nhất Thống Chí',
     2,
     '',
-    'Hải đội Hoàng Sa được Chúa Nguyễn lập nên để đi ra những hải đảo để gom nhặt những vật phẩm từ các tàu đắm| trình báo| canh giữ và chiến đấu với bọn cướp biển| quá trình hoạt động của họ chính là quá trình xác lập và thực thi chủ quyền biển đảo trên đảo Lý Sơn nói riêng và các đảo lớn nhỏ khác nói chung. Hoàn cảnh sống vô cùng khó khăn| hàng năm mỗi tháng 2 âm lịch người ta thường cử hành lễ Khao Lề Thế Lính Hoàng Sa để tri ân sự hi sinh| cống hiến của hải đội Hoàng Sa.'
+    'Hải đội Hoàng Sa được Chúa Nguyễn lập nên để đi ra những hải đảo để gom nhặt những vật phẩm từ các tàu đắm, trình báo, canh giữ và chiến đấu với bọn cướp biển, quá trình hoạt động của họ chính là quá trình xác lập và thực thi chủ quyền biển đảo trên đảo Lý Sơn nói riêng và các đảo lớn nhỏ khác nói chung. Hoàn cảnh sống vô cùng khó khăn, hàng năm mỗi tháng 2 âm lịch người ta thường cử hành lễ Khao Lề Thế Lính Hoàng Sa để tri ân sự hi sinh| cống hiến của hải đội Hoàng Sa.'
 ),
 (
     'Đảo Lý Sơn được chia làm mấy phần?',
@@ -44,7 +44,7 @@ INSERT INTO questionLySon (question, options, correctAnswer, Image, explanation)
     'Hai phần gồm Đảo Lớn (cù lao Ré) và Đảo Bé (xã đảo An Bình).'
 ),
 (
-    'Tại đảo Lý Sơn| cư dân nơi đây sống bằng nghề gì?',
+    'Tại đảo Lý Sơn, cư dân nơi đây sống bằng nghề gì?',
     'Đánh Bắt Thủy Hải Sản| Nông Nghiệp| Công Nghiệp| Cả 2 ý a và b',
     3,
     '',
@@ -62,7 +62,7 @@ INSERT INTO questionLySon (question, options, correctAnswer, Image, explanation)
     'Đông Bắc| Đông Nam| Tây Nam| Tây Bắc',
     0,
     '',
-    'Lý Sơn là huyện đảo duy nhất của Quảng Ngãi| nằm về phía Đông Bắc.'
+    'Lý Sơn là huyện đảo duy nhất của Quảng Ngãi, nằm về phía Đông Bắc.'
 ),
 (
     'Đảo Lý Sơn nằm ở vùng nào của nước ta?',
@@ -72,35 +72,35 @@ INSERT INTO questionLySon (question, options, correctAnswer, Image, explanation)
     'Các huyện đảo thuộc vùng Duyên hải Nam Trung Bộ là: Hoàng Sa (Đà Nẵng), Lý Sơn (Quảng Ngãi), Trường Sa (Khánh Hòa).'
 ),
 (
-    'Tại đảo Lý Sơn| hoạt động địa chất còn nguyên vẹn dấu tích là?',
+    'Tại đảo Lý Sơn, hoạt động địa chất còn nguyên vẹn dấu tích là?',
     'Sóng Thần| Núi Lửa| Hóa Thạch| Núi Đá Vôi',
     1,
     '',
-    'Trải qua hàng triệu năm hoạt động kiến tạo địa chất| huyện đảo Lý Sơn (tỉnh Quảng Ngãi) còn nguyên vẹn dấu tích 10 miệng núi lửa cổ gắn liền với cảnh quan thiên nhiên hoang sơ.'
+    'Trải qua hàng triệu năm hoạt động kiến tạo địa chất, huyện đảo Lý Sơn (tỉnh Quảng Ngãi) còn nguyên vẹn dấu tích 10 miệng núi lửa cổ gắn liền với cảnh quan thiên nhiên hoang sơ.'
 ),
 (
     'Lễ Khao Lề Thế Lính Hoàng Sa ở huyện đảo Lý Sơn đã được Bộ Văn Hóa Và Du Lịch công nhận là gì?',
     'Di Sản Phi Vật Thể Quốc Gia| Di Sản Văn Hóa Thế Giới| Di Sản Thiên Nhiên Thế Giới| Di Sản Văn Hóa Vật Thể',
     0,
     '',
-    'Tháng 4/2013| Bộ trưởng Bộ Văn hóa| Thể thao và Du lịch đã quyết định đưa Lễ khao lề thế lính Hoàng Sa vào Danh mục Di sản văn hóa phi vật thể quốc gia| loại hình Tập quán xã hội và tín ngưỡng.'
+    'Tháng 4/2013, Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch đã quyết định đưa Lễ khao lề thế lính Hoàng Sa vào Danh mục Di sản văn hóa phi vật thể quốc gia, loại hình Tập quán xã hội và tín ngưỡng.'
 ),
 (
     'Vì sao đảo Lý Sơn lại được gọi là “Vương Quốc Tỏi”?',
     'Tỏi trồng nơi đây thơm hơn các nơi khác| Tỏi nơi đây to hơn những nơi khác| Hàm lượng chất có trong tỏi ở Lý Sơn luôn cao hơn tỏi ở nơi khác| Tỏi ở Lý Sơn chỉ có duy nhất ở Lý Sơn',
     2,
     '',
-    'Huyện đảo được mệnh danh là “Vương quốc tỏi” vì sản phẩm tỏi có hương vị đặc biệt và hàm lượng dinh dưỡng trong Tỏi Lý Sơn (flavonoid| oligosaccharides| axit amin| lưu huỳnh và allicin|…).'
+    'Huyện đảo được mệnh danh là “Vương quốc tỏi” vì sản phẩm tỏi có hương vị đặc biệt và hàm lượng dinh dưỡng trong Tỏi Lý Sơn (flavonoid, oligosaccharides, axit amin, lưu huỳnh và allicin,…).'
 ),
 (
     'Đảo Lý Sơn còn có tên gọi khác là gì?',
     'Cù Lao Sé| Cù Lao| Cù Lao Ké| Cù Lao Ré',
     3,
     '',
-    'Lý Sơn được gọi là Cù lao Ré| theo cách lý giải của dân gian là “cù lao có nhiều cây Ré”.'
+    'Lý Sơn được gọi là Cù lao Ré, theo cách lý giải của dân gian là “cù lao có nhiều cây Ré”.'
 ),
 (
-    'Trong các món ăn sau| món ăn nào là đặc sản của đảo Lý Sơn?',
+    'Trong các món ăn sau, món ăn nào là đặc sản của đảo Lý Sơn?',
     'Cháo Tỏi| Gỏi Gà| Gỏi Rong Biển| Mì Xào Tỏi',
     2,
     '',
@@ -111,7 +111,7 @@ INSERT INTO questionLySon (question, options, correctAnswer, Image, explanation)
     '70km| 10km| 45km| 30km',
     3,
     '',
-    'Đảo Lý Sơn nằm ở phía Đông Bắc của Quảng Ngãi| cách đất liền 15 hải lý (tầm 28km).'
+    'Đảo Lý Sơn nằm ở phía Đông Bắc của Quảng Ngãi, cách đất liền 15 hải lý (tầm 28km).'
 ),
 (
     'Lý Sơn là huyện duy nhất của tỉnh nào sau đây?',
@@ -136,8 +136,8 @@ INSERT INTO questionLySon (question, options, correctAnswer, Image, explanation)
 ),
 (
     'Có bao nhiêu ý đúng',
-    'Lý Sơn là một huyện đảo ở tỉnh Quảng Ngãi| Lý Sơn được hình thành từ quá trình phun trào của núi lửa| Lý Sơn có tổng diện tích tự nhiên là 10|39km2| Cả 3 ý trên đều đúng',
+    'Lý Sơn là một huyện đảo ở tỉnh Quảng Ngãi| Lý Sơn được hình thành từ quá trình phun trào của núi lửa| Lý Sơn có tổng diện tích tự nhiên là 10,39km^2| Cả 3 ý trên đều đúng',
     3,
     '',
-    'Lý Sơn (tên gọi khác là Cù Lao Ré) là một huyện đảo của tỉnh Quảng Ngãi. Từ hàng triệu năm trước| đảo Lý Sơn được hình thành từ quá trình phun trào của núi lửa. Tổng diện tích tự nhiên của huyện đảo là 10|39km2.'
+    'Lý Sơn (tên gọi khác là Cù Lao Ré) là một huyện đảo của tỉnh Quảng Ngãi. Từ hàng triệu năm trước, đảo Lý Sơn được hình thành từ quá trình phun trào của núi lửa. Tổng diện tích tự nhiên của huyện đảo là 10|39km2.'
 )

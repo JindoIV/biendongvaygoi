@@ -33,7 +33,7 @@ INSERT INTO questionTruongSa (question, options, correctAnswer, Image, explanati
     'Đảo Trường Sa Lớn có hình dạng như vật nào dưới đây?',
     'Hình Vòng Xuyến| Hình Cong| Hình Mũi Giáo| Hình Tam Giác',
     2,
-    'image/path',
+    'truongSa.png',
     'Đảo Trường Sa Lớn hình mũi giáo, có người lại nói trông giống như hình mũi của con tàu, hiên ngang, vững chãi giữa biển khơi.'
 ),
 (

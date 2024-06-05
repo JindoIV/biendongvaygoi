@@ -1,0 +1,24 @@
+CREATE TABLE questionGacMa
+(
+    question TEXT,
+    options TEXT,
+    correctAnswer SMALLINT,
+    Image TEXT,
+    explanation TEXT NULL
+);
+
+INSERT INTO questionGacMa (question, options, correctAnswer, Image, explanation) VALUES
+(
+    'Đảo Gạc Ma thuộc quần đảo nào của nước ta?',
+    'Quần đảo Trường Sa| Quần đảo Hoàng Sa| Quần đảo Cô Tô| Quần đảo Cát Bà',
+    0,
+    '',
+    ''
+),
+(
+    'Chiến dịch nào sau đây được triển khai nhằm bảo vệ chủ quyền đảo Gạc Ma?',
+    'Chiến dịch Mậu Thân| Chiến dịch Hồ Chí Minh| Chiến dịch CQ-88 (Chủ Quyền 88)| Chiến dịch Huế - Đà Nẵng',
+    2,
+    '',
+    ''
+);

@@ -17,7 +17,7 @@ INSERT INTO questionBien (question, options, correctAnswer, Image, explanation) 
 ),
 (
     'Biện pháp bảo vệ đa dạng sinh vật môi trường biển mang tính quyết định là',
-    'hoàn thiện hệ thống pháp luật bảo vệ môi trường biển|tuyên truyền nâng cao nhận thức cộng đồng|xử phạt nghiêm các hành vi khai thác tràn lan, trái phép|xây dựng khu bảo tồn biển',
+    'Hoàn thiện hệ thống pháp luật bảo vệ môi trường biển|Tuyên truyền nâng cao nhận thức cộng đồng|Xử phạt nghiêm các hành vi khai thác tràn lan, trái phép|Xây dựng khu bảo tồn biển',
     2,
     '',
     'Cần có các biện pháp phòng chống mạnh mẽ để hạn chế tối đa trường hợp mất cân bằng sinh thái các sinh vật biển.'
@@ -31,35 +31,35 @@ INSERT INTO questionBien (question, options, correctAnswer, Image, explanation) 
 ),
 (
     'Biện pháp bảo vệ môi trường biển mang tính đại chúng nhất là',
-    'mở lớp học giáo dục về sự ô nhiễm môi trường|tuyên truyền nâng cao nhận thức người dân|trồng rừng|thu gom rác thải',
+    'Mở lớp học giáo dục về sự ô nhiễm môi trường|Tuyên truyền nâng cao nhận thức người dân|Trồng rừng|Thu gom rác thải ở sông hồ',
     1,
     '',
     'Để ý thức được tầm quan trọng của môi trường biển và việc bảo vệ môi trường biển.'
 ),
 (
-    'Biện pháp tối ưu nhất để tránh việc khai thác quá mức môi trường biển là',
-    'ra sức ngăn chặn và răn đe người dân|không có biện pháp ngăn chặn vì nó cũng mang lại lợi nhuận kinh tế|tuyên truyền và nâng cao nhận thức về tác hại của khai thác quá mức|ban hành các luật, quy định về việc bảo vệ môi trường biển',
+    'Biện pháp tối ưu nhất để tránh việc khai thác quá mức môi trường biển là?',
+    'Ra sức ngăn chặn và răn đe người dân|Không có biện pháp ngăn chặn vì nó cũng mang lại lợi nhuận kinh tế|Tuyên truyền và nâng cao nhận thức về tác hại của khai thác quá mức|Ban hành các luật, quy định về việc bảo vệ môi trường biển',
     3,
     '',
     'Để nâng cao ý thức nhân dân trong việc khai thác môi trường biển, sinh vật biển.'
 ),
 (
     'Rác thải chiếm số lượng lớn nhất ở biển là',
-    'rác thải hữu cơ|rác thải sinh hoạt|rác thải nhựa|rác thải vô cơ',
+    'Rác thải hữu cơ|Rác thải sinh hoạt|Rác thải nhựa|Rác thải vô cơ',
     2,
     '',
     'Rác thải nhựa đến từ hoạt động sinh hoạt của con người, không qua xử lí thải xuống biển gây ra cản trở hoạt động sống của các loài sinh vật biển.'
 ),
 (
     'Việt Nam đứng thứ mấy trên thế giới về ô nhiễm rác thải biển',
-    'thứ 2 trên thế giới.|thứ 3 trên thế giới.|thứ 7 trên thế giới.|thứ 4 trên thế giới.',
+    'Thứ 2 trên thế giới.|Thứ 3 trên thế giới.|Thứ 7 trên thế giới.|Thứ 4 trên thế giới.',
     3,
     '',
     'Thứ 4 thế giới khoảng 14,03 triệu tấn/năm, theo báo An Ninh 2023.'
 ),
 (
     'Ô nhiễm môi trường biển gây tác động trực tiếp đến sự đa dạng sinh học là',
-    'sự thái hóa của đất dưới biển.|sự đột biến của các loài sinh vật biển.|sự tuyệt chủng của các loài sinh vật biển.|giảm năng suất nguồn thủy lợi.',
+    'Sự thái hóa của đất dưới biển.|Sự đột biến của các loài sinh vật biển.|Sự tuyệt chủng của các loài sinh vật biển.|Giảm năng suất nguồn thủy lợi.',
     2,
     '',
     'Các sinh vật chết đi tác động lớn đến thiên nhiên, gây mất cân bằng sinh thái và mất sự đa dạng loại.'
@@ -68,7 +68,7 @@ INSERT INTO questionBien (question, options, correctAnswer, Image, explanation) 
     'Vấn nạn ở hình ảnh bên dưới là gì?',
     'Rác thải tràn lan trên biển.|Sự xói mòn đất.|Tràn dầu.|Cạn kiệt tài nguyên thiên nhiên.',
     0,
-    'path/to/image',
+    'racThai.jpg',
     ''
 ),
 (
@@ -89,7 +89,7 @@ INSERT INTO questionBien (question, options, correctAnswer, Image, explanation) 
     'Hình ảnh sau phản ánh sự ảnh hưởng tiêu cực của loại rác thải nào đối với môi trường biển?',
     'Rác thải sinh học.|Rác thải hữu cơ.|Rác thải vô cơ.|Rác thải nhựa.',
     3,
-    'path/to/image',
+    'cuaRacThai.jpg',
     ''
 ),
 (
