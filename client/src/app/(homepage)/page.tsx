@@ -98,23 +98,6 @@ export default function HomePage() {
     return () => clearTimeout(timer);
   }, [stage]);
 
-  // const getZoomClass = () => {
-  //   switch (stage) {
-  //     case 1:
-  //       return style.zoom_st1;
-  //     case 2:
-  //       return style.zoom_st2;
-  //     case 3:
-  //       return style.zoom_st3;
-  //     case 4:
-  //       return style.zoom_st4;
-  //     case 5:
-  //       return style.zoom_st5;
-  //     default:
-  //       return "";
-  //   }
-  // };
-
   const changeNewStage = () => {
     setStage(stage + 1);
     // console.log(stage);

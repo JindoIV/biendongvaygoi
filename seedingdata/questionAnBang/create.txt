@@ -1,0 +1,46 @@
+CREATE TABLE questionAnBang
+(
+    question TEXT,
+    options TEXT,
+    correctAnswer SMALLINT,
+    Image TEXT,
+    explanation TEXT NULL
+);
+
+INSERT INTO questionAnBang (question, options, correctAnswer, Image, explanation) VALUES
+(
+    'Đảo Gạc Ma thuộc quần đảo nào của nước ta?',
+    'Quần đảo Trường Sa| Quần đảo Hoàng Sa| Quần đảo Cô Tô| Quần đảo Cát Bà',
+    0,
+    '',
+    'Đảo An Bang nằm cách đảo Trường Sa 75 hải lý về phía Đông Nam.'
+),
+(
+    'Đảo An Bang có hình dạng đặc trưng là',
+    'Hình mũi giáo| Hình bình hành| Hình cái túi| Hình cái túi',
+    2,
+    '',
+    'Đảo mang hình dạng như một cái túi, đáy túi ở phía Đông và miệng túi thắt lại ở phía Tây'
+),
+(
+    'Vai trò quan trọng của đảo An Bang đối với quần đảo Trường Sa là',
+    'Trung tâm giao thương của quần đảo| Lá chắn vòng ngoài| Nơi cung cấp nguồn nước ngọt| Trung tâm quân sự của quần Đảo Trường Sa',
+    1,
+    '',
+    'Vị trí địa lý của đảo An Bang tạo thành một lá chắn vòng ngoài quần đảo Trường Sa, ngăn chặn các hoạt động chống phá tiến công từ kẻ thù'
+),
+(
+    'Khó khăn lớn nhất của các tàu thuyền khi đến với đảo An Bang là',
+    'Địa hình hiểm trở| Khan hiếm nguồn nước| Xa đất liền| Sóng dữ, biển động',
+    3,
+    '',
+    'Do cấu trúc của san hô dựng đứng nên 4 mùa trên đảo đều có sóng dữ. Vì vậy mà việc vào đảo gặp rất nhiều khó khăn'
+),
+(
+    'Đảo An Bang được giải phóng vào ngày nào sau đây trong chiến dịch mùa xuân năm 1975?',
+    '29/4/1975| 24/3/1975| 22/12/1947| 30/9/1950',
+    0,
+    '',
+    'Ngày 24/4/1975, chiến dịch giải phóng quần đảo Trường Sa được triển khai, ngày 29/4/1975, quân ta giành được chủ quyền đảo An Bang và các cụm đảo lân cận, sau đó thống nhất hoàn toàn quần đảo Trường Sa.'
+);
+

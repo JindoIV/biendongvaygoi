@@ -8,42 +8,52 @@ import { Image } from "antd";
 interface ModalAction {
   open: boolean;
   onClose: () => void;
-  questions: Question[];
+  question: Question;
 }
 
 const linkAssets = process.env.NEXT_PUBLIC_API + "/ImageCH/";
 
-const ModalQuestion = ({ open, onClose, questions }: ModalAction) => {
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     console.log(question);
-  //   }, 1000);
-  // }, [question]);
+const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
   const [questionIndex, setQuestionIndex] = useState<number>(0);
-  const [questionSelected, setQuestionSelected] = useState<Question>();
 
-  useEffect(() => {
-    if (open) {
-      const temp = Math.floor(Math.random() * questions.length);
-      setQuestionIndex(temp);
-      setQuestionSelected(questions[temp]);
-    }
-  }, [open]);
+  const [isClose, setIsClose] = useState<boolean>(false);
+  const [isExplain, setIsExplain] = useState<boolean>(false);
+  const [isSelected, setIsSelected] = useState<boolean>(false);
+
+  const refAns = useRef<HTMLDivElement[]>([]);
 
   const handleCheckDN = (key: number) => {
-    if (key === questions[questionIndex]?.correctAnswer) {
-      refAns.current[key].classList.add("answerBox_Correct");
+    if (!isSelected) {
+      setIsSelected(true);
+      refAns.current.map((element) => {
+        element.classList.remove("answerBox");
+        element.classList.add("answer_Box");
+      });
+
+      if (key !== question?.correctAnswer) {
+        refAns.current[key].classList.add("answerBox_Incorrect");
+        refAns.current[question?.correctAnswer].classList.add(
+          "answerBox_Correct"
+        );
+      } else {
+        refAns.current[key].classList.add("answerBox_Correct");
+      }
+
       setTimeout(() => {
-        onClose();
+        setIsClose(true);
       }, 2000);
-      // alert("dung roi");
-    } else {
-      refAns.current[key].classList.add("answerBox_Incorrect");
-      // alert("sai roi");
+
+      setIsExplain(true);
     }
   };
 
-  const refAns = useRef<HTMLDivElement[]>([]);
+  useEffect(() => {
+    if (open) {
+      setIsSelected(false);
+      setIsClose(false);
+      setIsExplain(false);
+    }
+  }, [open]);
 
   return (
     <>
@@ -56,65 +66,78 @@ const ModalQuestion = ({ open, onClose, questions }: ModalAction) => {
         contentLabel="Example Modal"
         overlayClassName="OverlayQuestion"
       >
-        <div className="modalContainer">
-          <div className="questionBackground">
-            <div className="questionContainer">
-              <div className="questionText">
-                <span>{questionSelected?.question}</span>
-              </div>
-              <div className="questionImage">
-                {questionSelected?.images &&
-                  questionSelected?.images
-                    .split("|")
-                    .map((image: any, index: number) => {
-                      return (
-                        <>
-                          <div
-                            key={"CH" + index}
-                            // className="answerBox"
-                            // onClick={() => handleCheckDN(index)}
-                            // ref={(element) => {
-                            //   if (element) {
-                            //     refAns.current[index] = element;
-                            //   }
-                            // }}
-                          >
-                            <Image
-                              src={linkAssets + image.trim()}
-                              alt={"hinh anh"}
-                              width={100}
-                              height={100}
-                            />
-                          </div>
-                        </>
-                      );
-                    })}
+        <div className="buttonXContainer">
+          {isClose && <div className="buttonX" onClick={() => onClose()}></div>}
+          <div className="modalContainer">
+            <div className="questionBackground">
+              <div className="questionContainer">
+                {!isExplain ? (
+                  <>
+                    <div className="questionText">
+                      <span>{question?.question}</span>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="questionText">
+                      <span>{question?.explanation}</span>
+                    </div>
+                  </>
+                )}
+                <div className="questionImage">
+                  {question?.image &&
+                    question?.image
+                      .split("|")
+                      .map((img: any, index: number) => {
+                        return (
+                          <>
+                            <div
+                              key={"CH" + index}
+                              // className="answerBox"
+                              // onClick={() => handleCheckDN(index)}
+                              // ref={(element) => {
+                              //   if (element) {
+                              //     refAns.current[index] = element;
+                              //   }
+                              // }}
+                            >
+                              <Image
+                                src={linkAssets + img.trim()}
+                                alt={"hinh anh"}
+                                width={100}
+                                height={100}
+                              />
+                            </div>
+                          </>
+                        );
+                      })}
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="answerContainer">
-            {questionSelected?.options &&
-              questionSelected?.options
-                .split("|")
-                .map((option: any, index: number) => {
-                  return (
-                    <>
-                      <div
-                        key={index}
-                        className="answerBox"
-                        onClick={() => handleCheckDN(index)}
-                        ref={(element) => {
-                          if (element) {
-                            refAns.current[index] = element;
-                          }
-                        }}
-                      >
-                        <span key={"AS" + index}>{option}</span>
-                      </div>
-                    </>
-                  );
-                })}
+            <div className="answerContainer">
+              {question?.options &&
+                question?.options
+                  .split("|")
+                  .map((option: any, index: number) => {
+                    return (
+                      <>
+                        <div
+                          key={index}
+                          className="answerBox"
+                          onClick={() => handleCheckDN(index)}
+                          ref={(element) => {
+                            if (element) {
+                              refAns.current[index] = element;
+                            }
+                          }}
+                        >
+                          <span key={"AS" + index}>{option}</span>
+                        </div>
+                      </>
+                    );
+                  })}
+            </div>
           </div>
         </div>
       </Modal>
