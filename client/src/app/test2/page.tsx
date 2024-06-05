@@ -1,8 +1,16 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
+import ModalQuestion from "@/components/ModalQuestion/ModalQuestion";
+import { http } from "@/utils/config";
+import Question from "@/types/question";
 
 const UnityComponent = () => {
+  const [modalQuestion, setModalQuestion] = useState<boolean>(false);
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [fetchDataDone, setFetchDataDone] = useState<boolean>(false);
+  const [questionSelected, setQuestionSelected] = useState<any>();
+
   useEffect(() => {
     const container = document.querySelector("#unity-container");
     const canvas = document.querySelector("#unity-canvas");
@@ -61,22 +69,7 @@ const UnityComponent = () => {
     script.onload = () => {
       createUnityInstance(canvas, config, (progress: any) => {})
         .then((unityInstance: any) => {
-          window.ShowPopup = function (message: any) {
-            const popup = document.createElement("div");
-            popup.id = "gamePopup";
-            popup.style.position = "fixed";
-            popup.style.top = "50%";
-            popup.style.left = "50%";
-            popup.style.transform = "translate(-50%, -50%)";
-            popup.style.backgroundColor = "white";
-            popup.style.padding = "20px";
-            popup.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.5)";
-            popup.innerHTML = `
-              <button onclick="AddScore()">Add Score</button>
-              <button onclick="ClosePopup()">Close</button>
-            `;
-            document.body.appendChild(popup);
-          };
+          window.ShowPopup = handleOpenModal;
 
           window.AddScore = function () {
             unityInstance.SendMessage(
@@ -107,16 +100,63 @@ const UnityComponent = () => {
     };
   }, []);
 
+  const fetchData = async () => {
+    try {
+      const res = await http.get(`/api/get-questionBien`);
+      const newQuestions = res.data.questions.rows.map((quesion: any) => {
+        return { ...quesion, correctAnswer: quesion.correctanswer };
+      });
+      setQuestions(newQuestions);
+      console.log(newQuestions);
+      setFetchDataDone(true);
+    } catch (error) {
+      console.error("Lỗi khi đọc file JSON:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const handleOpenModal = () => {
+    initQuestion();
+    setModalQuestion(true);
+  };
+
+  const initQuestion = () => {
+    const temp = Math.floor(Math.random() * questions.length);
+    let mainQuestions = [...questions];
+    let supQuestions = mainQuestions.splice(temp, 1);
+    setQuestionSelected(questionSample);
+    setQuestions(mainQuestions);
+  };
+
+  const questionSample = {
+    question: "Nguyên nhân chủ yếu gây ra ô nhiễm môi trường biển là",
+    options: "tràn dầu|chặt phá rừng|chất thải công nghiệp|chất thải hữu cơ",
+    correctAnswer: 0,
+    image: "",
+    explanation:
+      "Khiến cho nước biển nhiễm các chất độc hại, gây ra cái chết cho hàng loạt sinh vật.",
+  };
+
   return (
-    <div id="unity-container" className="unity-desktop">
-      <canvas
-        id="unity-canvas"
-        width="1244"
-        height="700"
-        tabIndex={-1}
-      ></canvas>
-      <div id="unity-warning"></div>
-    </div>
+    <>
+      <div id="unity-container" className="unity-desktop">
+        <canvas
+          id="unity-canvas"
+          width="1244"
+          height="700"
+          tabIndex={-1}
+        ></canvas>
+        <div id="unity-warning"></div>
+      </div>
+      <ModalQuestion
+        open={modalQuestion}
+        onClose={() => setModalQuestion(false)}
+        question={questionSelected}
+      ></ModalQuestion>
+    </>
   );
 };
 

@@ -1,0 +1,45 @@
+CREATE TABLE questionSongTu
+(
+    question TEXT,
+    options TEXT,
+    correctAnswer SMALLINT,
+    Image TEXT,
+    explanation TEXT NULL
+);
+
+INSERT INTO questionSongTu (question, options, correctAnswer, Image, explanation) VALUES
+(
+    'Đảo Song Tử Tây nằm ở cực nào sau đây của quần đảo Trường Sa Việt Nam?',
+    'Cực Bắc| Cực Nam| Cực Tây| Cực Đông',
+    0,
+    '',
+    'Đảo Song Tử Tây nằm ở cực Bắc quần đảo Trường Sa, cách Cảng Cam Ranh 308 hải lý.'
+),
+(
+    'Trong chiến dịch mùa xuân năm 1975, đảo Song Tử Tây được giải phóng vào ngày nào?',
+    '8/9/1945| 22/12/1944| 30/4/1975| 14/4/1975',
+    3,
+    '',
+    'Trong chiến dịch mùa xuân năm 1975, đảo được giải phóng vào ngày 14/4/1975, khiến quân địch trên đảo hoang mang, dao động , tạo điều kiện thuận lợi cho quân ta giải phóng các đảo khác trên quần đảo Trường Sa.'
+),
+(
+    'Đặc sản của đảo Song Tử Tây là?',
+    'Cây mía| Cây sâm đất| Cây bàng| Cây phượng',
+    1,
+    'samDat.jpg',
+    'Thuận lợi lớn nhất của Đảo Song Tử Tây là nguồn nước lợ dồi dào cho các hoạt động chăn nuôi, nông nghiệp, thực vật đặc trưng của đảo là cây sâm đất thường được dùng làm nước uống.'
+),
+(
+    'Di tích lịch sử cấp quốc gia nào tọa lạc trên đảo Song Tử Tây có tên là',
+    'Bảo tàng quốc gia Việt Nam| Di tích lịch sử phong trào Đồng Khởi| Bia chủ quyền Quần Đảo Trường Sa| Khu tưởng niệm mộ thủ khoa Bùi Hữu Nghĩa.',
+    2,
+    'biaChuQuyen.jpg',
+    'Trên đảo Song Tử Tây có nhiều điểm nhấn thú vị, riêng có so với các đảo khác. Đó là bia chủ quyền Quần đảo Trường Sa được công nhận là di tích lịch sử cấp quốc gia.'
+),
+(
+    'Di tích lịch sử về anh hùng nào sau đây tọa lạc trên đảo Song Tử Tây?',
+    'Khu tưởng niệm Hưng Đạo đại vương Trần Quốc Tuấn| Khu tưởng niệm Nguyễn Sinh Sắc| Mộ liệt sĩ Phan Đình Giót| Mộ liệt sĩ Nguyễn Văn Trỗi',
+    0,
+    'tranQuocTuan.jpg',
+    'Trên đảo Song Tử Tây có nhiều điểm nhấn thú vị, riêng có so với các đảo khác. Đó là bia chủ quyền Quần đảo Trường Sa được công nhận là di tích lịch sử cấp quốc gia.'
+);

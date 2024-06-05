@@ -6,6 +6,7 @@ import ModalQuestion from "@/components/ModalQuestion/ModalQuestion";
 import { http } from "@/utils/config";
 import Question from "@/types/question";
 import { Button } from "antd";
+import { question } from "@/assets/Images/TruongSaMap";
 
 interface IScreenAvA {
   open: boolean;
@@ -13,34 +14,36 @@ interface IScreenAvA {
 }
 
 const ScreenAvA = ({ open, onClose }: IScreenAvA) => {
-  const [numberOfQuestion, setNumberOfQuestion] = useState<number>(0);
+  const [numberOfQuestion, setNumberOfQuestion] = useState<number>(1);
 
   const maxQuestion = 5;
   const [modalQuestion, setModalQuestion] = useState<boolean>(false);
+  const [fetchDataDone, setFetchDataDone] = useState<boolean>(false);
   const [questions, setQuestions] = useState<Question[]>([]);
+  const [questionSelected, setQuestionSelected] = useState<any>();
 
   const questionContainer = useRef<HTMLDivElement>(null);
 
+  const fetchData = async () => {
+    try {
+      const res = await http.get(`/api/get-questionLySon`);
+      const newQuestions = res.data.questions.rows.map((quesion: any) => {
+        return { ...quesion, correctAnswer: quesion.correctanswer };
+      });
+      setQuestions(newQuestions);
+      setFetchDataDone(true);
+    } catch (error) {
+      console.error("Lỗi khi đọc file JSON:", error);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await http.get(`/api/get-questionLySon`);
-        console.log(response.data.questions.rows);
-        const newQuestions = response.data.questions.rows.map(
-          (quesion: any) => {
-            return { ...quesion, correctAnswer: quesion.correctanswer };
-          }
-        );
-        setQuestions(newQuestions);
-      } catch (error) {
-        console.error("Lỗi khi đọc file JSON:", error);
-      }
-    };
-
     fetchData();
-
-    initQuestion();
   }, [open]);
+
+  useEffect(() => {
+    initQuestion();
+  }, [fetchDataDone]);
 
   useEffect(() => {
     if (!modalQuestion && numberOfQuestion === maxQuestion) {
@@ -59,6 +62,13 @@ const ScreenAvA = ({ open, onClose }: IScreenAvA) => {
       <div class="questionStage1"></div>
       `;
     }
+
+    const temp = Math.floor(Math.random() * questions.length);
+    let mainQuestions = questions;
+    let supQuestions = mainQuestions.splice(temp, 1);
+    setQuestionSelected(supQuestions[0]);
+    setQuestions(mainQuestions);
+
     setTimeout(() => {
       setModalQuestion(true);
     }, 6000);
@@ -76,19 +86,14 @@ const ScreenAvA = ({ open, onClose }: IScreenAvA) => {
         overlayClassName="OverlayScreenAvA"
       >
         <div className="backgroundMatBien">
-          <div className="matBien" ref={questionContainer}>
-            <div className="shipStage1"></div>
-            {/* {} */}
-            <div className="questionStage1"></div>
-            {/* <div className="question"></div> */}
-          </div>
+          <div className="matBien" ref={questionContainer}></div>
           <div style={{ position: "relative" }}>
             <ModalQuestion
               open={modalQuestion}
               onClose={() => {
                 setModalQuestion(false);
               }}
-              questions={questions}
+              question={questionSelected}
             ></ModalQuestion>
           </div>
         </div>
