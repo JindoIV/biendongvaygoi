@@ -15,7 +15,7 @@ interface IScreenAvA {
 const ScreenAvA = ({ open, onClose }: IScreenAvA) => {
   const [numberOfQuestion, setNumberOfQuestion] = useState<number>(0);
 
-  const maxQuestion = 1;
+  const maxQuestion = 5;
   const [modalQuestion, setModalQuestion] = useState<boolean>(false);
   const [questions, setQuestions] = useState<Question[]>([]);
 
@@ -77,10 +77,10 @@ const ScreenAvA = ({ open, onClose }: IScreenAvA) => {
       >
         <div className="backgroundMatBien">
           <div className="matBien" ref={questionContainer}>
-            <div className="ship"></div>
-            {}
-            {/* <div className="question"></div>
-            <div className="question"></div> */}
+            <div className="shipStage1"></div>
+            {/* {} */}
+            <div className="questionStage1"></div>
+            {/* <div className="question"></div> */}
           </div>
           <div style={{ position: "relative" }}>
             <ModalQuestion

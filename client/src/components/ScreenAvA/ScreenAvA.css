@@ -50,7 +50,7 @@
 
 .shipStage1 {
   position: absolute;
-  left: 75px;
+  left: 10%;
   bottom: 20%;
   background-image: url("../../assets/Images/Con_thuyen.png");
   background-size: cover;
@@ -77,19 +77,17 @@
   min-height: 16%;
   min-width: 16%;
   position: absolute;
+  left: 110%;
   bottom: 20%;
-  right: 0%;
-  animation: moveRightToLeft 7s linear forwards;
+  animation: moveRightToLeft 6s linear forwards;
 }
 
 @keyframes moveRightToLeft {
-  0% {
-    transform: translateX(270%);
+  95%{
+    transform: translateX(-95vw);
   }
-  95% {
-    transform: translateX(-720%);
-  }
+  
   100% {
-    transform: translateX(-720%);
+    transform: translateX(-95vw);
   }
 }

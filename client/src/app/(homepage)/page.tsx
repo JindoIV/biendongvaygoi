@@ -26,7 +26,7 @@ export default function HomePage() {
   const [modalState, setModalState] = useState<boolean>(false);
   const [stage, setStage] = useState<number>(0);
   const [questions, setQuestions] = useState<Question[]>([]);
-  const [stage2Class, setStage2Class] = useState(style.aniGoLySon);
+  const [stage2Class, setStage2Class] = useState(style.startStage2);
   const [stage3Class, setStage3Class] = useState(style.startStage3);
   const [stage4Class, setStage4Class] = useState(style.startStage4);
 
@@ -62,6 +62,9 @@ export default function HomePage() {
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;
     if (stage === 2) {
+      timer = setTimeout(() => {
+        setStage2Class(style.aniGoLySon);
+      }, 100);
       timer = setTimeout(() => {
         setStage2Class(style.zoom_1);
       }, 10000);

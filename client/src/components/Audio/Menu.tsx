@@ -99,11 +99,11 @@ export default function Menu() {
           </Modal>
 
           <div className={"menu"}>
+            <div className={"mainStar"}></div>
             <div
               className={`${isSoundOn ? "am_luong_btn" : "mute_am_luong_btn"}`}
               onClick={handlePlayAudio}
             ></div>
-            <div className={"map_btn"}></div>
           </div>
         </>
       )}
