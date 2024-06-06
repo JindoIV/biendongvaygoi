@@ -49,11 +49,13 @@ const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
 
   useEffect(() => {
     if (open) {
+      setQuestionIndex(questionIndex + 1);
       setIsSelected(false);
       setIsClose(false);
       setIsExplain(false);
     }
   }, [open]);
+
 
   return (
     <>
@@ -74,12 +76,14 @@ const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
                 {!isExplain ? (
                   <>
                     <div className="questionText">
+                      <h1>Question {questionIndex}</h1>
                       <span>{question?.question}</span>
                     </div>
                   </>
                 ) : (
                   <>
-                    <div className="questionText">
+                    <div className="giaiThich">
+                    <h1>Giải thích:</h1>
                       <span>{question?.explanation}</span>
                     </div>
                   </>
@@ -104,8 +108,8 @@ const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
                               <Image
                                 src={linkAssets + img.trim()}
                                 alt={"hinh anh"}
-                                width={100}
-                                height={100}
+                                width={250}
+                                height={250}
                               />
                             </div>
                           </>

@@ -44,15 +44,16 @@
 
 .buttonX {
   position: absolute;
-  top: 3%;
-  right: 2.2%;
+  top: 2%;
+  right: 1.71%;
   background-image: url("../../assets/Images/buttonX.png");
   background-position: center center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  width: 5%;
-  height: 7%;
+  width: 6%;
+  height: 9.5%;
   z-index: 29;
+  transition: 0.3s ease-in;
 }
 
 .buttonX:hover {
@@ -85,17 +86,36 @@
   padding: 6% 9%;
   box-sizing: border-box;
   display: grid;
-  place-items: center;
+  place-items: start;
   width: 100%;
   height: 100%;
 }
 
-.questionText {
+.questionText h1{
+ font-size: 36px;
+ color: rgb(0, 79, 124);
+ margin-bottom: 10px;
+}
+
+.questionText span{
   font-family: Inner;
   text-align: justify;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 24px;
 }
+
+.giaiThich h1{
+  font-size: 36px;
+  color: rgb(0, 79, 124);
+  margin-bottom: 10px;
+ }
+ 
+ .giaiThich span{
+   font-family: Inner;
+   text-align: justify;
+   font-weight: normal;
+   font-size: 24px;
+ }
 
 .questionImage {
   display: grid;
