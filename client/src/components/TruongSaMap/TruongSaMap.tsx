@@ -92,7 +92,7 @@ const TruongSaMap = ({ closeMap }: TruongSaMapProps) => {
 
   return (
     <>
-      <div className={`backgroundTS ${isOpen ? "blur" : ""}`}>
+      <div className={`backgroundTS ${isOpen || modalQuestion  ? "blur" : ""}`}>
         {questions.TruongSa && (
           <div
             className="question1 question"

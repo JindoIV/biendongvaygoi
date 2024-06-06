@@ -8,3 +8,5 @@ export { default as daoSTT } from "./songtutay.2.jpg";
 export { default as daoTSL } from "./daotruongsalon.jpg";
 export { default as daoTSL2 } from "./Truong-Sa-Lon-.jpg";
 export { default as muiTen } from "./Mui Ten.png";
+export { default as daoGMa } from "./ĐGACMA.jpg";
+export { default as daoGMa2 } from "./ĐGACMA.2.jpg";

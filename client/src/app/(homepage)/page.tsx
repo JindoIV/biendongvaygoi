@@ -122,10 +122,6 @@ export default function HomePage() {
               stage == 4 ? stage4Class : ""
             } ${style.background_Login} ${isZoom ? style.zoom : ""}`}
           >
-            <button className={`${style.click}`} onClick={changeNewStage}>
-              aaa
-            </button>
-
             <div
               className={`${style.logo} ${isLogo ? style.display_none : ""}`}
             >
