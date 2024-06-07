@@ -99,6 +99,7 @@
 
 .questionText span{
   font-family: Inner;
+  line-height: 30px;
   text-align: justify;
   font-weight: 600;
   font-size: 24px;
@@ -112,6 +113,7 @@
  
  .giaiThich span{
    font-family: Inner;
+   line-height: 30px;
    text-align: justify;
    font-weight: normal;
    font-size: 24px;
