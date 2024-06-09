@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./global.css";
 import Menu from "@/components/Audio/Menu";
 import FixModal from "@/components/FixModal/FixModal";
+import StoreProvider from "@/components/Redux/Redux";
 
 export const metadata: Metadata = {
   title: "Bien Dong Vay Goi",
@@ -16,8 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body id="__next" suppressHydrationWarning={true}>
-        <FixModal></FixModal>
-        <main>{children}</main>
+        <StoreProvider>
+          <FixModal></FixModal>
+          <main>{children}</main>
+        </StoreProvider>
       </body>
     </html>
   );

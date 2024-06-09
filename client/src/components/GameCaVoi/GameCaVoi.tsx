@@ -1,12 +1,22 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import "./style.css";
+import "./_components/css/style.css";
+import "./_components/css/modal.css";
 import ModalQuestion from "@/components/ModalQuestion/ModalQuestion";
 import { http } from "@/utils/config";
 import Question from "@/types/question";
 import { questionsBien } from "@/app/test2/QuestionsData";
+import { useDispatch } from "react-redux";
+import { incrementByAmount } from "@/libs/features/score/scoreSlide";
 
-const UnityComponent = () => {
+interface IGameCaVoi {
+  open: boolean;
+  onEndGame: () => void;
+}
+
+const GameCaVoi = ({ open, onEndGame }: IGameCaVoi) => {
+  const dispatch = useDispatch();
+
   const [modalQuestion, setModalQuestion] = useState<boolean>(false);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [fetchDataDone, setFetchDataDone] = useState<boolean>(false);
@@ -78,10 +88,6 @@ const UnityComponent = () => {
             handleOpenModal();
           };
 
-          function pointGame(point) {
-            console.log("Point from Unity: " + point);
-          }
-
           window.ClosePopup = function () {
             const popup = document.getElementById("gamePopup");
             if (popup) {
@@ -91,8 +97,8 @@ const UnityComponent = () => {
             unityInstance.SendMessage("Game Controller", "ResumeGame");
           };
 
-          window.pointGame = function (point) {
-            setScore(point);
+          window.pointGame = function (point: number) {
+            handleEndGame(point);
           };
         })
         .catch((message: any) => {
@@ -105,21 +111,7 @@ const UnityComponent = () => {
     return () => {
       // Cleanup logic here if needed
     };
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const res = await http.get(`/api/get-questionBien`);
-      const newQuestions = res.data.questions.rows.map((quesion: any) => {
-        return { ...quesion, correctAnswer: quesion.correctanswer };
-      });
-      setQuestions(newQuestions);
-      console.log(newQuestions);
-      setFetchDataDone(true);
-    } catch (error) {
-      console.error("Lỗi khi đọc file JSON:", error);
-    }
-  };
+  }, [open]);
 
   const handleOpenModal = () => {
     initQuestion();
@@ -137,7 +129,6 @@ const UnityComponent = () => {
 
   const initQuestion = () => {
     const temp = Math.floor(Math.random() * questionsList.length);
-    console.log(questionsList);
 
     let mainQuestions = [...questionsList];
     let supQuestions = mainQuestions.splice(temp, 1);
@@ -149,9 +140,15 @@ const UnityComponent = () => {
     setQuestionsList(mainQuestions);
   };
 
+  const handleEndGame = (point: number = 0) => {
+    setScore(point);
+    dispatch(incrementByAmount(point));
+    onEndGame();
+  };
+
   return (
     <>
-      <div>
+      <div className="GameCaVoiBG">
         <div id="unity-container" className="unity-desktop">
           <canvas
             id="unity-canvas"
@@ -171,4 +168,4 @@ const UnityComponent = () => {
   );
 };
 
-export default UnityComponent;
+export default GameCaVoi;
