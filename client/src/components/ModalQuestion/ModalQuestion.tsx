@@ -4,6 +4,8 @@ import Modal from "react-modal";
 import "./ModalQuestion.css";
 import Question from "@/types/question";
 import { Image } from "antd";
+import { useDispatch } from "react-redux";
+import { increment } from "@/libs/features/score/scoreSlide";
 
 interface ModalAction {
   open: boolean;
@@ -15,6 +17,7 @@ const linkAssets = process.env.NEXT_PUBLIC_API + "/ImageCH/";
 
 const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
   const [questionIndex, setQuestionIndex] = useState<number>(0);
+  const dispatch = useDispatch();
 
   const [isClose, setIsClose] = useState<boolean>(false);
   const [isExplain, setIsExplain] = useState<boolean>(false);
@@ -37,6 +40,7 @@ const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
         );
       } else {
         refAns.current[key].classList.add("answerBox_Correct");
+        dispatch(increment());
       }
 
       setTimeout(() => {
@@ -76,7 +80,7 @@ const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
                 {!isExplain ? (
                   <>
                     <div className="questionText">
-                      <h1>Question {questionIndex}</h1>
+                      <h1>Question:</h1>
                       <span>{question?.question}</span>
                     </div>
                   </>

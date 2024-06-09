@@ -30,6 +30,8 @@ export default function HomePage() {
   const [stage3Class, setStage3Class] = useState(style.startStage3);
   const [stage4Class, setStage4Class] = useState(style.startStage4);
 
+  const [score, setScore] = useState<number>(0);
+
   const handleBtnStart = () => {
     setIsLogo(true);
     setStage(1);

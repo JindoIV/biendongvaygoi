@@ -1,0 +1,142 @@
+/* .menu {
+  position: absolute;
+  z-index: 2;
+  top: 20px;
+  right: 35px;
+  width: 110px;
+  height: 350px;
+}
+
+.menu > * {
+  margin: 15px 10px 15px 0;
+  min-height: 45px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  transition: transform 0.3s ease-in-out;
+} */
+
+.OverlayVisualNovelCaVoi {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  /* background-image: url("../../assets/Images/trungga.png"); */
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: none;
+}
+
+.ContainerCharacterCaVoi {
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: column;
+  gap: 0%;
+}
+
+/* .ContainerCharacter div {
+  position: relative;
+  width: 100%;
+  height: 100%;
+} */
+
+.ModalVisualNovelCaVoi {
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: grid;
+  place-items: bottom;
+  /* background-image: url("../../assets/Images/Nen_CH.png");
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: none; */
+}
+
+.ImageCharacter2VisualNovelCaVoi {
+  min-height: 100%;
+  background-image: url("../../assets/Images/Nhan vat chinh(sua).png");
+  background-size: contain;
+  background-size: 40%;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  transform: rotateY(180deg);
+  border: none;
+}
+
+.ImageCharacter1VisualNovelCaVoi {
+  min-height: 100%;
+  background-image: url("../../assets/Images/Ca\ Voi.png");
+  background-size: contain;
+  background-size: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: none;
+}
+
+.ModalContainerVisualNovel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* grid-auto-flow: column; */
+  /* place-items: bottom; */
+  /* min-height: 100%; */
+}
+
+.BackgroundVisualNovel {
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.ImageVisualNovel {
+  width: 80%;
+  height: auto;
+  object-fit: contain;
+}
+
+.RoleVisualNovel {
+  position: absolute;
+  top: 18%;
+  left: 27%;
+  font-weight: 500;
+  font-size: 36px;
+}
+
+.BoxVisualNovel {
+  display: grid;
+  box-sizing: border-box;
+  place-items: center;
+  padding: 6% 8%;
+  width: 100%;
+  height: 100%;
+}
+
+.ContentVisualNovel {
+  position: absolute;
+  padding: 3px;
+  top: 40%;
+  left: 23%;
+  right: 23%;
+  font-weight: 400;
+  font-size: 20px;
+  overflow: auto;
+}
+
+.ButtonNextVisualNovel {
+  position: absolute;
+  bottom: 23%;
+  right: 25%;
+}
