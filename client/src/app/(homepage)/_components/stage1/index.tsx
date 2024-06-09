@@ -13,7 +13,7 @@ interface Stage1 {
 }
 
 const Stage1 = ({ open, onClose, onNewStage }: Stage1) => {
-  const [isVisualNovelDone, setIsVisualNovelDone] = useState<boolean>();
+  const [isVisualNovelDone, setIsVisualNovelDone] = useState<boolean>(false);
 
   const handleEndVisual = () => {
     setIsVisualNovelDone(true);
