@@ -44,7 +44,7 @@
   bottom: 5%;
   left: 15%;
   right: 15%;
-  background-image: url("../../assets/Images/Khung\ Thoai\ To.png");
+  background-image: url("../../assets/Images/KhungThoaiTo.png");
   background-size: 100% 100%;
   background-position: center center;
   background-repeat: no-repeat;
@@ -76,7 +76,7 @@
 .starImage{
   position: absolute;
   top: 0%;
-  right: 85%;
+  left: 5%;
   transform: translate(-50%, -50%);
   width: 9%;
   animation: moveStar 4s ease-in-out forwards 1.5s;
@@ -85,7 +85,7 @@
 @keyframes moveStar {
   0% {
   top: 0%;
-  right: 85%;
+  left: 5%;
   transform: translate(-50%, -50%);
   }
   90% {
@@ -94,7 +94,7 @@
   100% {
     opacity: 0;
     top: -6%;
-    right: -38%;
+    left: -30%;
     transform: translate(-50%, -50%);
   }
 }
@@ -161,7 +161,7 @@
 }
 
 .xemTiep{
-  background-image: url('../../assets/Images/Mui\ Ten.png');
+  background-image: url('../../assets/Images/MuiTen.png');
   background-size: contain;
   background-repeat: no-repeat;
   width: 7%;
@@ -174,5 +174,5 @@
 }
 
 .xemTiep:hover{
-  background-image: url('../../assets/Images/Mui\ Ten\ hover.png');
+  background-image: url('../../assets/Images/MuiTenhover.png');
 }

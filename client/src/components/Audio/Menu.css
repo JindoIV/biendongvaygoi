@@ -2,7 +2,7 @@
   position: fixed;
   z-index: 2;
   top: 20px;
-  right: 35px;
+  left: 35px;
   width: 110px;
   height: 350px;
 }
@@ -23,7 +23,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("../../assets/Images/Nen\ Rieng\ Loading.png");
+  background-image: url("../../assets/Images/NenRiengLoading.png");
   background-size: 100% 100%;
   background-position: center center;
   background-repeat: no-repeat;
