@@ -60,7 +60,9 @@ const TruongSaMap = ({ closeMap }: TruongSaMapProps) => {
   };
 
   const closeModal = () => {
+    setTimeout(() => {
     setIsOpen(false);
+  }, 1000);
   };
 
   const places = [

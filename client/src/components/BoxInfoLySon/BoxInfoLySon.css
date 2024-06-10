@@ -78,8 +78,8 @@
   top: 0%;
   right: 85%;
   transform: translate(-50%, -50%);
-  width: 12%;
-  animation: moveStar 4s ease-in-out infinite forwards 1.5s;
+  width: 9%;
+  animation: moveStar 4s ease-in-out forwards 1.5s;
 }
 
 @keyframes moveStar {
@@ -93,7 +93,7 @@
   }
   100% {
     opacity: 0;
-    top: -3%;
+    top: -6%;
     right: -38%;
     transform: translate(-50%, -50%);
   }
