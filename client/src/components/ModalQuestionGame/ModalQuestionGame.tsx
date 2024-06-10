@@ -39,7 +39,6 @@ const ModalQuestion = ({ open, onClose, question, isResult }: ModalAction) => {
         refAns.current[question?.correctAnswer].classList.add(
           "answerBox_Correct"
         );
-        
       } else {
         refAns.current[key].classList.add("answerBox_Correct");
         isResult();
@@ -63,7 +62,6 @@ const ModalQuestion = ({ open, onClose, question, isResult }: ModalAction) => {
     }
   }, [open]);
 
-
   return (
     <>
       <Modal
@@ -83,14 +81,14 @@ const ModalQuestion = ({ open, onClose, question, isResult }: ModalAction) => {
                 {!isExplain || question?.explanation == "" ? (
                   <>
                     <div className="questionText">
-                      <h1>Question:</h1>
+                      <h1>Câu hỏi:</h1>
                       <span>{question?.question}</span>
                     </div>
                   </>
                 ) : (
                   <>
                     <div className="giaiThich">
-                    <h1>Giải thích:</h1>
+                      <h1>Giải thích:</h1>
                       <span>{question?.explanation}</span>
                     </div>
                   </>
