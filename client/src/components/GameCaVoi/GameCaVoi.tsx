@@ -5,7 +5,7 @@ import "./_components/css/modal.css";
 import ModalQuestionGame from "@/components/ModalQuestionGame/ModalQuestionGame";
 import { http } from "@/utils/config";
 import Question from "@/types/question";
-import { questionsBien } from "@/app/test2/QuestionsData";
+import { questionsBien } from "@/components/QuestionBien/QuestionsData";
 import { useDispatch } from "react-redux";
 import { incrementByAmount } from "@/libs/features/score/scoreSlide";
 
@@ -14,44 +14,61 @@ interface IGameCaVoi {
   onEndGame: () => void;
 }
 
-const GameCaVoi = ({ open, onEndGame }: IGameCaVoi) => {
+declare global {
+  interface Window {
+    ShowPopup: () => void;
+    AddScore: () => void;
+    ClosePopup: () => void;
+    pointGame: (point: number) => void;
+  }
+}
+
+const GameCaVoi: React.FC<IGameCaVoi> = ({ open, onEndGame }) => {
   const dispatch = useDispatch();
 
   const [modalQuestion, setModalQuestion] = useState<boolean>(false);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [fetchDataDone, setFetchDataDone] = useState<boolean>(false);
   const [endQuestion, setEndQuestion] = useState<boolean>(false);
-  const [questionSelected, setQuestionSelected] = useState<any>();
+  const [questionSelected, setQuestionSelected] = useState<Question>(
+    questionsBien[0]
+  );
 
   const [questionsList, setQuestionsList] = useState<Question[]>(questionsBien);
   const [result, setResult] = useState<boolean>(false);
-  const [score, setScore] = useState<any>();
+  const [score, setScore] = useState<number>(0);
 
   useEffect(() => {
-    const container = document.querySelector("#unity-container");
-    const canvas = document.querySelector("#unity-canvas");
-    const warningBanner = document.querySelector("#unity-warning");
+    const container =
+      document.querySelector<HTMLDivElement>("#unity-container");
+    const canvas = document.querySelector<HTMLCanvasElement>("#unity-canvas");
+    const warningBanner =
+      document.querySelector<HTMLDivElement>("#unity-warning");
 
-    function unityShowBanner(msg: any, type: any) {
+    function unityShowBanner(msg: string, type: string) {
       function updateBannerVisibility() {
-        warningBanner.style.display = warningBanner.children.length
-          ? "block"
-          : "none";
+        if (warningBanner) {
+          warningBanner.style.display = warningBanner.children.length
+            ? "block"
+            : "none";
+        }
       }
       const div = document.createElement("div");
       div.innerHTML = msg;
-      warningBanner.appendChild(div);
-      if (type === "error")
-        div.setAttribute("style", "background: red; padding: 10px;");
-      else {
-        if (type === "warning")
-          div.setAttribute("style", "background: yellow; padding: 10px;");
-        setTimeout(() => {
-          warningBanner.removeChild(div);
-          updateBannerVisibility();
-        }, 5000);
+      if (warningBanner) {
+        warningBanner.appendChild(div);
+        if (type === "error")
+          div.setAttribute("style", "background: red; padding: 10px;");
+        else {
+          if (type === "warning")
+            div.setAttribute("style", "background: yellow; padding: 10px;");
+          setTimeout(() => {
+            warningBanner.removeChild(div);
+            updateBannerVisibility();
+          }, 5000);
+        }
+        updateBannerVisibility();
       }
-      updateBannerVisibility();
     }
 
     const buildUrl = "./Build";
@@ -67,56 +84,58 @@ const GameCaVoi = ({ open, onEndGame }: IGameCaVoi) => {
       showBanner: unityShowBanner,
     };
 
-    // Mobile device style or Desktop style
-    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-      const meta = document.createElement("meta");
-      meta.name = "viewport";
-      meta.content =
-        "width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes";
-      document.getElementsByTagName("head")[0].appendChild(meta);
-      container.className = "unity-mobile";
-      canvas.className = "unity-mobile";
-    } else {
-      canvas.setAttribute("style", "width: 1244px; height: 700px;");
+    if (container && canvas) {
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        const meta = document.createElement("meta");
+        meta.name = "viewport";
+        meta.content =
+          "width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes";
+        document.getElementsByTagName("head")[0].appendChild(meta);
+        container.className = "unity-mobile";
+        canvas.className = "unity-mobile";
+      } else {
+        canvas.setAttribute("style", "width: 1244px; height: 700px;");
+      }
+
+      const script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        // @ts-ignore
+        createUnityInstance(canvas, config, (progress: number) => {})
+          .then((unityInstance: any) => {
+            window.ShowPopup = function () {
+              handleOpenModal();
+            };
+
+            window.AddScore = function () {
+              unityInstance.SendMessage(
+                "Game Controller",
+                "SetCanAddScore",
+                "true"
+              );
+            };
+
+            window.ClosePopup = function () {
+              const popup = document.getElementById("gamePopup");
+              if (popup) {
+                document.body.removeChild(popup);
+              }
+
+              unityInstance.SendMessage("Game Controller", "ResumeGame");
+            };
+
+            window.pointGame = function (point: number) {
+              setEndQuestion(true);
+              handleEndGame(point);
+            };
+          })
+          .catch((message: any) => {
+            alert(message);
+          });
+      };
+
+      document.body.appendChild(script);
     }
-
-    const script = document.createElement("script");
-    script.src = loaderUrl;
-    script.onload = () => {
-      createUnityInstance(canvas, config, (progress: any) => {})
-        .then((unityInstance: any) => {
-          window.ShowPopup = function () {
-            handleOpenModal();
-          };
-
-          window.AddScore = function () {
-            unityInstance.SendMessage(
-              "Game Controller",
-              "SetCanAddScore",
-              "true"
-            );
-          };
-
-          window.ClosePopup = function () {
-            const popup = document.getElementById("gamePopup");
-            if (popup) {
-              document.body.removeChild(popup);
-            }
-
-            unityInstance.SendMessage("Game Controller", "ResumeGame");
-          };
-
-          window.pointGame = function (point: number) {
-            setendQuestion(true);
-            handleEndGame(point);
-          };
-        })
-        .catch((message: any) => {
-          alert(message);
-        });
-    };
-
-    document.body.appendChild(script);
 
     return () => {
       // Cleanup logic here if needed
@@ -140,7 +159,7 @@ const GameCaVoi = ({ open, onEndGame }: IGameCaVoi) => {
   useEffect(() => {
     if (result) {
       setResult(false);
-      AddScore();
+      window.AddScore();
     }
   }, [result]);
 
@@ -181,6 +200,11 @@ const GameCaVoi = ({ open, onEndGame }: IGameCaVoi) => {
     dispatch(incrementByAmount(point));
     onEndGame();
   };
+
+  // const AddScore = () => {
+  //   // Xử lý logic thêm điểm tại đây
+  //   console.log("Add Score");
+  // };
 
   return (
     <>

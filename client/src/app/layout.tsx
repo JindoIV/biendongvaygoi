@@ -5,7 +5,7 @@ import FixModal from "@/components/FixModal/FixModal";
 import StoreProvider from "@/components/Redux/Redux";
 
 export const metadata: Metadata = {
-  title: "Bien Dong Vay Goi",
+  title: "Biển Đông Vẫy Gọi",
   description: "A web site about education",
 };
 
