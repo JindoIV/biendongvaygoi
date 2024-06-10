@@ -16,7 +16,7 @@ interface IScreenAvA {
 const ScreenAvA = ({ open, onClose }: IScreenAvA) => {
   const [numberOfQuestion, setNumberOfQuestion] = useState<number>(1);
 
-  const maxQuestion = 2;
+  const maxQuestion = 5;
   const [modalQuestion, setModalQuestion] = useState<boolean>(false);
   const [fetchDataDone, setFetchDataDone] = useState<boolean>(false);
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -47,7 +47,9 @@ const ScreenAvA = ({ open, onClose }: IScreenAvA) => {
 
   useEffect(() => {
     if (!modalQuestion && numberOfQuestion > maxQuestion) {
-      onClose();
+      setTimeout(() => {
+        onClose();
+      }, 1000);
       // return;
     }
     if (!modalQuestion && numberOfQuestion <= maxQuestion) {

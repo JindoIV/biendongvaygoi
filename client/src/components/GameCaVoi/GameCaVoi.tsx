@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import "./_components/css/style.css";
 import "./_components/css/modal.css";
-import ModalQuestion from "@/components/ModalQuestion/ModalQuestion";
+import ModalQuestionGame from "@/components/ModalQuestionGame/ModalQuestionGame";
 import { http } from "@/utils/config";
 import Question from "@/types/question";
 import { questionsBien } from "@/app/test2/QuestionsData";
@@ -20,10 +20,11 @@ const GameCaVoi = ({ open, onEndGame }: IGameCaVoi) => {
   const [modalQuestion, setModalQuestion] = useState<boolean>(false);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [fetchDataDone, setFetchDataDone] = useState<boolean>(false);
+  const [endQuestion, setendQuestion] = useState<boolean>(false);
   const [questionSelected, setQuestionSelected] = useState<any>();
 
   const [questionsList, setQuestionsList] = useState<Question[]>(questionsBien);
-
+  const [result, setResult] = useState<boolean>(false);
   const [score, setScore] = useState<any>();
 
   useEffect(() => {
@@ -88,6 +89,14 @@ const GameCaVoi = ({ open, onEndGame }: IGameCaVoi) => {
             handleOpenModal();
           };
 
+          window.AddScore = function () {
+            unityInstance.SendMessage(
+              "Game Controller",
+              "SetCanAddScore",
+              "true"
+            );
+          };
+
           window.ClosePopup = function () {
             const popup = document.getElementById("gamePopup");
             if (popup) {
@@ -98,6 +107,7 @@ const GameCaVoi = ({ open, onEndGame }: IGameCaVoi) => {
           };
 
           window.pointGame = function (point: number) {
+            setendQuestion(true);
             handleEndGame(point);
           };
         })
@@ -113,14 +123,35 @@ const GameCaVoi = ({ open, onEndGame }: IGameCaVoi) => {
     };
   }, [open]);
 
+useEffect(() => {
+  handleOpenModal();
+}, [endQuestion]);
+
   const handleOpenModal = () => {
     initQuestion();
-    setModalQuestion(true);
+
+    setTimeout(() => {
+      setModalQuestion(true);
+    }, 400);
   };
+
+useEffect (() => {
+  if(result){
+    setResult(false);
+    AddScore();
+  }
+}, [result]);
 
   const handleCloseModal = () => {
     setModalQuestion(false);
-    window.ClosePopup();
+    
+    setTimeout(() => {
+      
+      window.ClosePopup();
+      if(endQuestion){
+        handleEndGame();
+      }
+    }, 100);
   };
 
   useEffect(() => {
@@ -128,6 +159,7 @@ const GameCaVoi = ({ open, onEndGame }: IGameCaVoi) => {
   }, [score]);
 
   const initQuestion = () => {
+
     const temp = Math.floor(Math.random() * questionsList.length);
 
     let mainQuestions = [...questionsList];
@@ -158,11 +190,12 @@ const GameCaVoi = ({ open, onEndGame }: IGameCaVoi) => {
           ></canvas>
           <div id="unity-warning"></div>
         </div>
-        <ModalQuestion
+        <ModalQuestionGame
           open={modalQuestion}
           onClose={handleCloseModal}
           question={questionSelected}
-        ></ModalQuestion>
+          isResult={() => setResult(true)}
+        ></ModalQuestionGame>
       </div>
     </>
   );

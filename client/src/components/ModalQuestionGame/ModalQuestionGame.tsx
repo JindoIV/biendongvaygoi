@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Modal from "react-modal";
-import "./ModalQuestion.css";
+import "./ModalQuestionGame.css";
 import Question from "@/types/question";
 import { Image } from "antd";
 import { useDispatch } from "react-redux";
@@ -11,11 +11,12 @@ interface ModalAction {
   open: boolean;
   onClose: () => void;
   question: Question;
+  isResult: () => void;
 }
 
 const linkAssets = process.env.NEXT_PUBLIC_API + "/ImageCH/";
 
-const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
+const ModalQuestion = ({ open, onClose, question, isResult }: ModalAction) => {
   const [questionIndex, setQuestionIndex] = useState<number>(0);
   const dispatch = useDispatch();
 
@@ -38,8 +39,10 @@ const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
         refAns.current[question?.correctAnswer].classList.add(
           "answerBox_Correct"
         );
+        
       } else {
         refAns.current[key].classList.add("answerBox_Correct");
+        isResult();
         dispatch(increment());
       }
 
