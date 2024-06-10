@@ -23,7 +23,6 @@
   right: 0;
   bottom: 0;
   z-index: 0;
-  
 }
 
 .ContainerCharacterEndGame {
@@ -37,7 +36,7 @@
   grid-template-columns: 1fr 1fr;
   grid-auto-flow: column;
   gap: 0%;
-  background-image: url("../../assets/Images/trungga.png"); 
+  background-image: url("../../assets/Images/trungga.png");
   background-size: 100% 100%;
   background-position: center center;
   background-repeat: no-repeat;
