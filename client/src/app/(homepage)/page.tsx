@@ -24,7 +24,7 @@ export default function HomePage() {
   const [showTick, setShowTick] = useState(false);
   const [showBoat, setShowBoat] = useState(false);
   const [modalState, setModalState] = useState<boolean>(false);
-  const [stage, setStage] = useState<number>(0);
+  const [stage, setStage] = useState<number>(4);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [stage2Class, setStage2Class] = useState(style.startStage2);
   const [stage3Class, setStage3Class] = useState(style.startStage3);

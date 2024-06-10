@@ -1,0 +1,21 @@
+.OverlayModalResult {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.ModalResult {
+  position: absolute;
+  top: 5%;
+  bottom: 5%;
+  left: 15%;
+  right: 15%;
+  z-index: 20;
+  background-image: url("../../assets/Images/BangDiem.png");
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}

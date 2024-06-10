@@ -20,7 +20,7 @@ const GameCaVoi = ({ open, onEndGame }: IGameCaVoi) => {
   const [modalQuestion, setModalQuestion] = useState<boolean>(false);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [fetchDataDone, setFetchDataDone] = useState<boolean>(false);
-  const [endQuestion, setendQuestion] = useState<boolean>(false);
+  const [endQuestion, setEndQuestion] = useState<boolean>(false);
   const [questionSelected, setQuestionSelected] = useState<any>();
 
   const [questionsList, setQuestionsList] = useState<Question[]>(questionsBien);
@@ -123,9 +123,11 @@ const GameCaVoi = ({ open, onEndGame }: IGameCaVoi) => {
     };
   }, [open]);
 
-useEffect(() => {
-  handleOpenModal();
-}, [endQuestion]);
+  useEffect(() => {
+    if (endQuestion) {
+      handleOpenModal();
+    }
+  }, [endQuestion]);
 
   const handleOpenModal = () => {
     initQuestion();
@@ -135,20 +137,19 @@ useEffect(() => {
     }, 400);
   };
 
-useEffect (() => {
-  if(result){
-    setResult(false);
-    AddScore();
-  }
-}, [result]);
+  useEffect(() => {
+    if (result) {
+      setResult(false);
+      AddScore();
+    }
+  }, [result]);
 
   const handleCloseModal = () => {
     setModalQuestion(false);
-    
+
     setTimeout(() => {
-      
       window.ClosePopup();
-      if(endQuestion){
+      if (endQuestion) {
         handleEndGame();
       }
     }, 100);
@@ -158,13 +159,16 @@ useEffect (() => {
     console.log(score);
   }, [score]);
 
+  let listQuestion = questionsBien;
+
   const initQuestion = () => {
+    const temp = Math.floor(Math.random() * listQuestion.length);
 
-    const temp = Math.floor(Math.random() * questionsList.length);
-
-    let mainQuestions = [...questionsList];
+    let mainQuestions = [...listQuestion];
     let supQuestions = mainQuestions.splice(temp, 1);
 
+    listQuestion = mainQuestions;
+    console.log(listQuestion);
     console.log(mainQuestions);
     console.log(supQuestions[0]);
 

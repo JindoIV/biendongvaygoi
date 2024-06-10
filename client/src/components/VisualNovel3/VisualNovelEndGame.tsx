@@ -64,7 +64,7 @@ const VisualNovelEndGame = ({ open, onClose, onEndVN }: ModalAction) => {
   };
 
   const handleSkipStageThoai = () => {
-    // onEndVN();
+    onEndVN();
     onClose();
   };
 
