@@ -12,7 +12,7 @@ const Stage4 = ({ onSt3Close }: Stage4Props) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisualNovelShow(true);
-    }, 10000);
+    }, 9000);
     return () => clearTimeout(timer);
   }, []);
 

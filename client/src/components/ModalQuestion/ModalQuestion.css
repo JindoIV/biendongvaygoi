@@ -83,6 +83,7 @@
 }
 
 .questionContainer {
+
   padding: 6% 9%;
   box-sizing: border-box;
   display: grid;
@@ -126,11 +127,9 @@
   grid-template-columns: auto auto auto;
   gap: 8px;
   margin-top: 10px;
-}
+  width: 200px;
+  margin: 0 auto;
 
-
-.questionImage img{
-  width: 300px;
 }
 
 .answerContainer {

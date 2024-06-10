@@ -80,7 +80,7 @@ const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
                 {!isExplain || question?.explanation == "" ? (
                   <>
                     <div className="questionText">
-                      <h1>Question:</h1>
+                      <h1>Câu hỏi:</h1>
                       <span>{question?.question}</span>
                     </div>
                   </>
