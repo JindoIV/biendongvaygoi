@@ -116,11 +116,6 @@ const GameCaVoi: React.FC<IGameCaVoi> = ({ open, onEndGame }) => {
             };
 
             window.ClosePopup = function () {
-              const popup = document.getElementById("gamePopup");
-              if (popup) {
-                document.body.removeChild(popup);
-              }
-
               unityInstance.SendMessage("Game Controller", "ResumeGame");
             };
 
@@ -136,10 +131,6 @@ const GameCaVoi: React.FC<IGameCaVoi> = ({ open, onEndGame }) => {
 
       document.body.appendChild(script);
     }
-
-    return () => {
-      // Cleanup logic here if needed
-    };
   }, [open]);
 
   useEffect(() => {
@@ -149,29 +140,30 @@ const GameCaVoi: React.FC<IGameCaVoi> = ({ open, onEndGame }) => {
   }, [endQuestion]);
 
   const handleOpenModal = () => {
-    initQuestion();
+    setTimeout(() => {
+      initQuestion();
+    }, 400);
 
     setTimeout(() => {
       setModalQuestion(true);
-    }, 400);
+    }, 900);
   };
 
-  useEffect(() => {
-    if (result) {
-      setResult(false);
-      window.AddScore();
-    }
-  }, [result]);
-
   const handleCloseModal = () => {
-    setModalQuestion(false);
+    setTimeout(() => {
+      setModalQuestion(false);
+      if (result) {
+        setResult(false);
+        window.AddScore();
+      }
+    }, 400);
 
     setTimeout(() => {
       window.ClosePopup();
       if (endQuestion) {
         handleEndGame();
       }
-    }, 100);
+    }, 600);
   };
 
   useEffect(() => {
@@ -192,7 +184,6 @@ const GameCaVoi: React.FC<IGameCaVoi> = ({ open, onEndGame }) => {
     console.log(supQuestions[0]);
 
     setQuestionSelected(supQuestions[0]);
-    setQuestionsList(mainQuestions);
   };
 
   const handleEndGame = (point: number = 0) => {

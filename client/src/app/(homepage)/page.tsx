@@ -15,15 +15,18 @@ import Stage1 from "@/app/(homepage)/_components/stage1";
 import Stage2 from "@/app/(homepage)/_components/stage2";
 import Stage3 from "@/app/(homepage)/_components/stage3";
 import Stage4 from "@/app/(homepage)/_components/stage4";
+import { useDispatch } from "react-redux";
+import { initAmount } from "@/libs/features/score/scoreSlide";
 
 export default function HomePage() {
+  const dispatch = useDispatch();
   const [loadingState, setLoadingState] = useState<boolean>(true);
   const [isZoom, setIsZoom] = useState<boolean>(false);
   const [isLogo, setIsLogo] = useState<boolean>(false);
   const [showTick, setShowTick] = useState(false);
   const [showBoat, setShowBoat] = useState(false);
   const [modalState, setModalState] = useState<boolean>(false);
-  const [stage, setStage] = useState<number>(4);
+  const [stage, setStage] = useState<number>(0);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [stage2Class, setStage2Class] = useState(style.startStage2);
   const [stage3Class, setStage3Class] = useState(style.startStage3);
@@ -58,6 +61,7 @@ export default function HomePage() {
     setTimeout(() => {
       setLoadingState(false);
     });
+    dispatch(initAmount());
   }, []);
 
   useEffect(() => {
