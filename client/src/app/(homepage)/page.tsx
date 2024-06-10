@@ -2,10 +2,10 @@
 import Image from "next/image";
 import style from "./_components/homepage.module.scss";
 import { SetStateAction, Suspense, useEffect, useState } from "react";
-import logo from "../../assets/Images/Bien Dong Vay Goi.png";
-import ruongBT from "../../assets/Images/Ruong bac thang.png";
-import nhaThoBD from "../../assets/Images/Nha tho duc ba.png";
-import thapTH from "../../assets/Images/Thap tram huong-Khanh Hoa.png";
+import logo from "../../assets/Images/BienDongVayGoi.png";
+import ruongBT from "../../assets/Images/Ruongbacthang.png";
+import nhaThoBD from "../../assets/Images/Nhathoducba.png";
+import thapTH from "../../assets/Images/Thaptramhuong-KhanhHoa.png";
 import boat from "../../assets/Images/Con_thuyen.png";
 import boat_st4 from "../../assets/Images/Con_thuyen_nguoc.png";
 import tick from "../../assets/Images/nut_danh_dau.png";
@@ -18,7 +18,6 @@ import Stage4 from "@/app/(homepage)/_components/stage4";
 
 export default function HomePage() {
   const [loadingState, setLoadingState] = useState<boolean>(true);
-  // const [abc, setAbc] = useState<number>(0);
   const [isZoom, setIsZoom] = useState<boolean>(false);
   const [isLogo, setIsLogo] = useState<boolean>(false);
   const [showTick, setShowTick] = useState(false);

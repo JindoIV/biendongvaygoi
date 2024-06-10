@@ -2,7 +2,7 @@
     position: relative;
     min-width: 100vw;
     min-height: 100vh;
-    background-image: url('../../assets/Images/Ban\ Do\ Dao\ Ly\ Son.png');
+    background-image: url('../../assets/Images/BanDoDaoLySon.png');
     background-size: contain;
     transform-origin: 45% 85%;
     animation: scaleMap 1.2s forwards 1s;
