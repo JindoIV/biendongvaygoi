@@ -72,20 +72,20 @@
   width: 77%;
   padding: 30px;
 }
-
+/* 
 .starImage{
   position: absolute;
   top: 0%;
-  left: 5%;
+  right: 85%;
   transform: translate(-50%, -50%);
-  width: 9%;
+  width: 12%;
   animation: moveStar 4s ease-in-out forwards 1.5s;
 }
 
 @keyframes moveStar {
   0% {
   top: 0%;
-  left: 5%;
+  right: 85%;
   transform: translate(-50%, -50%);
   }
   90% {
@@ -93,8 +93,8 @@
   }
   100% {
     opacity: 0;
-    top: -6%;
-    left: -30%;
+    top: -10%;
+    right: -35%;
     transform: translate(-50%, -50%);
   }
 }
@@ -103,14 +103,14 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-}
+}*/
 
 .box h1{
   color: rgb(0, 117, 184);
   font-weight: bold;
   padding-bottom: 10px;
   font-size: 30px;
-}
+} 
 
 .box p{
   color: #333;
@@ -147,7 +147,6 @@
 
 .imageContainer{
   display: flex;
-  align-items: flex-start;
 }
 
 .imageContainer > *{
@@ -161,18 +160,9 @@
 }
 
 .xemTiep{
-  background-image: url('../../assets/Images/MuiTen.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 7%;
-  height: 8%;
   position: absolute;
   bottom: 20px;
   right: 30px;
+  text-decoration: underline;
   cursor: pointer;
-  transition: 0.3s ease-in-out;
-}
-
-.xemTiep:hover{
-  background-image: url('../../assets/Images/MuiTenhover.png');
 }

@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import daoTS from "@/assets/Images/Truong-Sa-Lon-.jpg";
 import daoTSL2 from "@/assets/Images/daotruongsalon.jpg"; // Add this import
 import daoSTT from "@/assets/Images/song-tu-tay-1.jpg"; // Add this import
-import daoSTT2 from "@/assets/Images/songtutay.2.jpg"; // Add this import
+import daoSTT2 from "@/assets/Images/songtutay_2.jpg"; // Add this import
 import daoAnBang from "@/assets/Images/daoanbang.jpg"; // Add this import
-import daoAnBang2 from "@/assets/Images/daoanbang.2.png"; // Add this import
+import daoAnBang2 from "@/assets/Images/daoanbang_2.png"; // Add this import
 import daoGMa from "@/assets/Images/ĐGACMA.jpg"; // Add this import
-import daoGMa2 from "@/assets/Images/ĐGACMA.2.jpg"; // Add this import
+import daoGMa2 from "@/assets/Images/ĐGACMA_2.jpg"; // Add this import
 import { Image } from "antd";
 import Modal from "react-modal";
 import "./BoxInfoTruongSa.css";
