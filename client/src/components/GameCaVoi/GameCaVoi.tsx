@@ -34,6 +34,8 @@ const GameCaVoi: React.FC<IGameCaVoi> = ({ open, onEndGame }) => {
     questionsBien[0]
   );
 
+  const [isModalQuestion, setIsModalQuestion] = useState<boolean>(false);
+
   const [questionsList, setQuestionsList] = useState<Question[]>(questionsBien);
   const [result, setResult] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
@@ -104,6 +106,8 @@ const GameCaVoi: React.FC<IGameCaVoi> = ({ open, onEndGame }) => {
         createUnityInstance(canvas, config, (progress: number) => {})
           .then((unityInstance: any) => {
             window.ShowPopup = function () {
+              unityInstance.SendMessage("Game Controller", "PauseGame");
+              setIsModalQuestion(true);
               handleOpenModal();
             };
 
@@ -120,7 +124,8 @@ const GameCaVoi: React.FC<IGameCaVoi> = ({ open, onEndGame }) => {
             };
 
             window.pointGame = function (point: number) {
-              setEndQuestion(true);
+              // setEndQuestion(true);
+              handleOpenModal();
               handleEndGame(point);
             };
           })
@@ -133,11 +138,11 @@ const GameCaVoi: React.FC<IGameCaVoi> = ({ open, onEndGame }) => {
     }
   }, [open]);
 
-  useEffect(() => {
-    if (endQuestion) {
-      handleOpenModal();
-    }
-  }, [endQuestion]);
+  // useEffect(() => {
+  //   if (endQuestion) {
+  //     handleOpenModal();
+  //   }
+  // }, [endQuestion]);
 
   const handleOpenModal = () => {
     setTimeout(() => {
@@ -151,6 +156,7 @@ const GameCaVoi: React.FC<IGameCaVoi> = ({ open, onEndGame }) => {
 
   const handleCloseModal = () => {
     setTimeout(() => {
+      setIsModalQuestion(false);
       setModalQuestion(false);
       if (result) {
         setResult(false);
@@ -159,31 +165,29 @@ const GameCaVoi: React.FC<IGameCaVoi> = ({ open, onEndGame }) => {
     }, 400);
 
     setTimeout(() => {
-      window.ClosePopup();
       if (endQuestion) {
         handleEndGame();
       }
-    }, 600);
+      window.ClosePopup();
+    }, 800);
   };
-
-  useEffect(() => {
-    console.log(score);
-  }, [score]);
 
   let listQuestion = questionsBien;
 
   const initQuestion = () => {
-    const temp = Math.floor(Math.random() * listQuestion.length);
+    if (isModalQuestion) {
+      const temp = Math.floor(Math.random() * listQuestion.length);
 
-    let mainQuestions = [...listQuestion];
-    let supQuestions = mainQuestions.splice(temp, 1);
+      let mainQuestions = [...listQuestion];
+      let supQuestions = mainQuestions.splice(temp, 1);
 
-    listQuestion = mainQuestions;
-    console.log(listQuestion);
-    console.log(mainQuestions);
-    console.log(supQuestions[0]);
+      listQuestion = mainQuestions;
+      console.log(listQuestion);
+      console.log(mainQuestions);
+      console.log(supQuestions[0]);
 
-    setQuestionSelected(supQuestions[0]);
+      setQuestionSelected(supQuestions[0]);
+    }
   };
 
   const handleEndGame = (point: number = 0) => {
