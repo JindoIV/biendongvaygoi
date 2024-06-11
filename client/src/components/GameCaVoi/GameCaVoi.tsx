@@ -140,12 +140,13 @@ const GameCaVoi: React.FC<IGameCaVoi> = ({ open, onEndGame }) => {
   const delay = (ms: any) => new Promise((resolve) => setTimeout(resolve, ms));
 
   const handleOpenModal = async () => {
-    await delay(400);
-    await initQuestion();
-    await delay(500);
-    setModalQuestion(true);
+    if (!modalQuestion) {
+      await delay(400);
+      await initQuestion();
+      await delay(500);
+      setModalQuestion(true);
+    }
   };
-
 
   const handleCloseModal = async () => {
     await delay(400);
