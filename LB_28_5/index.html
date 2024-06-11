@@ -9,8 +9,19 @@
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=1066 height=600 tabindex="-1"></canvas>
+      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
       <div id="unity-warning"> </div>
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">Lan bien</div>
+      </div>
     </div>
     <script>
 
@@ -83,54 +94,26 @@
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-        canvas.style.width = "1066px";
+        canvas.style.width = "960px";
         canvas.style.height = "600px";
       }
 
-      
+      loadingBar.style.display = "block";
+
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
-        })
-          .then((unityInstance) => {
-            window.ShowPopup = function (message) {
-              const popup = document.createElement("div");
-              popup.id = "gamePopup";
-              popup.style.position = "fixed";
-              popup.style.top = "50%";
-              popup.style.left = "50%";
-              popup.style.transform = "translate(-50%, -50%)";
-              popup.style.backgroundColor = "white";
-              popup.style.padding = "20px";
-              popup.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.5)";
-              popup.innerHTML = `
-            <button onclick="AddScore()">Add Score</button>
-            <button onclick="ClosePopup()">Close</button>
-          `;
-              document.body.appendChild(popup);
+          progressBarFull.style.width = 100 * progress + "%";
+              }).then((unityInstance) => {
+                loadingBar.style.display = "none";
+                fullscreenButton.onclick = () => {
+                  unityInstance.SetFullscreen(1);
+                };
+              }).catch((message) => {
+                alert(message);
+              });
             };
-
-            window.AddScore = function () {
-              unityInstance.SendMessage(
-                "Game Controller",
-                "SetCanAddScore",
-                "true"
-              );
-              ClosePopup();
-            };
-            window.ClosePopup = function () {
-              const popup = document.getElementById("gamePopup");
-              if (popup) {
-                document.body.removeChild(popup);
-              }
-              unityInstance.SendMessage("Game Controller", "ResumeGame");
-            };
-          })
-          .catch((message) => {
-            alert(message);
-          });
-      };
 
       document.body.appendChild(script);
 
