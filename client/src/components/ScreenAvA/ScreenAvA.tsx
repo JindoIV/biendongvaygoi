@@ -69,6 +69,10 @@ const ScreenAvA = ({ open, onClose }: IScreenAvA) => {
     const temp = Math.floor(Math.random() * questions.length);
     let mainQuestions = questions;
     let supQuestions = mainQuestions.splice(temp, 1);
+
+    console.log(mainQuestions);
+    console.log(supQuestions);
+
     setQuestionSelected(supQuestions[0]);
     setQuestions(mainQuestions);
 

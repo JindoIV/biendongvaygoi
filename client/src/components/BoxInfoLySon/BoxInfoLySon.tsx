@@ -136,17 +136,16 @@ const BoxInfoLySon = ({ open, place, showStar, closeModal }: IBoxInfoLySon) => {
           <h1>{showTittle}</h1>
           {showStar && (
             <div className="starImage">
-              <Image src={image.star.src} alt="Star" />
+              <Image src={image.star.src} alt="Star" preview={false} />
             </div>
           )}
           <div className="scrollableContent">
             <p className="infoText">{showInfo}</p>
             <div className="imageContainer">
-              {showImg1 && <Image src={showImg1} alt="Image 1"/>}
-              {showImg2 && <Image src={showImg2} alt="Image 2"/>} 
+              {showImg1 && <Image src={showImg1} alt="Image 1" />}
+              {showImg2 && <Image src={showImg2} alt="Image 2" />}
             </div>
-            <div className="xemTiep" onClick={closeModal}>
-            </div>
+            <div className="xemTiep" onClick={closeModal}></div>
           </div>
         </div>
       </Modal>

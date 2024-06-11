@@ -42,7 +42,6 @@ const ModalQuestion = ({ open, onClose, question, isResult }: ModalAction) => {
       } else {
         refAns.current[key].classList.add("answerBox_Correct");
         isResult();
-        dispatch(increment());
       }
 
       setTimeout(() => {
@@ -82,7 +81,9 @@ const ModalQuestion = ({ open, onClose, question, isResult }: ModalAction) => {
                   <>
                     <div className="questionText">
                       <h1>Câu hỏi:</h1>
-                      <span>{question?.question}</span>
+                      <div className="questionContainerText">
+                        <p>{question?.question} </p>
+                      </div>
                     </div>
                   </>
                 ) : (
@@ -93,28 +94,17 @@ const ModalQuestion = ({ open, onClose, question, isResult }: ModalAction) => {
                     </div>
                   </>
                 )}
-                <div className="questionImage">
+                <div className="questionImageGame">
                   {question?.image &&
                     question?.image
                       .split("|")
                       .map((img: any, index: number) => {
                         return (
                           <>
-                            <div
-                              key={"CH" + index}
-                              // className="answerBox"
-                              // onClick={() => handleCheckDN(index)}
-                              // ref={(element) => {
-                              //   if (element) {
-                              //     refAns.current[index] = element;
-                              //   }
-                              // }}
-                            >
-                              <Image
-                                src={linkAssets + img.trim()}
-                                alt={"hinh anh"}
-                              />
-                            </div>
+                            <Image
+                              src={linkAssets + img.trim()}
+                              alt={"hinh anh"}
+                            />
                           </>
                         );
                       })}
