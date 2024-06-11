@@ -127,9 +127,11 @@
   grid-template-columns: auto auto auto;
   gap: 8px;
   margin-top: 10px;
-  width: 200px;
   margin: 0 auto;
+}
 
+.questionImage > *{
+  width: 50%;
 }
 
 .answerContainer {

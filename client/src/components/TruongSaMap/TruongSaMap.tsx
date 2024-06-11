@@ -137,6 +137,11 @@ const TruongSaMap = ({ closeMap }: TruongSaMapProps) => {
                 <p>{label}</p>
               </div>
             ))}
+              <p className="VM extra">bãi Vũng Mây</p>
+              <p className="KN extra">bãi Kiêu Ngựa</p>
+              <p className="DB extra">bãi Đinh Ba</p>
+              <p className="TN extra">bãi Tây Nam</p>
+
             <div className="btnX" onClick={closeMap}>
               <Image src={image.btn_thoat} alt=""></Image>
             </div>

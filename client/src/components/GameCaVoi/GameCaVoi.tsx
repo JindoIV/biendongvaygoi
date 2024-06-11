@@ -106,7 +106,7 @@ const GameCaVoi: React.FC<IGameCaVoi> = ({ open, onEndGame }) => {
         createUnityInstance(canvas, config, (progress: number) => {})
           .then((unityInstance: any) => {
             window.ShowPopup = function () {
-              unityInstance.SendMessage("Game Controller", "PauseGame");
+              // unityInstance.SendMessage("Game Controller", "PauseGame");
               setIsModalQuestion(true);
               handleOpenModal();
             };
@@ -161,6 +161,7 @@ const GameCaVoi: React.FC<IGameCaVoi> = ({ open, onEndGame }) => {
       if (result) {
         setResult(false);
         window.AddScore();
+        
       }
     }, 400);
 

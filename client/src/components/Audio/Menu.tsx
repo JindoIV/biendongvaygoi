@@ -2,11 +2,17 @@
 import "./Menu.css";
 import Modal from "react-modal";
 import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import { Button, Col, Row } from "antd";
 import Loading from "@/components/Loading/Loading";
+import star from "../../assets/Images/Star.png";
 import { _Playfair, _Roboto } from "@/utils/font";
+import { useSelector } from "react-redux";
+import { RootState } from "@/libs/store";
 
 export default function Menu() {
+  const score = useSelector((state: RootState) => state.score.value);
+
   const audioElement = useRef<HTMLAudioElement>(null);
   const [isSoundOn, setIsSoundOn] = useState<boolean>(false);
 
@@ -99,7 +105,10 @@ export default function Menu() {
           </Modal>
 
           <div className={"menu"}>
-            <div className={"mainStar"}></div>
+            <div className={"mainStar"}>
+              <Image src={star} alt=""></Image>
+              <p className="textPoint">{score}</p>
+            </div>
             <div
               className={`${isSoundOn ? "am_luong_btn" : "mute_am_luong_btn"}`}
               onClick={handlePlayAudio}
