@@ -34,7 +34,7 @@ const GameCaVoi: React.FC<IGameCaVoi> = ({ open, onEndGame }) => {
     questionsBien[0]
   );
 
-  const [isModalQuestion, setIsModalQuestion] = useState<boolean>(false);
+  const [numberQuestion, setNumberQuestion] = useState<number>(0);
 
   const [questionsList, setQuestionsList] = useState<Question[]>(questionsBien);
   const [result, setResult] = useState<boolean>(false);
@@ -107,7 +107,7 @@ const GameCaVoi: React.FC<IGameCaVoi> = ({ open, onEndGame }) => {
           .then((unityInstance: any) => {
             window.ShowPopup = function () {
               // unityInstance.SendMessage("Game Controller", "PauseGame");
-              setIsModalQuestion(true);
+              console.log("ShowPopup");
               handleOpenModal();
             };
 
@@ -125,7 +125,6 @@ const GameCaVoi: React.FC<IGameCaVoi> = ({ open, onEndGame }) => {
 
             window.pointGame = function (point: number) {
               // setEndQuestion(true);
-              handleOpenModal();
               handleEndGame(point);
             };
           })
@@ -138,60 +137,53 @@ const GameCaVoi: React.FC<IGameCaVoi> = ({ open, onEndGame }) => {
     }
   }, [open]);
 
-  // useEffect(() => {
-  //   if (endQuestion) {
-  //     handleOpenModal();
-  //   }
-  // }, [endQuestion]);
+  const delay = (ms: any) => new Promise((resolve) => setTimeout(resolve, ms));
 
-  const handleOpenModal = () => {
-    setTimeout(() => {
-      initQuestion();
-    }, 400);
-
-    setTimeout(() => {
-      setModalQuestion(true);
-    }, 900);
+  const handleOpenModal = async () => {
+    await delay(400);
+    await initQuestion();
+    await delay(500);
+    setModalQuestion(true);
   };
 
-  const handleCloseModal = () => {
-    setTimeout(() => {
-      setIsModalQuestion(false);
-      setModalQuestion(false);
-      if (result) {
-        setResult(false);
-        window.AddScore();
-        
-      }
-    }, 400);
 
-    setTimeout(() => {
-      if (endQuestion) {
-        handleEndGame();
-      }
-      window.ClosePopup();
-    }, 800);
+  const handleCloseModal = async () => {
+    await delay(400);
+    setModalQuestion(false);
+
+    if (result) {
+      setResult(false);
+      window.AddScore();
+    }
+
+    setNumberQuestion(numberQuestion + 1);
+
+    await delay(400);
+
+    if (endQuestion) {
+      handleEndGame();
+    }
+    window.ClosePopup();
   };
 
   let listQuestion = questionsBien;
 
   const initQuestion = () => {
-    if (isModalQuestion) {
-      const temp = Math.floor(Math.random() * listQuestion.length);
+    const temp = Math.floor(Math.random() * listQuestion.length);
 
-      let mainQuestions = [...listQuestion];
-      let supQuestions = mainQuestions.splice(temp, 1);
+    let mainQuestions = [...listQuestion];
+    let supQuestions = mainQuestions.splice(temp, 1);
 
-      listQuestion = mainQuestions;
-      console.log(listQuestion);
-      console.log(mainQuestions);
-      console.log(supQuestions[0]);
+    listQuestion = mainQuestions;
+    console.log(listQuestion);
+    console.log(mainQuestions);
+    console.log(supQuestions[0]);
 
-      setQuestionSelected(supQuestions[0]);
-    }
+    setQuestionSelected(supQuestions[0]);
   };
 
   const handleEndGame = (point: number = 0) => {
+    console.log(point);
     setScore(point);
     dispatch(incrementByAmount(point));
     onEndGame();
