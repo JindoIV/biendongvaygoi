@@ -111,6 +111,35 @@
     }
 }
 
+.extra{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    width: 9%;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.VM{
+    top: 79%;
+    left: 33%;
+}
+
+.KN{
+    top: 78%;
+    left: 53.5%;
+}
+
+.DB{
+    top: 14%;
+    left: 62%;
+}
+
+.TN{
+    top: 36%;
+    left: 73%;
+}
+
 .btnX{
     position: absolute;
     bottom: 5%;
@@ -165,5 +194,25 @@
     .diaDiem4{
         top: 73%;
         left: 44%;
+    }
+
+    .VM{
+        top: 79%;
+        left: 30.5%;
+    }
+    
+    .KN{
+        top: 78%;
+        left: 55%;
+    }
+    
+    .DB{
+        top: 15%;
+        left: 63%;
+    }
+    
+    .TN{
+        top: 36%;
+        left: 76.5%;
     }
   }

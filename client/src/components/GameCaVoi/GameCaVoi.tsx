@@ -146,6 +146,7 @@ const GameCaVoi: React.FC<IGameCaVoi> = ({ open, onEndGame }) => {
     setModalQuestion(true);
   };
 
+
   const handleCloseModal = async () => {
     await delay(400);
     setModalQuestion(false);
