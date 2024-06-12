@@ -3,6 +3,7 @@ import Image from "next/image";
 import style from "./_components/homepage.module.scss";
 import { SetStateAction, Suspense, useEffect, useState } from "react";
 import logo from "../../assets/Images/BienDongVayGoi.png";
+import logoTNKT from "../../assets/Images/TraiNghiemKyThu.png";
 import ruongBT from "../../assets/Images/Ruongbacthang.png";
 import nhaThoBD from "../../assets/Images/Nhathoducba.png";
 import thapTH from "../../assets/Images/Thaptramhuong-KhanhHoa.png";
@@ -130,6 +131,9 @@ export default function HomePage() {
             <div
               className={`${style.logo} ${isLogo ? style.display_none : ""}`}
             >
+            <div className={`${style.logo_tnkt}`}>
+                <Image src={logoTNKT} alt={""}></Image>
+              </div>
               <div className={`${style.logo_img}`}>
                 <Image src={logo} alt={""}></Image>
               </div>
