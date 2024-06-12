@@ -26,9 +26,8 @@ const LySonMap = ({ closeMap }: LySonMapProps) => {
     if (number === randomNumber) {
       setShowStar(true);
       setRandomNumber(0);
-      dispatch(increment());
       setTimeout(() => {
-        setPoints(points + 1);
+        dispatch(increment());
       }, 5200);
     } else {
       setShowStar(false);
