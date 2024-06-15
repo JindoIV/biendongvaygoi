@@ -166,10 +166,10 @@ export default function HomePage() {
               <p>Đảo Lý Sơn</p>
             </div>
             <div className={`${style.trSa} ${style.mainDiaDiem}`}>
-              <p>Đảo Trường Sa</p>
+              <p>Quần đảo Trường Sa</p>
             </div>
             <div className={`${style.hSa} ${style.mainDiaDiem}`}>
-              <p>Đảo Hoàng Sa</p>
+              <p>Quần đảo Hoàng Sa</p>
             </div>
 
             {stage == 1 && (

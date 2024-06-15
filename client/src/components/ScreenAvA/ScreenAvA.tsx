@@ -71,7 +71,7 @@ const ScreenAvA = ({ open, onClose }: IScreenAvA) => {
     let supQuestions = mainQuestions.splice(temp, 1);
 
     console.log(mainQuestions);
-    console.log(supQuestions);
+    // console.log(supQuestions);
 
     setQuestionSelected(supQuestions[0]);
     setQuestions(mainQuestions);

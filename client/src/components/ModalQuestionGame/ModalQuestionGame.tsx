@@ -65,54 +65,85 @@ const ModalQuestion = ({ open, onClose, question, isResult }: ModalAction) => {
     <>
       <Modal
         isOpen={open}
-        className="ModalQuestion"
+        className="ModalQuestionGame"
         // onAfterOpen={afterOpenModal}
         // onRequestClose={onClose}
         // style={customStyles}
         contentLabel="Example Modal"
         overlayClassName="OverlayQuestion"
       >
-        <div className="buttonXContainer">
-          {isClose && <div className="buttonX" onClick={() => onClose()}></div>}
-          <div className="modalContainer">
-            <div className="questionBackground">
-              <div className="questionContainer">
+        <div className="buttonXContainerGame">
+          {isClose && (
+            <div className="buttonXGame" onClick={() => onClose()}></div>
+          )}
+          <div className="modalContainerGame">
+            <div className="questionBackgroundGame">
+              <div className="questionContainerGame">
                 {!isExplain || question?.explanation == "" ? (
                   <>
-                    <div className="questionText">
+                    <div className="questionTextGame">
                       <h1>Câu hỏi:</h1>
-                      <div className="questionContainerText">
-                        <p>{question?.question} </p>
-                      </div>
                     </div>
                   </>
                 ) : (
                   <>
-                    <div className="giaiThich">
+                    <div className="giaiThichGame">
                       <h1>Giải thích:</h1>
-                      <span>{question?.explanation}</span>
                     </div>
                   </>
                 )}
-                <div className="questionImageGame">
-                  {question?.image &&
-                    question?.image
-                      .split("|")
-                      .map((img: any, index: number) => {
-                        return (
-                          <>
-                            <Image
-                              src={linkAssets + img.trim()}
-                              alt={"hinh anh"}
-                            />
-                          </>
-                        );
-                      })}
+                <div className="scrollableContentGame">
+                  {!isExplain || question?.explanation == "" ? (
+                    <>
+                      <div className="questionText">
+                        <span>{question?.question}</span>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="giaiThich">
+                        <span>{question?.explanation}</span>
+                      </div>
+                    </>
+                  )}
+                  {question?.image && (
+                    <>
+                      <p className="clickImage">
+                        (*) Click vào ảnh để phóng to ảnh
+                      </p>
+                    </>
+                  )}
+                  <div className="questionImageGame">
+                    {question?.image &&
+                      question?.image
+                        .split("|")
+                        .map((img: any, index: number) => {
+                          return (
+                            <>
+                              <div
+                                key={"CH" + index}
+                                // className="answerBox"
+                                // onClick={() => handleCheckDN(index)}
+                                // ref={(element) => {
+                                //   if (element) {
+                                //     refAns.current[index] = element;
+                                //   }
+                                // }}
+                              >
+                                <Image
+                                  src={linkAssets + img.trim()}
+                                  alt={"hinh anh"}
+                                />
+                              </div>
+                            </>
+                          );
+                        })}
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="answerContainer">
+            <div className="answerContainerGame">
               {question?.options &&
                 question?.options
                   .split("|")
@@ -121,7 +152,7 @@ const ModalQuestion = ({ open, onClose, question, isResult }: ModalAction) => {
                       <>
                         <div
                           key={index}
-                          className="answerBox"
+                          className="answerBoxGame"
                           onClick={() => handleCheckDN(index)}
                           ref={(element) => {
                             if (element) {

@@ -7,7 +7,7 @@
   z-index: 5;
 }
 
-.ModalQuestion {
+.ModalQuestionGame {
   position: absolute;
   top: 5%;
   bottom: 5%;
@@ -20,8 +20,8 @@
   background-repeat: no-repeat;
 }
 
-.ModalQuestion:focus,
-.ModalQuestion *:focus {
+.ModalQuestionGame:focus,
+.ModalQuestionGame *:focus {
   outline: none;
 }
 
@@ -34,14 +34,14 @@
   border: 2px solid #333;
 } */
 
-.buttonXContainer {
+.buttonXContainerGame {
   position: relative;
   margin: 0;
   width: 100%;
   height: 100%;
 }
 
-.buttonX {
+.buttonXGame {
   position: absolute;
   top: 2%;
   right: 1.71%;
@@ -55,7 +55,7 @@
   transition: 0.3s ease-in;
 }
 
-.buttonX:hover {
+.buttonXGame:hover {
   cursor: pointer;
   background-image: url("../../assets/Images/buttonXHover.png");
   background-position: center center;
@@ -63,40 +63,44 @@
   background-repeat: no-repeat;
 }
 
-.modalContainer {
+.modalContainerGame {
   display: grid;
-  padding: 6% 5%;
+  /* padding: 6% 5%; */
+  padding: 0 5%;
   grid-template-columns: 1.5fr 1fr;
   grid-auto-flow: column;
-  min-height: 100%;
+  align-items: center; 
+  height: 100%;
   gap: 20px;
 }
 
-.questionBackground {
+.questionBackgroundGame {
   background-image: url("../../assets/Images/Khung_Cau_Hoi.png");
   background-position: center center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
   width: 100%;
-  height: 100%;
+  min-height: 90%;
+  height: 90%;
 }
 
-.questionContainer {
-  padding: 6% 9%;
+.questionContainerGame {
+  overflow: hidden;
+  padding: 0% 9%;
   box-sizing: border-box;
-  display: grid;
-  place-items: start;
   width: 100%;
-  height: 100%;
+  height: 90%;
 }
 
-.questionContainerText h1 {
+.questionTextGame h1{
   font-size: 36px;
   color: rgb(0, 79, 124);
   margin-bottom: 10px;
 }
 
-.questionContainerText p {
+.questionTextGame span{
   font-family: Inner;
   line-height: 30px;
   text-align: justify;
@@ -104,36 +108,13 @@
   font-size: 24px;
 }
 
-.questionContainerText {
-  max-height: 80%;
-  overflow-y: auto;
-  padding-right: 10px;
-}
-.questionContainerText::-webkit-scrollbar {
-  width: 10px;
-}
-
-.questionContainerText::-webkit-scrollbar-track {
-  background: #fff;
-  border-radius: 10px;
-}
-
-.questionContainerText::-webkit-scrollbar-thumb {
-  background: #7a9ee4;
-  border-radius: 10px;
-}
-
-.questionContainerText::-webkit-scrollbar-thumb:hover {
-  background: #2e59af;
-}
-
-.giaiThich h1 {
+.giaiThichGame h1 {
   font-size: 36px;
   color: rgb(0, 79, 124);
   margin-bottom: 10px;
 }
 
-.giaiThich span {
+.giaiThichGame span {
   font-family: Inner;
   line-height: 30px;
   text-align: justify;
@@ -141,14 +122,37 @@
   font-size: 24px;
 }
 
+.scrollableContentGame{
+  height: 100%;
+  overflow-y: auto; 
+  padding-right: 10px; 
+}
+
+.scrollableContentGame::-webkit-scrollbar {
+  width: 10px; 
+}
+
+.scrollableContentGame::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 10px; 
+}
+
+.scrollableContentGame::-webkit-scrollbar-thumb {
+  background: #7A9EE4; 
+  border-radius: 10px; 
+}
+
+.scrollableContentGame::-webkit-scrollbar-thumb:hover {
+  background: #2E59AF; 
+}
+
 .questionImageGame {
-  max-height: 60%;
-  overflow-y: auto;
-  padding-right: 10px;
-  overflow: auto;
   display: flex;
-  gap: 10px;
+  gap: 5px;
+  justify-content: space-around;
   margin-top: 10px;
+  margin: 0 auto;
+  overflow: hidden; 
 }
 
 .questionImageGame::-webkit-scrollbar {
@@ -169,13 +173,18 @@
   background: #2e59af;
 }
 
+.clickImage{
+  margin: 12px 0;
+  font-style: italic;
+}
+
 .questionImageGame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.answerContainer {
+.answerContainerGame {
   padding: 6% 8%;
   display: grid;
   box-sizing: border-box;
@@ -183,7 +192,7 @@
   gap: 16px;
 }
 
-.answerBox {
+.answerBoxGame {
   min-width: 100%;
   min-height: 100px;
   padding: 5% 8% 8% 5%;
