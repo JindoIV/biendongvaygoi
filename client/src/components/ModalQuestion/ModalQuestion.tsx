@@ -60,7 +60,6 @@ const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
     }
   }, [open]);
 
-
   return (
     <>
       <Modal
@@ -77,46 +76,68 @@ const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
           <div className="modalContainer">
             <div className="questionBackground">
               <div className="questionContainer">
+                <div className="questionTittle">
+                  {!isExplain || question?.explanation == "" ? (
+                    <>
+                      <div className="questionText">
+                        <h1>Câu hỏi:</h1>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="giaiThich">
+                        <h1>Giải thích:</h1>
+                      </div>
+                    </>
+                  )}
+                </div>
+                
+                <div className="scrollableContent">
                 {!isExplain || question?.explanation == "" ? (
-                  <>
-                    <div className="questionText">
-                      <h1>Câu hỏi:</h1>
-                      <span>{question?.question}</span>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div className="giaiThich">
-                    <h1>Giải thích:</h1>
-                      <span>{question?.explanation}</span>
-                    </div>
-                  </>
-                )}
-                <div className="questionImage">
-                  {question?.image &&
-                    question?.image
-                      .split("|")
-                      .map((img: any, index: number) => {
-                        return (
-                          <>
-                            <div
-                              key={"CH" + index}
-                              // className="answerBox"
-                              // onClick={() => handleCheckDN(index)}
-                              // ref={(element) => {
-                              //   if (element) {
-                              //     refAns.current[index] = element;
-                              //   }
-                              // }}
-                            >
-                              <Image
-                                src={linkAssets + img.trim()}
-                                alt={"hinh anh"}
-                              />
-                            </div>
-                          </>
-                        );
-                      })}
+                    <>
+                      <div className="questionText">
+                        <span>{question?.question}</span>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="giaiThich">
+                        <span>{question?.explanation}</span>
+                      </div>
+                    </>
+                  )}
+                  {
+                    question?.image &&
+                    <>
+                       <p className="clickImage">(*) Click vào ảnh để phóng to ảnh</p>
+                    </>
+                  }
+                  <div className="questionImage">
+                    {question?.image &&
+                      question?.image
+                        .split("|")
+                        .map((img: any, index: number) => {
+                          return (
+                            <>
+                              <div
+                                key={"CH" + index}
+                                // className="answerBox"
+                                // onClick={() => handleCheckDN(index)}
+                                // ref={(element) => {
+                                //   if (element) {
+                                //     refAns.current[index] = element;
+                                //   }
+                                // }}
+                              >
+                                <Image
+                                  src={linkAssets + img.trim()}
+                                  alt={"hinh anh"}
+                                />
+                              </div>
+                            </>
+                          );
+                        })}
+                  </div>
                 </div>
               </div>
             </div>

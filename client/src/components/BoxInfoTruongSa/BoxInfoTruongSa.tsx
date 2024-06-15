@@ -96,6 +96,8 @@ const BoxInfoTruongSa = ({ open, place, closeModal }: IBoxInfoTruongSa) => {
           <h1>{showTittle}</h1>
           <div className="scrollableContent">
             <p className="infoText">{showInfo}</p>
+            <p className="clickImage">(*) Click vào ảnh để phóng to ảnh</p>
+
             <div className="imageContainerTS">
               {showImg1 && <Image src={showImg1} alt="Image 1" />}
               {showImg2 && <Image src={showImg2} alt="Image 2" />}

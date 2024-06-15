@@ -141,6 +141,7 @@ const BoxInfoLySon = ({ open, place, showStar, closeModal }: IBoxInfoLySon) => {
           )}
           <div className="scrollableContent">
             <p className="infoText">{showInfo}</p>
+            <p className="clickImage">(*) Click vào ảnh để phóng to ảnh</p>
             <div className="imageContainer">
               {showImg1 && <Image src={showImg1} alt="Image 1" />}
               {showImg2 && <Image src={showImg2} alt="Image 2" />}
