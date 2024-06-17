@@ -4,4 +4,6 @@ export default interface Question {
   correctAnswer: number;
   image?: string;
   explanation: string;
+  imageExplain?: string;
 }
+
