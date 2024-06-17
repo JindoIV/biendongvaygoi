@@ -7,6 +7,7 @@ import { http } from "@/utils/config";
 import Question from "@/types/question";
 import { Button } from "antd";
 import { question } from "@/assets/Images/TruongSaMap";
+import ModalQuestionLS from "../ModalQuestionLS/ModalQuestionLS";
 
 interface IScreenAvA {
   open: boolean;
@@ -61,7 +62,7 @@ const questionLySon = [
     options:
       "Đánh Bắt Thủy Hải Sản| Nông Nghiệp| Công Nghiệp| Đánh bắt thủy sản và nông nghiệp",
     correctAnswer: 3,
-    image: "daoLySon.jpg",
+    image: "",
     explanation:
       "Phần lớn người dân ở đây sống bằng nghề đánh bắt hải sản và làm nông nghiệp với nghề chính là trồng tỏi và hành.",
   },
@@ -69,10 +70,11 @@ const questionLySon = [
     question: "Đảo nào sau đây ở nước ta đã từng có núi lửa?",
     options: "Đảo Hoàng Sa| Đảo Phú Quốc| Đảo Bé Lý Sơn| Đảo Song Tử Tây",
     correctAnswer: 2,
-    image: "daoBeLySon.jpg",
+    image: "",
     explanation:
       "Những núi lửa còn hình hài rõ nét nhất là núi lửa trên đảo Lý Sơn (Quảng Ngãi), núi lửa trên đảo Phú Quý (Bình Thuận), núi lửa Hàm Rồng (Gia Lai) và núi lửa ở Bình Phước.",
-  },
+    imageExplain: "daoBeLySon.jpg",
+    },
   {
     question: "Đảo Lý Sơn nằm ở hướng nào của nước ta?",
     options: "Đông Bắc| Đông Nam| Tây Nam| Tây Bắc",
@@ -97,7 +99,9 @@ const questionLySon = [
     image: "",
     explanation:
       "Trải qua hàng triệu năm hoạt động kiến tạo địa chất, huyện đảo Lý Sơn (tỉnh Quảng Ngãi) còn nguyên vẹn dấu tích 10 miệng núi lửa cổ gắn liền với cảnh quan thiên nhiên hoang sơ.",
-  },
+    imageExplain: "daoLySon.jpg",
+    
+    },
   {
     question:
       "Lễ Khao Lề Thế Lính Hoàng Sa ở huyện đảo Lý Sơn đã được Bộ Văn Hóa Và Du Lịch công nhận là gì?",
@@ -107,7 +111,7 @@ const questionLySon = [
     image: "le.jpg",
     explanation:
       "Tháng 4/2013, Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch đã quyết định đưa Lễ khao lề thế lính Hoàng Sa vào Danh mục Di sản văn hóa phi vật thể quốc gia, loại hình Tập quán xã hội và tín ngưỡng.",
-  },
+    },
   {
     question: "Vì sao đảo Lý Sơn lại được gọi là “Vương Quốc Tỏi”?",
     options:
@@ -121,18 +125,20 @@ const questionLySon = [
     question: "Đảo Lý Sơn còn có tên gọi khác là gì?",
     options: "Cù Lao Sé| Cù Lao| Cù Lao Ké| Cù Lao Ré",
     correctAnswer: 3,
-    image: "cayRe.jpg",
+    image: "",
     explanation:
       "Lý Sơn được gọi là Cù lao Ré, theo cách lý giải của dân gian là “cù lao có nhiều cây Ré”.",
+    imageExplain: "cayRe.jpg",
   },
   {
     question: "Trong các món ăn sau, món ăn nào là đặc sản của đảo Lý Sơn?",
     options: "Cháo Tỏi| Gỏi Gà| Gỏi Rong Biển| Mì Xào Tỏi",
     correctAnswer: 2,
-    image: "goiRongBien.jpg",
+    image: "",
     explanation:
       "Gỏi rong biển - gỏi bòng bòng là món gỏi dân dã, thanh mát. Món ăn đơn giản nhưng lại có sức hút đặc biệt với du khách đến đảo Lý Sơn, vị lạ miệng của nó đủ để làm mềm lòng cả những người sành ăn nhất.",
-  },
+    imageExplain: "goiRongBien.jpg",
+    },
   // {
   //   question: "Huyện Lý Sơn cách đất liền bao nhiêu KM?",
   //   options: "70km| 10km| 45km| 30km",
@@ -226,9 +232,9 @@ const ScreenAvA = ({ open, onClose }: IScreenAvA) => {
 
     const temp = Math.floor(Math.random() * questions.length);
     let mainQuestions = questions;
-    let supQuestions = mainQuestions.splice(temp, 1);
+     let supQuestions = mainQuestions.splice(temp, 1);
 
-    console.log(mainQuestions);
+    // console.log(mainQuestions[13]);
     // console.log(supQuestions);
 
     setQuestionSelected(supQuestions[0]);
@@ -253,13 +259,13 @@ const ScreenAvA = ({ open, onClose }: IScreenAvA) => {
         <div className="backgroundMatBien">
           <div className="matBien" ref={questionContainer}></div>
           <div style={{ position: "relative" }}>
-            <ModalQuestion
+            <ModalQuestionLS
               open={modalQuestion}
               onClose={() => {
                 setModalQuestion(false);
               }}
               question={questionSelected}
-            ></ModalQuestion>
+            ></ModalQuestionLS>
           </div>
         </div>
       </Modal>

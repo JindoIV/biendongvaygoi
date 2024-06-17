@@ -1,0 +1,223 @@
+.OverlayQuestion {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+}
+
+.ModalQuestion {
+  position: absolute;
+  top: 5%;
+  bottom: 5%;
+  left: 15%;
+  right: 15%;
+  z-index: 20;
+  background-image: url("../../assets/Images/Nen_CH.png");
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.ModalQuestion:focus,
+.ModalQuestion *:focus {
+  outline: none;
+}
+
+/* .question{
+  position: absolute;
+  top: 40%;
+  left: 26.5%;
+  width: 260px;
+  transform: translate(-50%, -50%); 
+  border: 2px solid #333;
+} */
+
+.buttonXContainer {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.buttonX {
+  position: absolute;
+  top: 2%;
+  right: 1.71%;
+  background-image: url("../../assets/Images/buttonX.png");
+  background-position: center center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 6%;
+  height: 9.5%;
+  z-index: 29;
+  transition: 0.3s ease-in;
+}
+
+.buttonX:hover {
+  cursor: pointer;
+  background-image: url("../../assets/Images/buttonXHover.png");
+  background-position: center center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.modalContainer {
+  display: grid;
+  /* padding: 6% 5%; */
+  padding: 0 5%;
+  grid-template-columns: 1.5fr 1fr;
+  grid-auto-flow: column;
+  align-items: center; 
+  height: 100%;
+  gap: 20px;
+}
+
+.questionBackground {
+  background-image: url("../../assets/Images/Khung_Cau_Hoi.png");
+  background-position: center center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 90%;
+  height: 90%;
+}
+
+.questionContainer {
+  overflow: hidden;
+  padding: 0% 9%;
+  box-sizing: border-box;
+  width: 100%;
+  height: 90%;
+  
+}
+
+.questionText h1{
+ font-size: 36px;
+ color: rgb(0, 79, 124);
+ margin-bottom: 10px;
+}
+
+.questionText span{
+  font-family: Inner;
+  line-height: 30px;
+  text-align: justify;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.giaiThich h1{
+  font-size: 36px;
+  color: rgb(0, 79, 124);
+  margin-bottom: 10px;
+ }
+ 
+ .giaiThich span{
+   font-family: Inner;
+   line-height: 30px;
+   text-align: justify;
+   font-weight: normal;
+   font-size: 24px;
+ }
+
+ .scrollableContent {
+  height: 100%;
+  overflow-y: auto; 
+  padding-right: 10px; 
+}
+.scrollableContent::-webkit-scrollbar {
+  width: 10px; 
+}
+
+.scrollableContent::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 10px; 
+}
+
+.scrollableContent::-webkit-scrollbar-thumb {
+  background: #7A9EE4; 
+  border-radius: 10px; 
+}
+
+.scrollableContent::-webkit-scrollbar-thumb:hover {
+  background: #2E59AF; 
+}
+
+.questionImage {
+  display: flex;
+  gap: 5px;
+  justify-content: space-around;
+  margin-top: 10px;
+  margin: 0 auto;
+  overflow: hidden; 
+}
+
+.clickImage{
+  margin: 12px 0;
+  font-style: italic;
+}
+
+.questionImage img {
+  width: 100%; 
+  height: 100%;
+  object-fit: cover; 
+}
+
+.answerContainer {
+  padding: 6% 8%;
+  display: grid;
+  box-sizing: border-box;
+  place-items: center;
+  gap: 16px;
+}
+
+.answerBox {
+  min-width: 100%;
+  min-height: 100px;
+  padding: 5% 8% 8% 5%;
+  display: grid;
+  cursor: pointer;
+  place-items: center;
+  background-image: url("../../assets/Images/DN.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
+}
+
+.answer_Box {
+  min-width: 100%;
+  min-height: 100px;
+  padding: 5% 8% 8% 5%;
+  display: grid;
+  place-items: center;
+  background-image: url("../../assets/Images/DN.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
+}
+
+.answerBox:hover {
+  background-image: url("../../assets/Images/DN_hover.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.answerBox_Correct {
+  background-image: url("../../assets/Images/DN_Dung.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.answerBox_Incorrect {
+  background-image: url("../../assets/Images/DN_Sai.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
