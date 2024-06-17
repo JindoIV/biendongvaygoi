@@ -13,7 +13,7 @@ interface ModalAction {
   question: Question;
 }
 
-const linkAssets = process.env.NEXT_PUBLIC_API + "/ImageCH/";
+const linkAssets = process.env.NEXT_PUBLIC_API + "ImageCH/";
 
 const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
   const [questionIndex, setQuestionIndex] = useState<number>(0);
@@ -91,9 +91,9 @@ const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
                     </>
                   )}
                 </div>
-                
+
                 <div className="scrollableContent">
-                {!isExplain || question?.explanation == "" ? (
+                  {!isExplain || question?.explanation == "" ? (
                     <>
                       <div className="questionText">
                         <span>{question?.question}</span>
@@ -106,12 +106,13 @@ const ModalQuestion = ({ open, onClose, question }: ModalAction) => {
                       </div>
                     </>
                   )}
-                  {
-                    question?.image &&
+                  {question?.image && (
                     <>
-                       <p className="clickImage">(*) Click vào ảnh để phóng to ảnh</p>
+                      <p className="clickImage">
+                        (*) Click vào ảnh để phóng to ảnh
+                      </p>
                     </>
-                  }
+                  )}
                   <div className="questionImage">
                     {question?.image &&
                       question?.image
