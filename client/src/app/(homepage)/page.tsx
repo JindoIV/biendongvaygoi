@@ -7,6 +7,7 @@ import logoTNKT from "../../assets/Images/TraiNghiemKyThu.png";
 import ruongBT from "../../assets/Images/Ruongbacthang.png";
 import nhaThoBD from "../../assets/Images/Nhathoducba.png";
 import thapTH from "../../assets/Images/Thaptramhuong-KhanhHoa.png";
+import haNoi from "../../assets/Images/thu_do.png";
 import boat from "../../assets/Images/Con_thuyen.png";
 import boat_st4 from "../../assets/Images/Con_thuyen_nguoc.png";
 import tick from "../../assets/Images/nut_danh_dau.png";
@@ -147,6 +148,10 @@ export default function HomePage() {
             <div className={`${style.ruongBT} ${style.mainDiaDiem}`}>
               <Image src={ruongBT} alt=""></Image>
               {/* <p>Điện Biên</p> */}
+            </div>
+            <div className={`${style.haNoi} ${style.mainDiaDiem}`}>
+              <Image src={haNoi} alt=""></Image>
+              <p>Hà Nội</p>
             </div>
             <div className={`${style.thapTH} ${style.mainDiaDiem}`}>
               <Image src={thapTH} alt=""></Image>
