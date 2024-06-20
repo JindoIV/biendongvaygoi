@@ -186,9 +186,11 @@
   font-size: 14px;
 }
 
-.ruongBT p {
+.haNoi p {
   position: absolute;
   top: 25px;
+  left: -5px;
+  font-weight: bold;
 }
 
 .canTho {
@@ -224,6 +226,14 @@
   top: 40%;
   left: 44%;
   transform: translate(-50%, -50%);
+}
+
+.haNoi{
+  position: absolute;
+  top: 19%;
+  left: 31%;
+  transform: translate(-50%, -50%);
+  width: 2%;
 }
 
 .ruongBT {
@@ -398,6 +408,10 @@
 @media not all and (min-aspect-ratio: 1.8) {
   .ruongBT {
     top: 21%;
+  }
+
+  .haNoi {
+    top: 24%;
   }
 
   .thapTH {
